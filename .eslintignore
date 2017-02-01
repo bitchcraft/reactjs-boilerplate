@@ -1,0 +1,8 @@
+# ignore proto files
+libs/proto/*.*
+src/app/proto/*.js
+webpack.config.js
+embed.config.js
+
+# ignore build scripts
+gulp/**/*.*
