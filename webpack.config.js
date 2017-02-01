@@ -39,8 +39,8 @@ var config = {
     },
     output: {
         path: path.join(__dirname, 'build'),
-        filename: '[name].bundle.js',
-        chunkFilename: '[name].bundle.js',
+        filename: 'bundle.js',
+        chunkFilename: 'bundle.js',
         publicPath: '/static/'
     },
     plugins: [
@@ -98,7 +98,6 @@ var defines;
 
 if (process.env.NODE_ENV === 'development') {
     config.devtool = 'cheap-module-eval-source-map';//'inline-source-map';
-    config.plugins.unshift(new ExtractTextPlugin('[name].css'));
     config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
     config.entry['app'].unshift('eventsource-polyfill', 'webpack-hot-middleware/client');
 

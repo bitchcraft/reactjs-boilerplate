@@ -1,8 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const App = () => (
-	<span/>
-);
+import Root from './containers/root';
 
-render(<App/>, document.getElementById('app-container'));
+render(<Root/>, document.getElementById('app-container'));
