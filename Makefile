@@ -5,4 +5,5 @@ install:
 	npm set progress false && npm install -q
 
 run: version install
-	NODE_ENV=development WEBPACK_HOT=true DEBUG=* node --max_old_space_size=4096 server/index.js
+	NODE_ENV=development WEBPACK_HOT=true DEBUG=server:* node --max_old_space_size=4096 server/index.js
+	npm set progress true

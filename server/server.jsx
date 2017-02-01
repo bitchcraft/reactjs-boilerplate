@@ -17,8 +17,8 @@ import compress from 'compression';
 import cache from 'express-cache-headers';
 
 const { debug } = require('tools/log')('server');
-const trace = require('debug')('server');
-const error = require('debug')('server');
+const trace = require('debug')('server:');
+const error = require('debug')('server:');
 /* eslint-disable no-console */
 trace.log = console.trace.bind(console);
 error.log = console.error.bind(console);
@@ -128,7 +128,7 @@ app.use((req, res, next) => {
 });
 
 app.get('*', (req, res) => {
-	res.render('index');
+	res.render('index', { bundle: '/static/bundle.js' });
 });
 
 app.listen(port, (err) => {
