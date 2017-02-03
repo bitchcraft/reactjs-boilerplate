@@ -85,12 +85,13 @@ var config = {
             ByteBuffer: 'bytebuffer',
             Long: 'long',
             components: path.resolve(__dirname, 'app', 'components'),
+            tools: path.resolve(__dirname, 'common', 'tools'),
         },
         extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
-        modulesDirectories: ['web_modules', 'node_modules', 'libs']
+        modulesDirectories: ['web_modules', 'node_modules', 'build-tools']
     },
     resolveLoader: {
-        modulesDirectories: ['web_loaders', 'web_modules', 'node_loaders', 'node_modules', 'libs'],
+        modulesDirectories: ['web_loaders', 'web_modules', 'node_loaders', 'node_modules', 'build-tools'],
     }
 }
 

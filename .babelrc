@@ -2,20 +2,7 @@
     "presets": ["es2015", "stage-0", "react"],
     "plugins": ["add-module-exports", "transform-runtime",
     ["babel-plugin-module-alias", [
-        { "src": "./common/components", "expose": "components" },
-        { "src": "./common", "expose": "gosu" },
-        { "src": "./embedded", "expose": "embed" },
-        { "src": "./libs/proto", "expose": "proto" },
-        { "src": "./libs/hostSettings", "expose": "hostSettings" },
-        { "src": "./libs/iframe-storage", "expose": "iframe-storage" },
-		{ "src": "./libs/gosu-signin", "expose": "gosu-signin" },
-		{ "src": "./libs/gosu-tools", "expose": "gosu-tools" },
-		{ "src": "./libs/gosu-components", "expose": "gosu-components" },
-		{ "src": "./libs/gosu-actions", "expose": "gosu-actions" },
-		{ "src": "./libs/gosu-services", "expose": "gosu-services" },
-		{ "src": "./libs/gosu-settings", "expose": "gosu-settings" },
-        { "src": "./libs/gosu-tools/localization/locales", "expose": "locales" },
-		{ "src": "./libs/gosu-tools", "expose": "gosu-tools" },
-		{ "src": "./libs", "expose": "libs" }
+        { "src": "./app/components", "expose": "components" },
+        { "src": "./common/tools", "expose": "tools" }
     ]]]
 }
