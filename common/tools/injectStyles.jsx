@@ -1,7 +1,7 @@
 import { Component, createElement, PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 import $ from 'npm-zepto';
 
 /* eslint-disable no-unused-vars */
