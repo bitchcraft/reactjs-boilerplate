@@ -140,12 +140,10 @@ module.exports = {
         "import/first": 0,
         "import/no-unresolved": [2, {
             ignore: [
-                "gosu.*",
+                "tools.*",
                 "embed.*",
                 "components.*",
-                "proto",
-                "hostSettings",
-                "iframe-storage",
+                "containers.*",
             ]
         }],
 		"import/extensions": 0,
