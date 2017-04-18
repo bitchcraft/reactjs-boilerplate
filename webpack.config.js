@@ -15,8 +15,6 @@ var exec = require('child_process').execSync
 
 var dependencies = require('./package.json').dependencies;
 
-var version = exec('git describe --always --tag')
-
 function makeFolder(path) {
     try {
         // Query the entry

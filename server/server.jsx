@@ -24,8 +24,6 @@ trace.log = console.trace.bind(console);
 error.log = console.error.bind(console);
 /* eslint-enable no-console */
 
-const version = fs.readFileSync('./static/version').toString().trim();
-
 const app = new Express();
 const port = 3000;
 
@@ -57,14 +55,6 @@ app.use(useragent.express());
 // parse cookies
 app.use(cookieParser());
 
-
-// always use version name as ETAG header
-
-if (process.env.NODE_ENV !== 'development') {
-	app.set('etag', function(body, encoding) {
-		return version;
-	});
-}
 
 // Use this middleware to set up hot module reloading via webpack.
 if (process.env.NODE_ENV === 'development' && process.env.WEBPACK_HOT === 'true') {
