@@ -1,5 +1,5 @@
 {
-    "presets": ["es2015", "stage-0", "react"],
+    "presets": ["es2015", "stage-0", "react", "flow"],
     "plugins": ["add-module-exports", "transform-runtime",
     ["babel-plugin-module-alias", [
         { "src": "./app/components", "expose": "components" },

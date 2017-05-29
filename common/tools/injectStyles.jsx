@@ -1,3 +1,4 @@
+// @flow
 import { Component, createElement, PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
@@ -82,7 +83,7 @@ function removeStyles(id, componentIdKey) {
 }
 
 
-export default function inject(template = () => {}, theme = {}, options = {}) {
+export default function inject(template: Function = () => {}, styles?: object, options?: object): Function {
 	return function wrapWithCssor(WrappedComponent) {
 		class StyleInjector extends Component {
 			static displayName = `StyleInjector(${getDisplayName(WrappedComponent)})`
@@ -92,7 +93,9 @@ export default function inject(template = () => {}, theme = {}, options = {}) {
 			}
 
 			componentWillMount() {
-				const result = injectStyles(WrappedComponent, template, theme, this.context.theme || options.theme, options);
+				if (!options) options = { theme: {} };
+				if (!styles) styles = () => {};
+				const result = injectStyles(WrappedComponent, template, styles, this.context.theme || options.theme, options);
 				this.stylesheetID = result.id;
 				this.stylesheetComponentIdKey = result.componentIdKey;
 			}

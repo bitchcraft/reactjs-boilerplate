@@ -52,7 +52,7 @@ var config = {
             loader: 'babel',
             query: {
                 cacheDirectory: true,
-                presets: ['react', 'es2015', 'stage-0'],
+                presets: ['react', 'es2015', 'stage-0', 'flow'],
                 plugins: ['add-module-exports', 'transform-runtime']
             }
         }, {
