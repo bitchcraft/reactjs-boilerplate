@@ -1,3 +1,7 @@
+bundle: install
+	NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress
+	cp ./static/index.html ./build/index.html
+
 install:
 	yarn install
 

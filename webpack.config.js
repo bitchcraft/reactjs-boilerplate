@@ -120,6 +120,27 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
+if (process.env.NODE_ENV === 'production') {
+    config.output.filename = 'bundle.js';
+
+    config.module.loaders[0].query.plugins.push(['react-transform', {
+        transforms: [{
+            transform: 'react-transform-catch-errors',
+            imports: ['react', 'redbox-react']
+        }]
+    }]);
+
+    config.plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+
+    defines = {
+        "process.env": {
+            NODE_ENV: JSON.stringify('production'),
+        }
+    }
+}
+
+
 config.plugins.push(new webpack.DefinePlugin(defines));
 
 module.exports = config;
