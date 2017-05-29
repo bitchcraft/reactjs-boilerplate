@@ -27,6 +27,7 @@
     "markdown-it": "8.2.1",
     "material-ui": "^0.18.1",
     "npm-zepto": "^1.1.7",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "15.4.2",
     "react-addons-perf": "15.4.2",
@@ -41,10 +42,12 @@
     "react-redux": "^5.0.5",
     "react-router": "3.0.0",
     "react-router-component": "0.36.3",
+    "react-router-dom": "^4.1.1",
     "react-router-redux": "4.0.7",
     "react-tap-event-plugin": "2.0.1",
     "recompose": "^0.20.2",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "streamifier": "^0.1.1",
     "strftime": "^0.9.2",
     "superagent": "3.1.0",
@@ -121,11 +124,11 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack-dev-middleware": "1.8.4",
-    "webpack-hot-middleware": "2.13.2",
+    "webpack-hot-middleware": "^2.18.0",
     "webpack-manifest-plugin": "1.1.0"
   },
   "scripts": {
-  "flow": "flow; test $? -eq 1 -o $? -eq 2",
+    "flow": "flow; test $? -eq 1 -o $? -eq 2",
     "start": "DEBUG=* node server/index.js"
   },
   "author": ""

@@ -1,26 +1,19 @@
-import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
+import PropTypes from 'prop-types';
 import AppBar from 'material-ui/AppBar';
 import inject from 'tools/injectStyles';
 import stylesheet from './root.scsshbs';
 
-class RootContainer extends Component {
-	static displayName = 'RootContainer'
+const RootContainer = ({ children }) => (
+	<span>
+		<AppBar/>
+		{children}
+	</span>
+);
 
-	static propTypes = {}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return false;
-	}
-
-	render() {
-		return (
-			<MuiThemeProvider>
-				<AppBar/>
-			</MuiThemeProvider>
-		);
-	}
-}
+RootContainer.propTypes = {
+	children: PropTypes.node,
+};
 
 const styles = t => ({
 	background: {

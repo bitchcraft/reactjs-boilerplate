@@ -1,5 +1,6 @@
 // @flow
-import { Component, createElement, PropTypes } from 'react';
+import { Component, createElement } from 'react';
+import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
 import uuid from 'uuid';

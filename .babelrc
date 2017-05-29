@@ -3,6 +3,7 @@
     "plugins": ["add-module-exports", "transform-runtime",
     ["babel-plugin-module-alias", [
         { "src": "./app/components", "expose": "components" },
+        { "src": "./app/containers", "expose": "containers" },
         { "src": "./common/tools", "expose": "tools" }
     ]]]
 }
