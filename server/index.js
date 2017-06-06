@@ -7,7 +7,7 @@ require('babel-register')({
     presets: ['es2015', 'stage-0', 'react', 'flow'],
     plugins: [
         'add-module-exports',
-        ["babel-plugin-module-alias", [
+        ["babel-plugin-module-resolver", [
             { "src": "./app/components", "expose": "components" },
             { "src": "./common/tools", "expose": "tools" },
         ]]
