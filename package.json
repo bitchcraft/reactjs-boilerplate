@@ -81,7 +81,7 @@
     "eslint-plugin-flowtype": "^2.33.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-react": "^7.0.1",
     "eventsource-polyfill": "^0.9.6",
     "expect": "^1.13.2",
     "expect-immutable": "^0.0.3",
@@ -151,7 +151,7 @@
       "react-test-renderer",
       "npm-zepto",
       "babel-jest",
-			"identity-obj-proxy"
+      "identity-obj-proxy"
     ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
