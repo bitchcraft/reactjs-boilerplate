@@ -8,7 +8,7 @@ import Store from 'containers/store';
 
 import renderer from 'react-test-renderer';
 
-import { expect } from 'jest';
+import expect from 'jest-matchers';
 
 describe('App', () => {
 	it('should be able to run tests', () => {
