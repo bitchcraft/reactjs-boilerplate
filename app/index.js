@@ -15,4 +15,4 @@ const injectTapEventPlugin = require('react-tap-event-plugin');
 
 injectTapEventPlugin();
 
-require('./app');
+module.exports = require('./app');
