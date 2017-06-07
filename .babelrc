@@ -3,6 +3,7 @@
     "plugins": ["add-module-exports", "transform-runtime", ["module-resolver", {
       "root": ["./"],
       "alias": {
+        "app": "./app",
         "containers": "./app/containers",
         "tools": "./common/tools"
       }
