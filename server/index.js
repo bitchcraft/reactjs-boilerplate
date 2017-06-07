@@ -10,6 +10,7 @@ require('babel-register')({
         ["module-resolver", {
           "root": ["./"],
           "alias": {
+            "app": "./app",
             "containers": "./app/containers",
             "tools": "./common/tools"
           }
