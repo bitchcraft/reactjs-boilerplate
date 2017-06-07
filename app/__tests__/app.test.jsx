@@ -8,6 +8,8 @@ import Store from 'containers/store';
 
 import renderer from 'react-test-renderer';
 
+import { expect } from 'jest';
+
 describe('App', () => {
 	it('should be able to run tests', () => {
 		expect(1 + 2).toEqual(3);
@@ -21,7 +23,7 @@ const options = {
 			textColor: grey600,
 		},
 	}),
-}
+};
 
 it('renders correctly', () => {
 	const tree = renderer.create(
