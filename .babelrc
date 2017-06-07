@@ -1,9 +1,10 @@
 {
     "presets": ["es2015", "stage-0", "react", "flow"],
-    "plugins": ["add-module-exports", "transform-runtime",
-    ["babel-plugin-module-alias", [
-        { "src": "./app/components", "expose": "components" },
-        { "src": "./app/containers", "expose": "containers" },
-        { "src": "./common/tools", "expose": "tools" }
-    ]]]
+    "plugins": ["add-module-exports", "transform-runtime", ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "containers": "./app/containers",
+        "tools": "./common/tools"
+      }
+      }]]
 }
