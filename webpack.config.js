@@ -82,6 +82,7 @@ var config = {
         alias: {
             ByteBuffer: 'bytebuffer',
             Long: 'long',
+            app: path.resolve(__dirname, 'app'),
             containers: path.resolve(__dirname, 'app', 'containers'),
             components: path.resolve(__dirname, 'app', 'components'),
             tools: path.resolve(__dirname, 'common', 'tools'),

@@ -85,3 +85,9 @@ static/scripts/sandbox.js
 static/version
 
 common/locales/found.json
+
+app/__tests__/__snapshots__
+app/__tests__/__snapshots__/
+/app/__tests__/__snapshots__
+/app/__tests__/__snapshots__/
+/app/__tests__/__snapshots__/app.test.jsx.snap

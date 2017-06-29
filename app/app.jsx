@@ -21,4 +21,12 @@ const App = () => (
 	</MuiThemeProvider>
 );
 
-render(<App/>, document.getElementById('app-container'));
+function makeDiv() { // used for Jest, going to see if possible to import Handlebars in it, would make this useless.
+	document.body.innerHTML += '<div id="app-container"></div>';
+
+	return document.getElementById('app-container');
+}
+
+render(<App/>, document.getElementById('app-container') || makeDiv());
+
+export default App;
