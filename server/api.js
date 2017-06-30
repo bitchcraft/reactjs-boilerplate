@@ -34,7 +34,7 @@ const handleAuth = (req, res) => {
 
 	setTimeout(() => {
 		return res.status(200).jsonp(body);
-	}, process.env.NODE_ENV === 'production' ? 0 : Math.random() * 5000);
+	}, process.env.NODE_ENV === 'production' ? 0 : Math.random() * 2000);
 };
 
 
