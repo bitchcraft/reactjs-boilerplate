@@ -105,7 +105,6 @@ module.exports = {
         "react/prefer-es6-class": 0,
         "react/prop-types": 1,
         "react/react-in-jsx-scope": 1,
-        "react/require-extension": 1,
         "react/self-closing-comp": 1,
         "react/sort-comp": [1, {
             "order": [
@@ -137,17 +136,18 @@ module.exports = {
             }
         }],
         "react/sort-prop-types": 1,
-        "react/wrap-multilines": 1,
         "space-before-function-paren": [1, "never"],
         "import/no-extraneous-dependencies": 0,
         "import/extensions": 0,
         "import/first": 0,
         "import/no-unresolved": [2, {
             ignore: [
-                "tools.*",
-                "embed.*",
+                "actions.*",
                 "components.*",
+                "constants.*",
                 "containers.*",
+                "services.*",
+                "tools.*",
             ]
         }],
 		"import/extensions": 0,

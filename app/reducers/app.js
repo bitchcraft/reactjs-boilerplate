@@ -1,16 +1,5 @@
-// @flow
-import Actions from '../../common/constants/actions';
+import Actions from 'constants/actions';
 import Immutable from 'immutable';
-
-function setAppState(state: object, payload: array): object {
-	state = state.asMutable();
-
-	payload.forEach(({ key, value }) => {
-		state = state.set(key, value);
-	});
-
-	return state;
-}
 
 const loading = (state, action) => {
 	if (!Immutable.Map.isMap(state)) state = Immutable.Map();
@@ -18,8 +7,30 @@ const loading = (state, action) => {
 	const { type, payload } = action;
 
 	switch (type) {
-		case Actions.SET_APP_STATE:
-			return setAppState(state, payload);
+		case Actions.AUTH_LOADING:
+			return state
+				.setIn([ 'auth', 'loading' ], true);
+
+		case Actions.AUTH_SUCCESS:
+			return state
+				.setIn([ 'auth', 'state' ], Actions.AUTH_SUCCESS)
+				.setIn([ 'auth', 'loading' ], false)
+				.setIn([ 'auth', 'token' ], payload);
+
+		case Actions.AUTH_FAILURE:
+			return state
+				.setIn([ 'auth', 'state' ], Actions.AUTH_FAILURE)
+				.setIn([ 'auth', 'loading' ], false);
+
+		case Actions.REAUTH_REQUIRED:
+			return state
+				.setIn([ 'auth', 'state' ], Actions.REAUTH_REQUIRED)
+				.setIn([ 'auth', 'loading' ], false)
+				.deleteIn([ 'auth', 'token' ]);
+
+		case Actions.SET_USER:
+			return state
+				.set('user', payload);
 
 		default:
 	}

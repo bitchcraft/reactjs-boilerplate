@@ -1,20 +1,17 @@
 import Express from 'express';
 import exphbs from 'express-handlebars';
-
-import fs from 'fs';
-
 import morgan from 'morgan';
-
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-
 import helmet from 'helmet';
-
-import useragent from 'express-useragent';
 import cookieParser from 'cookie-parser';
 import compress from 'compression';
 import cache from 'express-cache-headers';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+
+import { handleAuth, handleDummyList } from './api';
 
 const { debug } = require('tools/log')('server');
 const trace = require('debug')('server:');
@@ -46,14 +43,16 @@ app.use(logger);
 app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
-app.use(helmet.hsts());
 app.use(helmet.hidePoweredBy());
-
-// parse useragent
-app.use(useragent.express());
 
 // parse cookies
 app.use(cookieParser());
+
+// parse json payload
+app.use(bodyParser.json());
+
+// cors
+app.use(cors());
 
 
 // Use this middleware to set up hot module reloading via webpack.
@@ -91,35 +90,14 @@ if (process.env.NODE_ENV === 'development') {
 	app.set('view cache', true);
 }
 
-// redirect all requests to https in production setup
-if (process.env.NODE_ENV === 'production') {
-	app.use((req, res, next) => {
-		if (req.path.startsWith('/embed')) {
-			next();
-			return;
-		}
-
-		debug('Checking if request is secure');
-		if ((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
-			debug('Request is insecure, redirect to https');
-			res.redirect(301, `https://${req.hostname}${req.originalUrl}`);
-		} else {
-			debug('Request is secure, continue handling');
-			next();
-		}
-	});
-}
-
-app.use((req, res, next) => {
-	global.navigator = {
-		userAgent: req.headers['user-agent'],
-	};
-	next();
-});
-
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
 	res.render('index', { bundle: '/static/bundle.js' });
 });
+
+app.options('*', cors());
+
+app.post('/auth', handleAuth);
+app.get('/dummy-list', handleDummyList);
 
 app.listen(port, (err) => {
 	if (err) {

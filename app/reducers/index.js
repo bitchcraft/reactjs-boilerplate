@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux';
 import app from './app';
+import dummyList from './dummyList';
 
-const reducers = combineReducers({
+export default {
 	app,
-});
-
-export default reducers;
+	dummyList,
+};
