@@ -14,6 +14,8 @@ function dummyList() {
 
 		return getDummyList(token)
 			.then((payload) => {
+				if (!payload) return Promise.reject();
+
 				dispatch({
 					type: DUMMYLIST_SUCCESS,
 					payload,

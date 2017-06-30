@@ -69,7 +69,7 @@ function getDummyList(token) {
 
 			return response.json();
 		},
-		err => error('getDummyList', { err }))
+		err => Promise.reject(error('getDummyList', { err })))
 		.then((payload) => {
 			debug('getDummyList', { json: payload });
 
