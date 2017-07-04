@@ -4,7 +4,6 @@
   "private": true,
   "description": "",
   "dependencies": {
-    "babel-jest": "^20.0.3",
     "babel-polyfill": "^6.20.0",
     "babel-preset-flow": "^6.23.0",
     "classnames": "^2.2.5",
@@ -64,6 +63,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
     "babel-eslint": "^7.1.1",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^6.2.9",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-module-resolver": "^2.7.1",
