@@ -13,17 +13,7 @@ serverResponse.status = function(responseStatus) {
 	return this;
 };
 
-serverResponse.json = function(data) {
-	serverResponse.body = data;
-	return this;
-};
-
-serverResponse.jsonp = function(data) {
-	serverResponse.body = data;
-	return this;
-};
-
-serverResponse.send = function(data) {
+serverResponse.json = serverResponse.jsonp = serverResponse.send = function(data) {
 	serverResponse.body = data;
 	return this;
 };
