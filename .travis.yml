@@ -13,5 +13,5 @@ script:
 
 jobs:
   include:
-    - stage: docker_build
+  - stage: docker_build
     script: docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT .
