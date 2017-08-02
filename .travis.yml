@@ -1,0 +1,17 @@
+sudo: required
+
+services:
+- docker
+
+language: node_js
+node_js:
+  - "lts/*"
+  - "node"
+
+script:
+  - yarn run test
+
+jobs:
+  include:
+    - stage: docker_build
+    script: docker build -t $TRAVIS_REPO_SLUG:$TRAVIS_COMMIT .
