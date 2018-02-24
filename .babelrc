@@ -16,7 +16,7 @@
                 "components": "./app/components",
                 "constants": "./common/constants",
                 "containers": "./app/containers",
-                "server": "./app/server",
+                "server": "./server",
                 "services": "./app/services",
                 "tools": "./common/tools"
             }
