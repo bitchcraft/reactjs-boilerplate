@@ -4,7 +4,6 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import Router from 'containers/router';
 import reducers from '../reducers';
-import { routerReducer } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
 
@@ -31,7 +30,6 @@ const logger = createLogger({
 const store = createStore(
 	combineReducers({
 		...reducers,
-		routing: routerReducer,
 	}),
 	applyMiddleware(thunkMiddleware, logger)
 );
