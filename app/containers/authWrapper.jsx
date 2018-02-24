@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import auth from 'actions/auth';
 import Actions from 'constants/actions';
@@ -7,7 +8,11 @@ import SignIn from 'components/signIn';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import { SK5 } from 'components/spinkit';
 
-const Loading = () => (
+import type { Map as ImmutableMap } from 'immutable';
+import type { Element as ReactElement } from 'react';
+
+
+const Loading = (props: { [string]: *, }) => (
 	<span
 		style={{
 			alignItems: 'center',
@@ -18,9 +23,9 @@ const Loading = () => (
 		<Card zDepth={1}>
 			<CardHeader
 				subtitle='Checking your credentials'
-				title='Loading'/>
+				title='Loading' />
 			<CardText>
-				<SK5/>
+				<SK5 />
 			</CardText>
 		</Card>
 	</span>
@@ -32,9 +37,26 @@ function authorize(dispatch, user) {
 }
 
 
-const AuthWrapper = ({ children, dispatch, loading, fail, reauth, user }) => {
-	if (loading) return <Loading/>;
-	if (fail) return <SignIn onSubmit={payload => authorize(dispatch, payload)}/>;
+type Props = {
+	children: ReactElement<*>,
+	dispatch: * => void,
+	loading?: boolean,
+	fail?: boolean,
+	reauth?: boolean,
+	user: ImmutableMap<string, *>,
+};
+
+const AuthWrapper = ({
+	children,
+	dispatch,
+	loading,
+	fail,
+	reauth,
+	user,
+}: Props): ReactElement<*> => {
+
+	if (loading) return <Loading />;
+	if (fail) return <SignIn onSubmit={payload => authorize(dispatch, payload)} />;
 	if (reauth) authorize(dispatch, user);
 
 	return (
@@ -45,16 +67,6 @@ const AuthWrapper = ({ children, dispatch, loading, fail, reauth, user }) => {
 			{children}
 		</span>
 	);
-};
-
-
-AuthWrapper.propTypes = {
-	children: PropTypes.node,
-	dispatch: PropTypes.func.isRequired,
-	fail: PropTypes.bool,
-	loading: PropTypes.bool,
-	reauth: PropTypes.bool,
-	user: PropTypes.objectOf(PropTypes.any),
 };
 
 const authState = (state, props) => {

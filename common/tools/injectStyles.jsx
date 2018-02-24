@@ -1,6 +1,6 @@
 // @flow
+
 import { Component, createElement } from 'react';
-import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
 import uuid from 'uuid';
@@ -10,19 +10,36 @@ import $ from 'npm-zepto';
 const { debug } = require('tools/log')('styleInjector');
 /* eslint-enable no-unused-vars */
 
+import type { SCSSModule } from 'common/flow/SCSSModuleStub';
+import type { Element as ReactElement } from 'react';
+
+type Theme = { [string]: *, };
+type Styles = Theme => { [string]: *, };
+type WrapperComponentType = * => ReactElement<*>;
 
 const stylesheets = new Map();
 
 
-function getDisplayName(WrappedComponent) {
-	return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+function getDisplayName(WrappedComponent: WrapperComponentType): string {
+	if (WrappedComponent.displayName) return String(WrappedComponent.displayName);
+	if (WrappedComponent.name) return String(WrappedComponent.name);
+	return 'Component';
 }
 
-function hasDisplayName(WrappedComponent) {
+function hasDisplayName(WrappedComponent: WrapperComponentType): boolean {
+	/* eslint-disable flowtype-errors/show-errors */
 	return Boolean(WrappedComponent.displayName || WrappedComponent.name);
+	/* eslint-enable flowtype-errors/show-errors */
 }
 
-function injectStyles(WrappedComponent, template, styles, theme, options) {
+function injectStyles(
+	WrappedComponent: WrapperComponentType,
+	template: SCSSModule,
+	styles: Styles,
+	theme: Theme,
+	options: { [string]: *, },
+) {
+
 	const stylesheetComponentIdKey = uuid();
 	let stylesheetID;
 
@@ -75,7 +92,9 @@ function removeStyles(id, componentIdKey) {
 			const currentIndexOf = currentStylesheetKeyList.indexOf(componentIdKey);
 			stylesheets.set(id, currentStylesheetKeyList.splice(currentIndexOf, 1));
 
-			if (stylesheets.get(id).length < 1) {
+			const stylesheet = stylesheets.get(id);
+
+			if (stylesheet && Array.isArray(stylesheet) && stylesheet.length < 1) {
 				debug(`removing stylesheet ${id}`);
 				$(`[data-cssorid=${id}]`).remove();
 			}
@@ -84,19 +103,16 @@ function removeStyles(id, componentIdKey) {
 }
 
 
-export default function inject(template: Function = () => {}, styles?: object, options?: object): Function {
-	return function wrapWithCssor(WrappedComponent) {
-		class StyleInjector extends Component {
+export default function inject(
+	template: SCSSModule = () => '',
+	styles?: Styles = t => ({}),
+	options?: { [string]: *, }) {
+	return function wrapWithCssor(WrappedComponent: WrapperComponentType) {
+		class StyleInjector extends Component<*> {
 			static displayName = `StyleInjector(${getDisplayName(WrappedComponent)})`
-
-			static contextTypes = {
-				theme: PropTypes.object,
-			}
 
 			componentWillMount() {
 				if (!options) options = { theme: {} };
-				if (!styles) styles = () => {};
-				if (typeof template !== 'function') template = function() {}; // so jest can pass tests... hoping it doesn't break anything...
 				const result = injectStyles(WrappedComponent, template, styles, this.context.theme || options.theme, options);
 				this.stylesheetID = result.id;
 				this.stylesheetComponentIdKey = result.componentIdKey;
@@ -116,9 +132,12 @@ export default function inject(template: Function = () => {}, styles?: object, o
 					...props,
 				});
 			}
-		}
 
-		StyleInjector.WrappedComponent = WrappedComponent;
+			static WrappedComponent = WrappedComponent
+
+			stylesheetID = ''
+			stylesheetComponentIdKey = ''
+		}
 
 		return hoistStatics(StyleInjector, WrappedComponent);
 	};

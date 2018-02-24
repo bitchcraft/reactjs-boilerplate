@@ -37,7 +37,7 @@ const store = createStore(
 
 const Store = () => (
 	<Provider store={store}>
-		<Router store={store}/>
+		<Router />
 	</Provider>
 );
 

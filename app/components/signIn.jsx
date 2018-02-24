@@ -1,19 +1,19 @@
+// @flow
+
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import $ from 'npm-zepto';
 
+type Props = {
+	onSubmit: SyntheticEvent<HTMLElement> => void,
+};
 
 /**
  * Example of an unmanaged form and third party dom manipulation lib integration
  */
-class SignInView extends PureComponent {
-	static propTypes = {
-		onSubmit: PropTypes.func,
-	}
-
+class SignInView extends PureComponent<Props> {
 	static defaultProps = {
 		onSubmit: () => {},
 	}
@@ -54,11 +54,12 @@ class SignInView extends PureComponent {
 		);
 	}
 
-	onSubmit = (e) => {
-		if (e && e.preventDefault) {
-			e.stopPropagation();
-			e.preventDefault();
-		}
+	loginField = null
+	passwordField = null
+
+	onSubmit = (event: SyntheticEvent<HTMLElement>) => {
+		event.stopPropagation();
+		event.preventDefault();
 
 		if (!this.loginField || !this.passwordField) return;
 

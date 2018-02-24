@@ -4,7 +4,7 @@ import stylesheet from './5.scsshbs';
 import { compose, onlyUpdateForKeys } from 'recompose';
 
 
-const SKFive = () => <div className='spinkit5-spinner'/>;
+const SKFive = () => <div className='spinkit5-spinner' />;
 
 
 const style = () => ({

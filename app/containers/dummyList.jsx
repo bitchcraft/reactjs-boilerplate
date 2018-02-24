@@ -1,5 +1,6 @@
+// @flow
+
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import getDummyList from 'actions/getDummyList';
 import { List, ListItem } from 'material-ui/List';
@@ -9,19 +10,21 @@ import * as Icons from 'material-ui/svg-icons';
 import * as Colors from 'material-ui/styles/colors';
 import { SK5 } from 'components/spinkit';
 
+import type { List as ImmutableList } from 'immutable';
+
 const REFRESH_INTERVAL = 15000;
 
 const IconsAsArray = Object.keys(Icons).map(v => Icons[v]);
 const ColorsAsArray = Object.keys(Colors).map(v => Colors[v]);
 
+type Props = {
+	dispatch: * => void,
+	items: ImmutableList<*>,
+	loading?: boolean,
+};
 
-class DummyListView extends PureComponent {
-	static propTypes = {
-		dispatch: PropTypes.func.isRequired,
-		items: PropTypes.objectOf(PropTypes.any),
-		loading: PropTypes.bool,
-	}
 
+class DummyListView extends PureComponent<Props> {
 	componentDidMount() {
 		this.fetchDummyList();
 		this.apiRequestInterval = setInterval(this.fetchDummyList, REFRESH_INTERVAL);
@@ -34,7 +37,7 @@ class DummyListView extends PureComponent {
 	render() {
 		const { items, loading } = this.props;
 
-		if (loading && items.size === 0) return <SK5/>;
+		if (loading && items.size === 0) return <SK5 />;
 
 		return (
 			<div
@@ -60,14 +63,16 @@ class DummyListView extends PureComponent {
 										)}
 									</Avatar>
 								}
-								primaryText={v}/>
-							<Divider/>
+								primaryText={v} />
+							<Divider />
 						</span>
 					))}
 				</List>
 			</div>
 		);
 	}
+
+	apiRequestInterval = undefined
 
 	fetchDummyList = () => {
 		const { dispatch } = this.props;

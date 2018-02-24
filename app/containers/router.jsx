@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
 	BrowserRouter as Router,
 	// Route,
@@ -16,18 +15,14 @@ import AuthWrapper from 'containers/authWrapper';
 import DummyList from 'containers/dummyList';
 
 
-const Routes = ({ store }) => (
+const Routes = () => (
 	<Router>
 		<Root>
 			<AuthWrapper>
-				<DummyList/>
+				<DummyList />
 			</AuthWrapper>
 		</Root>
 	</Router>
 );
-
-Routes.propTypes = {
-	store: PropTypes.objectOf(PropTypes.any),
-};
 
 export default Routes;

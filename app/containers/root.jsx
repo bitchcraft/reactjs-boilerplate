@@ -1,9 +1,13 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import inject from 'tools/injectStyles';
 import stylesheet from './root.scsshbs';
 
-const RootContainer = ({ children }) => (
+import type { Element as ReactElement } from 'react';
+
+
+const RootContainer = ({ children }: { children: ReactElement<*>, }) => (
 	<span
 		style={{
 			alignItems: 'stretch',
@@ -18,10 +22,6 @@ const RootContainer = ({ children }) => (
 		{children}
 	</span>
 );
-
-RootContainer.propTypes = {
-	children: PropTypes.node,
-};
 
 const styles = t => ({
 	background: {
