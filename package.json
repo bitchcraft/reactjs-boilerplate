@@ -37,7 +37,7 @@
 		"eventsource-polyfill": "^0.9.6",
 		"expect": "^1.13.2",
 		"fetch-mock": "^5.5.0",
-		"flow-bin": "^0.47.0",
+		"flow-bin": "^0.60.0",
 		"handlebars-loader": "^1.2.0",
 		"hbs-cli": "^1.1.1",
 		"identity-obj-proxy": "^3.0.0",

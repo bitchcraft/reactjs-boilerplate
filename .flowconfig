@@ -8,12 +8,4 @@
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=app
 module.system.node.resolve_dirname=common
-module.name_mapper='^actions\/\(.*\)$' -> '<PROJECT_ROOT>/app/actions\1'
-module.name_mapper='^app\/\(.*\)$' -> '<PROJECT_ROOT>/app/\1'
-module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/app/components\1'
-module.name_mapper='^constants\/\(.*\)$' -> '<PROJECT_ROOT>/common/constants\1'
-module.name_mapper='^containers\/\(.*\)$' -> '<PROJECT_ROOT>/app/containers\1'
-module.name_mapper='^server\/\(.*\)$' -> '<PROJECT_ROOT>/server\1'
-module.name_mapper='^services\/\(.*\)$' -> '<PROJECT_ROOT>/app/services\1'
-module.name_mapper='^tools\/\(.*\)$' -> '<PROJECT_ROOT>/common/tools\1'
-module.name_mapper='.*\(.scsshbs\)' -> 'empty/object'
+module.name_mapper.extension='scsshbs' -> '<PROJECT_ROOT>/common/flow/SCSSModuleStub.js'
