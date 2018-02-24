@@ -1,0 +1,16 @@
+{
+	"name": "common",
+	"version": "0.2.0",
+
+	"dependencies": {
+	    "debug": "^2.3.3",
+	    "hoist-non-react-statics": "^1.0.5",
+	    "keymirror": "^0.1.1",
+	    "npm-zepto": "^1.1.7",
+	    "prop-types": "^15.5.10",
+	    "react": "^15.5.4",
+	    "react-addons-shallow-compare": "^15.4.2",
+	    "snake-case": "^2.1.0",
+	    "uuid": "^3.0.1"
+	}
+}
