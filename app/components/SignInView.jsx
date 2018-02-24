@@ -7,8 +7,10 @@ import TextField from 'material-ui/TextField';
 import $ from 'npm-zepto';
 
 type Props = {
-	onSubmit: SyntheticEvent<HTMLElement> => void,
+	/** on Submit callback `({ login: string, secret: string, }) => void` */
+	onSubmit: ({ login: string, secret: string, }) => void,
 };
+
 
 /**
  * Example of an unmanaged form and third party dom manipulation lib integration
@@ -31,35 +33,37 @@ class SignInView extends PureComponent<Props> {
 					zDepth={1}>
 					<CardHeader
 						subtitle='Please enter your credentials'
-						title='Authentification'/>
+						title='Authentification' />
 					<CardText>
 						<TextField
-							hintText='Login name'
-							ref={this.handleLoginFieldRef}/>
-						<br/>
+							ref={this.handleLoginFieldRef}
+							hintText='Login name' />
+						<br />
 						<TextField
-							hintText='Password'
 							ref={this.handlePasswordFieldRef}
-							type='password'/>
+							hintText='Password'
+							type='password' />
 					</CardText>
 					<CardActions
 						style={{
 							textAlign: 'right',
 						}}>
 						<FlatButton label='Cancel' />
-						<FlatButton label='Submit' onTouchTap={this.onSubmit} primary/>
+						<FlatButton label='Submit' onTouchTap={this.onSubmit} primary />
 					</CardActions>
 				</Card>
 			</span>
 		);
 	}
 
-	loginField = null
-	passwordField = null
+	loginField: ?TextField
+	passwordField: ?TextField
 
-	onSubmit = (event: SyntheticEvent<HTMLElement>) => {
-		event.stopPropagation();
-		event.preventDefault();
+	onSubmit = (event?: SyntheticEvent<HTMLElement>) => {
+		if (event) {
+			event.stopPropagation();
+			event.preventDefault();
+		}
 
 		if (!this.loginField || !this.passwordField) return;
 
@@ -77,17 +81,19 @@ class SignInView extends PureComponent<Props> {
 		onSubmit(payload);
 	}
 
-	handleKeyUpForLoginField = ({ keyIdentifier }) => {
-		if (keyIdentifier !== 'Enter' || !this.passwordField) return;
+	handleKeyUpForLoginField = (event: KeyboardEvent) => {
+		const { key } = event;
+		if (key !== 'Enter' || !this.passwordField) return;
 		this.passwordField.focus();
 	}
 
-	handleKeyUpForPasswordField = ({ keyIdentifier }) => {
-		if (keyIdentifier !== 'Enter') return;
+	handleKeyUpForPasswordField = (event: KeyboardEvent) => {
+		const { key } = event;
+		if (key !== 'Enter') return;
 		this.onSubmit();
 	}
 
-	handleLoginFieldRef = (r) => {
+	handleLoginFieldRef = (r: ?TextField) => {
 		this.loginField = r;
 		if (!r || !r.input) return;
 		$(r.input)
@@ -95,7 +101,7 @@ class SignInView extends PureComponent<Props> {
 			.on('keyup', this.handleKeyUpForLoginField);
 	}
 
-	handlePasswordFieldRef = (r) => {
+	handlePasswordFieldRef = (r: ?TextField) => {
 		this.passwordField = r;
 		if (!r || !r.input) return;
 		$(r.input)

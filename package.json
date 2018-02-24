@@ -88,7 +88,9 @@
 		"bundle": "yarn install; yarn run test; yarn run bundle-js; yarn run render-template",
 		"bundle-js": "yarn install; NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress",
 		"render-template": "if ! [ -e ./build ]; then mkdir build; fi; hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
-		"docker": "docker build --no-cache -t $(basename `git rev-parse --show-toplevel`):$(git rev-parse --short HEAD) ."
+		"docker": "docker build --no-cache -t $(basename `git rev-parse --show-toplevel`):$(git rev-parse --short HEAD) .",
+	    "styleguide": "styleguidist server",
+	    "styleguide:build": "styleguidist build"
 	},
 	"author": ""
 }

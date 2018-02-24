@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import auth from 'actions/auth';
 import Actions from 'constants/actions';
-import SignIn from 'components/signIn';
+import SignIn from 'components/SignInView';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import { SK5 } from 'components/spinkit';
 

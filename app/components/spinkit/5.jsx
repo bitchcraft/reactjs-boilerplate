@@ -3,7 +3,9 @@ import inject from 'tools/injectStyles';
 import stylesheet from './5.scsshbs';
 import { compose, onlyUpdateForKeys } from 'recompose';
 
-
+/**
+ * SpinKit 5
+ */
 const SKFive = () => <div className='spinkit5-spinner' />;
 
 
