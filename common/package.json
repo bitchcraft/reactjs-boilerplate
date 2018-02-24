@@ -5,7 +5,7 @@
 		"debug": "^2.3.3",
 		"keymirror": "^0.1.1",
 		"snake-case": "^2.1.0",
-		"uuid": "^3.0.1"
+		"uuid": "^3.2.1"
 	},
 	"devDependencies": {
 		"hoist-non-react-statics": "^1.0.5",

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 
 /* eslint-disable no-unused-vars */
 const { debug, error } = require('tools/log')('server:api');
