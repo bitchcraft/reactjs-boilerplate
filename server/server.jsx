@@ -2,14 +2,20 @@ import Express from 'express';
 import exphbs from 'express-handlebars';
 import morgan from 'morgan';
 import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import compress from 'compression';
 import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+
+let webpackDevMiddleware;
+let webpackHotMiddleware;
+
+if (process.env.NODE_ENV === 'development') {
+	webpackDevMiddleware = require('webpack-dev-middleware');
+	webpackHotMiddleware = require('webpack-hot-middleware');
+}
 
 import { handleAuth, handleDummyList } from './api';
 

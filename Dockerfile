@@ -1,8 +1,7 @@
-from node:boron-alpine as bundler
+from node:carbon-alpine as bundler
 
 # Add native deps
-#RUN apk add --update make git python gcc g++
-RUN apk add --update make git python g++
+RUN apk add --update git python
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -17,7 +16,7 @@ RUN yarn install
 COPY . /usr/src/app
 
 # Bundle app
-RUN make bundle-js
+RUN yarn run bundle-js
 
 
 from node:boron-alpine
@@ -31,16 +30,18 @@ WORKDIR /usr/src/app
 
 ENV NODE_ENV=production
 
-# Install app dependencies
+# Add bundle and server
 COPY package.json /usr/src/app/
 COPY yarn.lock /usr/src/app/
-RUN yarn install --production
-
-# Add bundle and server
+COPY .babelrc /usr/src/app/
 COPY --from=bundler /usr/src/app/build/* /usr/src/app/static/
 COPY ./common /usr/src/app/common
 COPY ./server /usr/src/app/server
 
+# Install app dependencies
+RUN yarn install --production
+
+# Expose and run
 EXPOSE 3000
 
 CMD [ "node", "--max_old_space_size=4096", "server/index.js" ]

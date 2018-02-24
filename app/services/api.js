@@ -7,7 +7,7 @@ const { debug, error } = require('tools/log')('ApiService');
 
 const API_ENDPOINT = (() => {
 	if (process.env.NODE_ENV === 'development') return process.env.API_ENDPOINT;
-	return window.API_ENDPOINT;
+	return window.API_ENDPOINT || '';
 })();
 
 
