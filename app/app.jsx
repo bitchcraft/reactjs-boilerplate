@@ -17,8 +17,8 @@ const options = {
 
 const App = () => (
 	<MuiThemeProvider {...options}>
-		<Store/>
+		<Store />
 	</MuiThemeProvider>
 );
 
-render(<App/>, document.getElementById('app-container'));
+render(<App />, document.getElementById('app-container'));
