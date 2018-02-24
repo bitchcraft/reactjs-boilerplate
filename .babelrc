@@ -1,11 +1,25 @@
 {
-    "presets": ["es2015", "stage-0", "react", "flow"],
-    "plugins": ["add-module-exports", "transform-runtime", ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "app": "./app",
-        "containers": "./app/containers",
-        "tools": "./common/tools"
-      }
-      }]]
+    "presets": [
+        "env",
+        "stage-0",
+        "react",
+        "flow",
+    ],
+    "plugins": [
+        "add-module-exports",
+        "transform-runtime",
+        [ "module-resolver", {
+            "root": [ "./" ],
+            "alias": {
+                "actions": "./app/actions",
+                "app": "./app",
+                "components": "./app/components",
+                "constants": "./common/constants",
+                "containers": "./app/containers",
+                "server": "./app/server",
+                "services": "./app/services",
+                "tools": "./common/tools"
+            }
+        } ]
+    ]
 }
