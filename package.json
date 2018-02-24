@@ -43,6 +43,7 @@
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^20.0.4",
 		"node-sass": "^4.7.2",
+		"nodemon": "^1.15.1",
 		"postcss-loader": "^2.1.0",
 		"react-transform-hmr": "^1.0.1",
 		"sass-loader": "^6.0.6",
@@ -84,11 +85,12 @@
 		"test": "node_modules/jest/bin/jest.js",
 		"dev-server": "NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=server:* node --max_old_space_size=4096 server/index.js",
 		"prestart": "yarn install; yarn run test",
-		"start": "yarn run dev-server",
+		"start": "yarn run nodemon",
 		"bundle": "yarn install; yarn run test; yarn run bundle-js; yarn run render-template",
 		"bundle-js": "yarn install; NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress",
 		"render-template": "if ! [ -e ./build ]; then mkdir build; fi; hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
-		"docker": "docker build --no-cache -t $(basename `git rev-parse --show-toplevel`):$(git rev-parse --short HEAD) ."
+		"docker": "docker build --no-cache -t $(basename `git rev-parse --show-toplevel`):$(git rev-parse --short HEAD) .",
+		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server"
 	},
 	"author": ""
 }
