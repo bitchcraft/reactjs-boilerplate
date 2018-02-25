@@ -4,6 +4,10 @@ from node:carbon-alpine as base
 # Add common deps
 RUN apk add --update git
 
+# Pesky SIGTERMs
+RUN apk add tini
+ENTRYPOINT ["/sbin/tini", "--"]
+
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
