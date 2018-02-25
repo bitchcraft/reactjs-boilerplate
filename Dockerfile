@@ -2,8 +2,7 @@
 from node:carbon-alpine as base
 
 # Add common deps and handle SIGTERMs
-RUN apk add --update git
-RUN apk add tini
+RUN apk add --update git tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
 # Create app directory
