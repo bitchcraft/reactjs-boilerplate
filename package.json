@@ -100,7 +100,7 @@
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
 		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server",
-		"jsdocs": "node_modules/.bin/jsdoc -c jsdoc.json"
+		"jsdocs": "NODE_ENV=development node_modules/.bin/jsdoc -c jsdoc.json --readme README.md"
 	},
 	"author": {
 		"name": "Josh Li",
