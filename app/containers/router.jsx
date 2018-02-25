@@ -4,9 +4,10 @@ import {
 	// Route,
 	// Switch,
 } from 'react-router-dom';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('Router');
+const { debug, error } = new Logger('Router');
 /* eslint-enable no-unused-vars */
 
 

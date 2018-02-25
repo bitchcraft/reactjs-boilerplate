@@ -1,8 +1,9 @@
 import jwt from 'jsonwebtoken';
 import uuid from 'uuid/v4';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('server:api');
+const { debug, error } = new Logger('server:api');
 /* eslint-enable no-unused-vars */
 
 const PRIVATE_KEY = '.secretzR4lulz';

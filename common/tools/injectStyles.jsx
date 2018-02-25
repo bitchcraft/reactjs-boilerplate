@@ -5,9 +5,10 @@ import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
 import uuid from 'uuid/v4';
 import $ from 'npm-zepto';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug } = require('tools/log')('styleInjector');
+const { debug } = new Logger('styleInjector');
 /* eslint-enable no-unused-vars */
 
 import type { SCSSModule } from 'common/flow/SCSSModuleStub';
