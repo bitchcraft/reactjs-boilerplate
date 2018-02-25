@@ -14,8 +14,7 @@
     },
     "plugins": [
         "plugins/markdown",
-        "node_modules/jsdoc-babel",
-        "node_modules/jsdoc-react-proptypes/lib/plugin"
+        "node_modules/jsdoc-babel"
     ],
     "babel": {
       "presets": [

@@ -5036,10 +5036,6 @@ jsdoc-babel@^0.3.0:
   dependencies:
     lodash "^4.13.1"
 
-jsdoc-react-proptypes@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/jsdoc-react-proptypes/-/jsdoc-react-proptypes-1.0.3.tgz#5bc23082b6b42c3095d5a206d39ac6a80a63a845"
-
 jsdoc@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/jsdoc/-/jsdoc-3.5.5.tgz#484521b126e81904d632ff83ec9aaa096708fa4d"
