@@ -3,6 +3,7 @@
 	"version": "0.2.0",
 	"private": true,
 	"description": "",
+	"license": "BSD-3-Clause",
 	"workspaces": [
 		"app",
 		"common",
@@ -96,5 +97,17 @@
 		"styleguide:build": "styleguidist build",
 		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server"
 	},
-	"author": ""
+	"author": {
+		"name": "Josh Li",
+		"url": "https://github.com/maddrag0n"
+	},
+	"contributors": [
+		{
+			"name": "Thiemo Krause",
+			"url": "https://github.com/thiemok"
+		}, {
+			"name": "David Silva",
+			"url": "https://github.com/zGrav"
+		},
+	]
 }
