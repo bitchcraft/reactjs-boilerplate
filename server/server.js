@@ -8,6 +8,7 @@ import compress from 'compression';
 import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import Logger from 'tools/log';
 
 let webpackDevMiddleware;
 let webpackHotMiddleware;
@@ -19,9 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 import { handleAuth, handleDummyList } from './api';
 
-const { debug } = require('tools/log')('server');
-const trace = require('debug')('server:');
-const error = require('debug')('server:');
+const { debug, trace, error } = new Logger('server:');
 /* eslint-disable no-console */
 trace.log = console.trace.bind(console);
 error.log = console.error.bind(console);

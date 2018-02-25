@@ -6,12 +6,21 @@ import Router from 'containers/router';
 import reducers from '../reducers';
 import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
+import Logger from 'tools/log';
 
-/* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('Store');
-/* eslint-enable no-unused-vars */
+const logger = new Logger('Store', {
+	// work around bug in redux-logger, where styles for styled strings are missing
+	cleaner: (args) => {
+		if (!args.length || args.length !== 1 || !args[0].includes('%c')) return args;
+		return [
+			args[0],
+			...args[0].match(/%c/g).map((x, i) => (i % 2 ? 'color: black; font-weight: normal;' : 'color: black; font-weight: bold;')),
+		];
+	},
+});
 
-const logger = createLogger({
+const reduxLogger = createLogger({
+	logger,
 	stateTransformer: (state) => {
 		const newState = {};
 
@@ -31,7 +40,7 @@ const store = createStore(
 	combineReducers({
 		...reducers,
 	}),
-	applyMiddleware(thunkMiddleware, logger)
+	applyMiddleware(thunkMiddleware, reduxLogger)
 );
 
 

@@ -3,8 +3,8 @@
 require('isomorphic-fetch');
 const assert = require('assert');
 
-const serviceApi = require('../services/api');
-const serverApi = require('../../server/api');
+const serviceApi = require('services/api');
+const serverApi = require('server/api');
 
 const serverResponse = new Response(new Blob(), { });
 
@@ -13,10 +13,12 @@ serverResponse.status = function(responseStatus) {
 	return this;
 };
 
-serverResponse.json = serverResponse.jsonp = serverResponse.send = function(data) {
+serverResponse.json = function(data) {
 	serverResponse.body = data;
 	return this;
 };
+serverResponse.jsonp = serverResponse.json;
+serverResponse.send = serverResponse.json;
 
 describe('API using Promises', () => {
 	const headers = new Map();

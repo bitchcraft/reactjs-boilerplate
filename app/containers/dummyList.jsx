@@ -82,7 +82,7 @@ class DummyListView extends PureComponent<Props> {
 
 const dummyListState = (state, props) => {
 	const items = state.dummyList.get('items');
-	const loading = state.dummyList.get('loading', false);
+	const loading = state.dummyList.get('loading');
 
 	return {
 		items,

@@ -1,7 +1,8 @@
 import camelCase from 'lodash.camelcase';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('ConvertKeysToCamelCase');
+const { debug, error } = new Logger('ConvertKeysToCamelCase');
 /* eslint-enable no-unused-vars */
 
 

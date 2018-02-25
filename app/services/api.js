@@ -1,8 +1,9 @@
 import camelCaseKeys from 'tools/objectKeysToCamelCase';
 import snakeCaseKeys from 'tools/objectKeysToSnakeCase';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('ApiService');
+const { debug, error } = new Logger('ApiService');
 /* eslint-enable no-unused-vars */
 
 const API_ENDPOINT = (() => {
@@ -29,14 +30,16 @@ function sendAuth(payload) {
 	})
 		.then((response) => {
 			if (!response.ok) {
-				return error('sendAuth', new Error(`Response status ${response.status}`));
+				const err = new Error(`Response status ${response.status}`);
+				error('sendAuth', err);
+				return Promise.reject(err);
 			}
 
 			return response.json();
 		},
 		(err) => {
 			error('sendAuth', err);
-			Promise.reject(err);
+			return Promise.reject(err);
 		})
 		.then(json => camelCaseKeys(json));
 }
@@ -58,21 +61,27 @@ function getDummyList(token) {
 	})
 		.then((response) => {
 			if (!response.ok) {
-				return error('getDummyList', new Error(`Response status ${response.status}`));
+				const err = new Error(`Response status ${response.status}`);
+				error('getDummyList', err);
+				return Promise.reject(err);
 			}
 
 			const contentType = response.headers.get('content-type');
 
 			if (!contentType || contentType.indexOf('application/json') === -1) {
-				return error('getDummyList', new Error('Response is not json'));
+				const err = new Error('Response is not json');
+				error('getDummyList', err);
+				return Promise.reject(err);
 			}
 
 			return response.json();
 		},
-		err => Promise.reject(error('getDummyList', { err })))
+		(err) => {
+			error('getDummyList', { err });
+			return Promise.reject(err);
+		})
 		.then((payload) => {
 			debug('getDummyList', { json: payload });
-
 			return camelCaseKeys(payload);
 		});
 }

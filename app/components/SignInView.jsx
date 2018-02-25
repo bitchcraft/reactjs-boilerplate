@@ -14,6 +14,8 @@ type Props = {
 
 /**
  * Example of an unmanaged form and third party dom manipulation lib integration
+ *
+ * @type {PureComponent}
  */
 class SignInView extends PureComponent<Props> {
 	static defaultProps = {

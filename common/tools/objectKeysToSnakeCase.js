@@ -1,7 +1,8 @@
 import snakeCase from 'snake-case';
+import Logger from 'tools/log';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = require('tools/log')('ConvertKeysToSnakeCase');
+const { debug, error } = new Logger('ConvertKeysToSnakeCase');
 /* eslint-enable no-unused-vars */
 
 
