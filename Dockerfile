@@ -1,10 +1,8 @@
 # ----- Base image -----
 from node:carbon-alpine as base
 
-# Add common deps
+# Add common deps and handle SIGTERMs
 RUN apk add --update git
-
-# Pesky SIGTERMs
 RUN apk add tini
 ENTRYPOINT ["/sbin/tini", "--"]
 
