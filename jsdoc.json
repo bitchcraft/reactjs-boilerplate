@@ -9,12 +9,40 @@
 					"./common/tools",
 					"./server"
 				],
-        "includePattern": ".js$",
+        "includePattern": ".(js|jsx)$",
         "excludePattern": "(node_modules/|docs|__tests__)"
     },
     "plugins": [
-        "plugins/markdown"
+        "plugins/markdown",
+        "node_modules/jsdoc-babel",
+        "node_modules/jsdoc-react-proptypes/lib/plugin"
     ],
+    "babel": {
+      "presets": [
+          "env",
+          "stage-0",
+          "react",
+          "flow"
+      ],
+      "plugins": [
+          "add-module-exports",
+          "transform-runtime",
+          [ "module-resolver", {
+              "root": [ "./" ],
+              "alias": {
+                  "actions": "./app/actions",
+                  "app": "./app",
+                  "components": "./app/components",
+                  "constants": "./common/constants",
+                  "containers": "./app/containers",
+                  "server": "./server",
+                  "services": "./app/services",
+                  "tools": "./common/tools"
+              }
+          } ]
+      ],
+      "extensions": ["js", "jsx"]
+    },
     "opts": {
         "template": "node_modules/docdash",
         "encoding": "utf8",
