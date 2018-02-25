@@ -1,25 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const threadLoader = require('thread-loader');
-
-threadLoader.warmup({
-	workers: 4,
-	workerParallelJobs: 50,
-	workerNodeArgs: ['--max-old-space-size=4096'],
-	poolTimeout: 2000,
-	poolParallelJobs: 50,
-	name: "threadloaderwarmuppool"
-}, [
-	'cache-loader',
-	'babel-loader',
-	'handlebars-loader',
-	'postcss-loader',
-	'sass-loader',
-	'url-loader',
-	'react-transform-hmr'
-]);
-
 const config = {
 	context: path.resolve(__dirname),
 	entry: {
