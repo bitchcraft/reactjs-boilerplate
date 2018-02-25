@@ -1,3 +1,14 @@
+/**
+ * ```js
+ * import ApiService from 'services/api';
+ * ```
+ * @public
+ * @module services/api
+ * @requires tools/objectKeysToCamelCase
+ * @requires tools/objectKeysToSnakeCase
+ * @requires tools/log
+ */
+
 import camelCaseKeys from 'tools/objectKeysToCamelCase';
 import snakeCaseKeys from 'tools/objectKeysToSnakeCase';
 import Logger from 'tools/log';
@@ -12,7 +23,17 @@ const API_ENDPOINT = (() => {
 })();
 
 
-function sendAuth(payload) {
+/**
+ * ```js
+ * import { sendAuth } from 'services/api';
+ * ```
+ *
+ * GET /auth
+ *
+ * @param  {Object} payload - description
+ * @return {Promise}
+ */
+export function sendAuth(payload) {
 	const REQUEST_PATH = `${API_ENDPOINT}/auth`;
 	const body = JSON.stringify(snakeCaseKeys(payload));
 
@@ -44,8 +65,17 @@ function sendAuth(payload) {
 		.then(json => camelCaseKeys(json));
 }
 
-
-function getDummyList(token) {
+/**
+ * ```js
+ * import { getDummyList } from 'services/api';
+ * ```
+ *
+ * GET /dummy-list
+ *
+ * @param  {Object} token - JWT token
+ * @return {Promise}
+ */
+export function getDummyList(token) {
 	const REQUEST_PATH = `${API_ENDPOINT}/dummy-list`;
 
 	debug('getDummyList', { REQUEST_PATH });

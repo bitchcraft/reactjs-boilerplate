@@ -1,15 +1,22 @@
 import camelCase from 'lodash.camelcase';
-import Logger from 'tools/log';
-
-/* eslint-disable no-unused-vars */
-const { debug, error } = new Logger('ConvertKeysToCamelCase');
-/* eslint-enable no-unused-vars */
-
 
 /**
+ * ```js
+ * import objectKeysToCamelCase from 'tools/objectKeysToCamelCase';
+ * ```
  * Deep converts keys in haystack to camelCase
- * @param  {Any} o haystack
- * @return {Same} camelCased haystack
+ *
+ * @public
+ * @module tools/objectKeysToCamelCase
+ * @param  {Object} object - haystack
+ * @requires lodash.camelcase
+ * @return {Object} camelCased haystack
+ *
+ * @example
+ * const camelCased = objectKeysToCamelCase({
+ *     'kebab-case-key': 1,        // —> kebabCaseKey: 1
+ *     snake_case_key: 'sucks',    // —> snakeCaseKey: 'sucks',
+ * });
  */
 function convertKeysToCamelCase(o) {
 	// return haystack if not iterable

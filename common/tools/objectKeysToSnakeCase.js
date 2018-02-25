@@ -1,15 +1,22 @@
 import snakeCase from 'snake-case';
-import Logger from 'tools/log';
-
-/* eslint-disable no-unused-vars */
-const { debug, error } = new Logger('ConvertKeysToSnakeCase');
-/* eslint-enable no-unused-vars */
-
 
 /**
+ * ```js
+ * import objectKeysToSnakeCase from 'tools/objectKeysToSnakeCase';
+ * ```
  * Deep converts keys in haystack to snake_case
- * @param  {Any} o haystack
- * @return {Same} camelCased haystack
+ *
+ * @public
+ * @module tools/objectKeysToSnakeCase
+ * @param  {Object} object - haystack
+ * @requires snake-case
+ * @return {Object} snakeCased haystack
+ *
+ * @example
+ * const camelCased = objectKeysToSnakeCase({
+ *     camelCaseKey: 1,            // —> camel_case_key: 1
+ *     'kebab-case-key': 'sucks',  // —> kebab_case_key: 'sucks',
+ * });
  */
 function convertKeysToSnakeCase(o) {
 	// return haystack if not iterable
