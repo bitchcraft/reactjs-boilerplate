@@ -9,7 +9,7 @@
 					"./common/tools",
 					"./server"
 				],
-        "includePattern": ".(js|jsx)$",
+        "includePattern": ".+\\.js(x)?$",
         "excludePattern": "(node_modules/|docs|__tests__)"
     },
     "plugins": [
