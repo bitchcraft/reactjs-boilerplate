@@ -405,7 +405,7 @@ async@^1.4.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
-async@^2.1.2, async@^2.1.4, async@^2.1.5:
+async@^2.1.2, async@^2.1.4, async@^2.1.5, async@^2.3.0, async@^2.4.1:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
   dependencies:
@@ -1590,6 +1590,15 @@ cache-base@^1.0.1:
     to-object-path "^0.3.0"
     union-value "^1.0.0"
     unset-value "^1.0.0"
+
+cache-loader@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cache-loader/-/cache-loader-1.2.0.tgz#cdc313ae53b3c13ce8ee0c9296cf16c736b15252"
+  dependencies:
+    async "^2.4.1"
+    loader-utils "^1.1.0"
+    mkdirp "^0.5.1"
+    schema-utils "^0.4.2"
 
 caller-path@^0.1.0:
   version "0.1.0"
@@ -7812,7 +7821,7 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-schema-utils@^0.4.0:
+schema-utils@^0.4.0, schema-utils@^0.4.2:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.5.tgz#21836f0608aac17b78f9e3e24daff14a5ca13a3e"
   dependencies:
@@ -8441,6 +8450,14 @@ test-exclude@^4.1.1:
 text-table@0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+thread-loader@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/thread-loader/-/thread-loader-1.1.4.tgz#80f2594af201e3a33669f419acd41a900fcc6c2f"
+  dependencies:
+    async "^2.3.0"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
 
 throat@^3.0.0:
   version "3.2.0"

@@ -1,6 +1,25 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const threadLoader = require('thread-loader');
+
+threadLoader.warmup({
+	workers: 4,
+	workerParallelJobs: 50,
+	workerNodeArgs: ['--max-old-space-size=4096'],
+	poolTimeout: 2000,
+	poolParallelJobs: 50,
+	name: "threadloaderwarmuppool"
+}, [
+	'cache-loader',
+	'babel-loader',
+	'handlebars-loader',
+	'postcss-loader',
+	'sass-loader',
+	'url-loader',
+	'react-transform-hmr'
+]);
+
 const config = {
 	context: path.resolve(__dirname),
 	entry: {
@@ -23,7 +42,18 @@ const config = {
 			{
 				test: /\.(js|jsx)?$/,
 				exclude: /node_modules/,
-				use: [{
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, {
 					loader: 'babel-loader',
 					query: {
 						cacheDirectory: true,
@@ -34,21 +64,51 @@ const config = {
 			}, {
 				test: /\.scsshbs$/,
 				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					},
+					'cache-loader',
 					'handlebars-loader',
-					'css-prehandlebars-loader',
 					'postcss-loader',
 					'sass-loader',
 				],
 			}, {
 				test: /\.(ttf|eot|svg|woff(2))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: 'url-loader?limit=50000'
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, 'cache-loader', 'url-loader?limit=50000']
 			}, {
 				test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				use: 'url-loader?limit=8192'
-			}, {
-				test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.eot$/,
-				use: 'file-loader'
-			},
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, 'cache-loader', 'url-loader?limit=8192']
+			}
 		]
 	},
 	resolve: {
@@ -64,7 +124,7 @@ if (process.env.NODE_ENV === 'development') {
 	config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 	config.entry['app'].unshift('eventsource-polyfill', 'webpack-hot-middleware/client');
 
-	config.module.rules[0].use[0].query.plugins.push([
+	config.module.rules[0].use[1].query.plugins.push([
 		'react-transform', {
 			transforms: [{
 				transform: 'react-transform-hmr',
@@ -75,7 +135,9 @@ if (process.env.NODE_ENV === 'development') {
 	]);
 
 } else if (process.env.NODE_ENV === 'production') {
-	config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+	config.plugins.push(new webpack.optimize.UglifyJsPlugin({
+    cache: true
+  }));
 }
 
 // make process.env available in client code

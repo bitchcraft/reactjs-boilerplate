@@ -26,6 +26,7 @@
 		"babel-eslint": "^8.2.2",
 		"babel-jest": "^20.0.3",
 		"babel-loader": "^6.2.9",
+		"cache-loader": "^1.2.0",
 		"css-loader": "^0.26.1",
 		"eslint": "^4.18.1",
 		"eslint-config-airbnb": "^16.1.0",
@@ -47,6 +48,7 @@
 		"postcss-loader": "^2.1.0",
 		"react-transform-hmr": "^1.0.1",
 		"sass-loader": "^6.0.6",
+		"thread-loader": "^1.1.4",
 		"url-loader": "^0.5.7",
 		"webpack-hot-middleware": "^2.21.0"
 	},
@@ -90,8 +92,8 @@
 		"bundle-js": "yarn install; NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress",
 		"render-template": "if ! [ -e ./build ]; then mkdir build; fi; hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
 		"docker": "docker build --no-cache -t $(basename `git rev-parse --show-toplevel`):$(git rev-parse --short HEAD) .",
-	    "styleguide": "styleguidist server",
-	    "styleguide:build": "styleguidist build",
+		"styleguide": "styleguidist server",
+		"styleguide:build": "styleguidist build",
 		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server"
 	},
 	"author": ""
