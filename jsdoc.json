@@ -9,43 +9,21 @@
 					"./common/tools",
 					"./server"
 				],
-        "includePattern": ".+\\.js(x)?$",
-        "excludePattern": "(node_modules/|docs|__tests__)"
+        "includePattern": ".+\\.js?$",
+        "excludePattern": "(node_modules/|docs|__tests__|\\.test\\.js|index\\.js)"
     },
     "plugins": [
         "plugins/markdown",
         "node_modules/jsdoc-babel"
     ],
     "babel": {
-      "presets": [
-          "env",
-          "stage-0",
-          "react",
-          "flow"
-      ],
-      "plugins": [
-          "add-module-exports",
-          "transform-runtime",
-          [ "module-resolver", {
-              "root": [ "./" ],
-              "alias": {
-                  "actions": "./app/actions",
-                  "app": "./app",
-                  "components": "./app/components",
-                  "constants": "./common/constants",
-                  "containers": "./app/containers",
-                  "server": "./server",
-                  "services": "./app/services",
-                  "tools": "./common/tools"
-              }
-          } ]
-      ],
-      "extensions": ["js", "jsx"]
+      "babelrc": true
     },
     "opts": {
         "template": "node_modules/docdash",
         "encoding": "utf8",
         "destination": "docs/",
+        "readme": "README.md",
         "recurse": true,
         "verbose": true
     },

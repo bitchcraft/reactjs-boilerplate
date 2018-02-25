@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const JsDocPlugin = require('jsdoc-webpack-plugin');
 
 const config = {
 	context: path.resolve(__dirname),
@@ -17,6 +18,9 @@ const config = {
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.IgnorePlugin(/jsdom$/),
+		new JsDocPlugin({
+			conf: path.join(__dirname, 'jsdoc.json'),
+        }),
 	],
 	module: {
 		rules: [
