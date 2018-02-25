@@ -17,6 +17,7 @@ jsdoc.json
 nodemon.json
 styleguide.config.js
 .cache-loader
+docs
 
 #Misc
 README.md
