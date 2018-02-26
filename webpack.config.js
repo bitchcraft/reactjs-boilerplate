@@ -18,9 +18,12 @@ const config = {
 	plugins: [
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.IgnorePlugin(/jsdom$/),
-		new JsDocPlugin({
-			conf: path.join(__dirname, 'jsdoc.json'),
-        }),
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+				API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
+			}
+		}),
 	],
 	module: {
 		rules: [
@@ -119,18 +122,16 @@ if (process.env.NODE_ENV === 'development') {
 		},
 	]);
 
-} else if (process.env.NODE_ENV === 'production') {
-	config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-    cache: true
-  }));
-}
+	// on-the-fly jsdoc builds
+	config.plugins.push(
+		new JsDocPlugin({ conf: path.join(__dirname, 'jsdoc.json') })
+	);
 
-// make process.env available in client code
-config.plugins.push(new webpack.DefinePlugin({
-	"process.env": {
-		NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-		API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
-	}
-}));
+} else if (process.env.NODE_ENV === 'production') {
+	// uglify
+	config.plugins.push(
+		new webpack.optimize.UglifyJsPlugin({ cache: true })
+	);
+}
 
 module.exports = config;
