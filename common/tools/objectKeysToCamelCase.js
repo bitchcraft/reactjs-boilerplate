@@ -1,4 +1,4 @@
-import camelCase from 'lodash.camelcase';
+import camelCase from 'lodash/camelCase';
 
 /**
  * ```js
@@ -9,7 +9,7 @@ import camelCase from 'lodash.camelcase';
  * @public
  * @module tools/objectKeysToCamelCase
  * @param  {Object} object - haystack
- * @requires lodash.camelcase
+ * @requires lodash
  * @return {Object} camelCased haystack
  *
  * @example
