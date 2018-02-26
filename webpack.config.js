@@ -65,6 +65,7 @@ const config = {
 					},
 					'cache-loader',
 					'handlebars-loader',
+					'css-prehandlebars-loader',
 					'postcss-loader',
 					'sass-loader',
 				],
@@ -103,7 +104,7 @@ const config = {
 		extensions: [ '.js', '.jsx', '.json' ],
 	},
 	resolveLoader: {
-		modules: [ 'node_modules', 'webpack-loaders' ],
+		modules: [ 'node_modules', 'build-tools/webpack-loaders' ],
 	},
 }
 
