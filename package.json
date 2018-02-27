@@ -75,7 +75,7 @@
 			"babel-loader",
 			"babel-plugin-react-transform",
 			"react-test-renderer",
-			"npm-zepto",
+			"jquery",
 			"babel-jest",
 			"identity-obj-proxy"
 		],

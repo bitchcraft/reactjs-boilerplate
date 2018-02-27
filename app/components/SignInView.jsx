@@ -4,7 +4,7 @@ import React, { PureComponent } from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import $ from 'npm-zepto';
+import $ from 'jquery';
 
 type Props = {
 	/** on Submit callback `({ login: string, secret: string, }) => void` */

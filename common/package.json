@@ -10,7 +10,7 @@
 	},
 	"devDependencies": {
 		"hoist-non-react-statics": "^1.0.5",
-		"npm-zepto": "^1.1.7",
+		"jquery": "^3.3.1",
 		"react": "^16.2.0",
 		"react-addons-shallow-compare": "^15.4.2"
 	}
