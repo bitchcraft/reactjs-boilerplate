@@ -1,5 +1,5 @@
 import expect from 'jest-matchers';
-import camelCase from 'lodash.camelcase';
+import camelCase from 'lodash/camelCase';
 import convertKeysToCamelCase from '../objectKeysToCamelCase';
 
 const TestCases = {
@@ -17,7 +17,7 @@ describe('snakeCase', () => {
 		Object.keys(TestCases).forEach(function(key) {
 			console.log('Running test: ' + key);
       /* eslint-enable no-console */
-      
+
 			if (key === 'string') {
 				// special case
 				expect(camelCase(TestCases[key].input)).toEqual(TestCases[key].output);
