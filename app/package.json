@@ -16,5 +16,8 @@
 		"redux": "^3.7.2",
 		"redux-logger": "^3.0.6",
 		"redux-thunk": "^2.2.0"
+	},
+	"dependencies": {
+		"@bitchcraft/unicorn-logger": "^1.0.0"
 	}
 }

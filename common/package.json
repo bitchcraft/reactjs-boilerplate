@@ -2,7 +2,7 @@
 	"name": "common",
 	"version": "0.2.0",
 	"dependencies": {
-		"debug": "^2.3.3",
+		"@bitchcraft/unicorn-logger": "^1.0.0",
 		"keymirror": "^0.1.1",
 		"lodash": "^4.17.5",
 		"snake-case": "^2.1.0",

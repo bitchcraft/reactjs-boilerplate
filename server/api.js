@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import uuid from 'uuid/v4';
-import Logger from 'tools/log';
+import Logger from '@bitchcraft/unicorn-logger';
 
 /* eslint-disable no-unused-vars */
 const { debug, error } = new Logger('server:api');

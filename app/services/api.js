@@ -11,10 +11,10 @@
 
 import camelCaseKeys from 'tools/objectKeysToCamelCase';
 import snakeCaseKeys from 'tools/objectKeysToSnakeCase';
-import Logger from 'tools/log';
+import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 /* eslint-disable no-unused-vars */
-const { debug, error } = new Logger('ApiService');
+const { debug, error } = new UnicornLogger('ApiService');
 /* eslint-enable no-unused-vars */
 
 const API_ENDPOINT = (() => {

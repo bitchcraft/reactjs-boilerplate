@@ -8,7 +8,7 @@ import compress from 'compression';
 import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import Logger from 'tools/log';
+import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 let webpackDevMiddleware;
 let webpackHotMiddleware;
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 import { handleAuth, handleDummyList } from './api';
 
-const { debug, trace, error } = new Logger('server:');
+const { debug, trace, error } = new UnicornLogger('server:');
 /* eslint-disable no-console */
 trace.log = console.trace.bind(console);
 error.log = console.error.bind(console);

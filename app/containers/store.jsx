@@ -6,9 +6,9 @@ import Router from 'containers/router';
 import reducers from '../reducers';
 import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
-import Logger from 'tools/log';
+import UnicornLogger from '@bitchcraft/unicorn-logger';
 
-const logger = new Logger('Store', {
+const logger = new UnicornLogger('Store', {
 	// work around bug in redux-logger, where styles for styled strings are missing
 	cleaner: (args) => {
 		if (!args.length || args.length !== 1 || !args[0].includes('%c')) return args;

@@ -1,15 +1,10 @@
 // @flow
-
 import { Component, createElement } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import hoistStatics from 'hoist-non-react-statics';
 import uuid from 'uuid/v4';
 import $ from 'jquery';
-import Logger from 'tools/log';
-
-/* eslint-disable no-unused-vars */
-const { debug } = new Logger('styleInjector');
-/* eslint-enable no-unused-vars */
+import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 import type { SCSSModule } from 'common/flow/SCSSModuleStub';
 import type { Element as ReactElement } from 'react';
@@ -18,6 +13,7 @@ type Theme = { [string]: *, };
 type Styles = Theme => { [string]: *, };
 type WrapperComponentType = * => ReactElement<*>;
 
+const logger = new UnicornLogger('styleInjector');
 const stylesheets = new Map();
 
 
@@ -64,7 +60,8 @@ function injectStyles(
 				$(`[data-cssorid=${stylesheetID}]`).remove();
 			}
 
-			debug(`wrapping ${getDisplayName(WrappedComponent)}, theme:`, styles(theme), stylesheets);
+			logger.groupCollapsed(`injecting new styles for ${getDisplayName(WrappedComponent)}`)
+				.log(stylesheetID, { theme: styles(theme), stylesheets });
 
 			const stylesheet = template(styles(theme));
 			const sheet = $(`<style data-cssorid=${stylesheetID}>${stylesheet}</style>`);
@@ -73,7 +70,7 @@ function injectStyles(
 			else sheet.appendTo('head');
 
 			stylesheets.set(stylesheetID, [ stylesheetComponentIdKey ]);
-			debug(`adding stylesheet ${stylesheetID}`);
+			logger.log(`stylesheet ${stylesheetID} added`).groupEnd();
 
 		} else {
 			stylesheets.set(stylesheetID, currentStylesheetKeyList.push(stylesheetComponentIdKey));
@@ -96,7 +93,7 @@ function removeStyles(id, componentIdKey) {
 			const stylesheet = stylesheets.get(id);
 
 			if (stylesheet && Array.isArray(stylesheet) && stylesheet.length < 1) {
-				debug(`removing stylesheet ${id}`);
+				logger.log(`removing stylesheet ${id}`);
 				$(`[data-cssorid=${id}]`).remove();
 			}
 		}
