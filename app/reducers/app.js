@@ -1,6 +1,18 @@
 import Actions from 'constants/actions';
 import Immutable from 'immutable';
 
+/**
+ * @public
+ * @module reducers
+ */
+
+/**
+ * loading reducer
+ * @param  {Map} state
+ * @param  {Object} action
+ * @return {Map} state
+ */
+
 const loading = (state, action) => {
 	if (!Immutable.Map.isMap(state)) state = Immutable.Map();
 

@@ -6,6 +6,22 @@ import {
 
 import { getDummyList } from 'services/api';
 
+/**
+ * @public
+ * @module actions
+ */
+
+/**
+ * ```js
+ * import getDummyList from 'actions/getDummyList';
+ * ```
+ *
+ * dummyList action call
+ *
+ * @param  {Object} payload
+ * @return {Promise}
+ */
+
 function dummyList() {
 	return (dispatch, getState) => {
 		dispatch({ type: DUMMYLIST_LOADING });

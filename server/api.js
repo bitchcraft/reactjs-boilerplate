@@ -9,6 +9,18 @@ const { debug, error } = new Logger('server:api');
 const PRIVATE_KEY = '.secretzR4lulz';
 const TOKEN_EXPIRY_IN_SECONDS = 60;
 
+/**
+ * @public
+ * @module server
+ */
+
+/**
+ *
+ * handleAuth API Server Call
+ *
+ * @param  {JSONObject} request
+ * @return {JSONObject} response
+ */
 
 const handleAuth = (req, res) => {
 	const reqBody = req.body || {};
@@ -38,6 +50,13 @@ const handleAuth = (req, res) => {
 	}, process.env.NODE_ENV === 'production' ? 0 : Math.random() * 2000);
 };
 
+/**
+ *
+ * handleDummyList API Server Call
+ *
+ * @param  {string} token
+ * @return {JSONObject} response
+ */
 
 const handleDummyList = (req, res) => {
 	const token = req.get('X-Token');

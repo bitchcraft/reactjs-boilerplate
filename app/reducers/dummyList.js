@@ -1,6 +1,18 @@
 import Actions from 'constants/actions';
 import Immutable from 'immutable';
 
+/**
+ * @public
+ * @module reducers
+ */
+
+/**
+ * dummyList reducer
+ * @param  {Map} state
+ * @param  {Object} action
+ * @return {Map} state
+ */
+
 const dummyList = (state, action) => {
 	if (!Immutable.Map.isMap(state)) {
 		state = Immutable.fromJS({
