@@ -21,5 +21,14 @@
                 "tools": "./common/tools"
             }
         } ]
-    ]
+    ],
+    "env": {
+      "production": {
+        "presets": [
+          [
+            "minify", { "mangle": false }
+          ]
+        ]
+      }
+    }
 }
