@@ -34,6 +34,7 @@
 		"docdash": "^0.4.0",
 		"eslint": "^4.18.1",
 		"eslint-config-airbnb": "^16.1.0",
+		"eslint-formatter-pretty": "^1.3.0",
 		"eslint-plugin-flowtype": "^2.46.1",
 		"eslint-plugin-flowtype-errors": "^3.3.7",
 		"eslint-plugin-import": "^2.9.0",
@@ -93,6 +94,7 @@
 	"scripts": {
 		"flow": "flow",
 		"test": "jest",
+		"lint": "eslint --cache --format=eslint-formatter-pretty .",
 		"dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=server:* node --max_old_space_size=4096 server/index.js",
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",

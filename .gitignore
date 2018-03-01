@@ -41,6 +41,7 @@ bower_components
 *.swp
 *.vi
 .sass-cache
+.eslintcache
 
 # OS or Editor folders
 .DS_Store
