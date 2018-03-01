@@ -10,7 +10,7 @@
 					"./server"
 				],
         "includePattern": ".+\\.js?$",
-        "excludePattern": "(node_modules/|docs|__tests__|\\.test\\.js|index\\.js)"
+        "excludePattern": "(node_modules/|docs|__tests__|\\.test\\.js)"
     },
     "plugins": [
         "plugins/markdown",
