@@ -6,12 +6,13 @@ import dummyList from './dummyList';
  * import reducers from '../reducers';
  * ```
  * @public
- * @module reducers
- * @requires reducers/app
- * @requires reducers/dummyList
+ * @module app/reducers
  */
-
-export default {
+const reducers = {
 	app,
 	dummyList,
 };
+
+export default reducers;
+export app from './app';
+export dummyList from './dummyList';

@@ -8,21 +8,17 @@ import {
 import { sendAuth } from 'services/api';
 
 /**
- * @public
- * @module actions
- */
-
-/**
  * ```js
  * import auth from 'actions/auth';
  * ```
  *
  * auth action call
  *
+ * @memberof module:app/actions
  * @param  {Object} payload
  * @return {Promise}
+ * @requires constants/actions
  */
-
 function auth(payload) {
 	return (dispatch, getState) => {
 		dispatch({ type: AUTH_LOADING });

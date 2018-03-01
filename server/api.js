@@ -11,7 +11,7 @@ const TOKEN_EXPIRY_IN_SECONDS = 60;
 
 /**
  * @public
- * @module server
+ * @module server/api
  */
 
 /**

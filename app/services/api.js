@@ -3,10 +3,10 @@
  * import ApiService from 'services/api';
  * ```
  * @public
- * @module services/api
+ * @module app/services/api
  * @requires tools/objectKeysToCamelCase
  * @requires tools/objectKeysToSnakeCase
- * @requires tools/log
+ * @requires npm:@bitchcraft/unicorn-logger
  */
 
 import camelCaseKeys from 'tools/objectKeysToCamelCase';
@@ -30,6 +30,7 @@ const API_ENDPOINT = (() => {
  *
  * GET /auth
  *
+ * @memberof module:app/services/api
  * @param  {Object} payload - description
  * @return {Promise}
  */
@@ -72,6 +73,7 @@ export function sendAuth(payload) {
  *
  * GET /dummy-list
  *
+* @memberof module:app/services/api
  * @param  {Object} token - JWT token
  * @return {Promise}
  */

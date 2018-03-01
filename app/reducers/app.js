@@ -2,18 +2,30 @@ import Actions from 'constants/actions';
 import Immutable from 'immutable';
 
 /**
+ * loading app/reducer
  * @public
- * @module reducers
+ * @memberof module:app/reducers
+ * @param  {ImmutableMap} state -
+ * ```js
+ * {
+ *     auth?: {
+ *         state?: AuthState,
+ *         loading?: boolean,
+ *         token?: JWTToken,
+ *     },
+ *     user?: {
+ *         admin: boolean,
+ *         id: UserId,
+ *     },
+ * }
+ * ```
+ * @param  {FluxStandardAction} action -
+ * @return {ImmutableMap} state
+ * @requires constants/actions
+ * @requires npm:immutable
  */
 
-/**
- * loading reducer
- * @param  {Map} state
- * @param  {Object} action
- * @return {Map} state
- */
-
-const loading = (state, action) => {
+const app = (state, action) => {
 	if (!Immutable.Map.isMap(state)) state = Immutable.Map();
 
 	const { type, payload } = action;
@@ -50,4 +62,4 @@ const loading = (state, action) => {
 	return state;
 };
 
-export default loading;
+export default app;

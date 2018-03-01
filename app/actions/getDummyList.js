@@ -7,21 +7,17 @@ import {
 import { getDummyList } from 'services/api';
 
 /**
- * @public
- * @module actions
- */
-
-/**
  * ```js
  * import getDummyList from 'actions/getDummyList';
  * ```
  *
  * dummyList action call
  *
+ * @memberof module:app/actions
  * @param  {Object} payload
  * @return {Promise}
+ * @requires constants/actions
  */
-
 function dummyList() {
 	return (dispatch, getState) => {
 		dispatch({ type: DUMMYLIST_LOADING });

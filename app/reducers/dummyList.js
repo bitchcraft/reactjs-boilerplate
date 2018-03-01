@@ -2,15 +2,20 @@ import Actions from 'constants/actions';
 import Immutable from 'immutable';
 
 /**
- * @public
- * @module reducers
- */
-
-/**
  * dummyList reducer
- * @param  {Map} state
- * @param  {Object} action
- * @return {Map} state
+ * @public
+ * @memberof module:app/reducers
+ * @param  {ImmutableMap} state -
+ * ```js
+ * {
+ *     items: ImmutableList<ImmutableMap<string, *>>,
+ *     loading: boolean,
+ * }
+ * ```
+ * @param  {FluxStandardAction} action
+ * @return {ImmutableMap} state
+ * @requires constants/actions
+ * @requires npm:immutable
  */
 
 const dummyList = (state, action) => {
