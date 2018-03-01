@@ -7,9 +7,9 @@ import snakeCase from 'snake-case';
  * Deep converts keys in haystack to snake_case
  *
  * @public
- * @module tools/objectKeysToSnakeCase
+ * @function objectKeysToSnakeCase
  * @param  {Object} object - haystack
- * @requires snake-case
+ * @requires npm:snake-case
  * @return {Object} snakeCased haystack
  *
  * @example

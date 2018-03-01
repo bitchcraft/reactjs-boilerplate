@@ -7,9 +7,9 @@ import camelCase from 'lodash/camelCase';
  * Deep converts keys in haystack to camelCase
  *
  * @public
- * @module tools/objectKeysToCamelCase
+ * @function objectKeysToCamelCase
  * @param  {Object} object - haystack
- * @requires lodash
+ * @requires npm:lodash
  * @return {Object} camelCased haystack
  *
  * @example

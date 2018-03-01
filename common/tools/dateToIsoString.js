@@ -22,7 +22,7 @@ function pad(number) {
  * @todo add time zones
  *
  * @public
- * @module tools/dateToIsoString
+ * @function dateToIsoString
  * @param  {Date} date
  * @return {String} ISODateString
  */

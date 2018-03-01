@@ -6,7 +6,8 @@
  * provides string constants
  *
  * @public
- * @module constants/actions
+ * @constant Actions
+ * @memberof module:constants
  * @requires npm:keymirror
  * @returns {Object}
  * ```js
