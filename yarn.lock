@@ -71,6 +71,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@bitchcraft/keyconst@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@bitchcraft/keyconst/-/keyconst-1.0.1.tgz#6ffcd370203790462c4eac48ee41e791c4a57dd8"
+
 "@bitchcraft/unicorn-logger@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@bitchcraft/unicorn-logger/-/unicorn-logger-1.0.0.tgz#47f982326c1fb1203f8b689d2404077eef87764f"
@@ -5440,10 +5444,6 @@ jws@^3.1.4:
 keycode@^2.1.8:
   version "2.1.9"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.1.9.tgz#964a23c54e4889405b4861a5c9f0480d45141dfa"
-
-keymirror@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/keymirror/-/keymirror-0.1.1.tgz#918889ea13f8d0a42e7c557250eee713adc95c35"
 
 killable@^1.0.0:
   version "1.0.0"
