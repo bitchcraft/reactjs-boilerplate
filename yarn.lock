@@ -75,6 +75,12 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@bitchcraft/keyconst/-/keyconst-1.0.1.tgz#6ffcd370203790462c4eac48ee41e791c4a57dd8"
 
+"@bitchcraft/ocake@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@bitchcraft/ocake/-/ocake-1.0.2.tgz#347fd830ba7dd7149d47b4251f36d9a7f8a69687"
+  dependencies:
+    no-case "^2.3.2"
+
 "@bitchcraft/unicorn-logger@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@bitchcraft/unicorn-logger/-/unicorn-logger-1.0.0.tgz#47f982326c1fb1203f8b689d2404077eef87764f"
@@ -6185,7 +6191,7 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-no-case@^2.2.0:
+no-case@^2.2.0, no-case@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
   dependencies:
@@ -8295,12 +8301,6 @@ slice-ansi@1.0.0:
   resolved "https://registry.yarnpkg.com/slice-ansi/-/slice-ansi-1.0.0.tgz#044f1a49d8842ff307aad6b505ed178bd950134d"
   dependencies:
     is-fullwidth-code-point "^2.0.0"
-
-snake-case@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/snake-case/-/snake-case-2.1.0.tgz#41bdb1b73f30ec66a04d4e2cad1b76387d4d6d9f"
-  dependencies:
-    no-case "^2.2.0"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
