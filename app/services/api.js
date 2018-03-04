@@ -5,21 +5,16 @@
  * ```
  * @public
  * @module app/services/api
- * @requires tools/objectKeysToCamelCase
- * @requires tools/objectKeysToSnakeCase
+ * @requires npm:@bitchcraft/ocake
  * @requires npm:@bitchcraft/unicorn-logger
  */
-
-import camelCaseKeys from 'tools/objectKeysToCamelCase';
-import snakeCaseKeys from 'tools/objectKeysToSnakeCase';
+import { convertKeys, StringConverters } from '@bitchcraft/ocake';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 import type jwt from 'jsonwebtoken';
 import type { AuthRequest, AuthResponse, DummyListResponse } from 'server/api';
 
-/* eslint-disable no-unused-vars */
 const { debug, error } = new UnicornLogger('ApiService');
-/* eslint-enable no-unused-vars */
 
 const API_ENDPOINT = ((): string => {
 	if (process.env.NODE_ENV === 'development') return process.env.API_ENDPOINT || '';
@@ -40,9 +35,9 @@ const API_ENDPOINT = ((): string => {
  */
 export function sendAuth(payload: AuthRequest): Promise<AuthResponse> {
 	const REQUEST_PATH = `${API_ENDPOINT}/auth`;
-	const body = JSON.stringify(snakeCaseKeys(payload));
+	const body = JSON.stringify(convertKeys(payload, StringConverters.toSnakeCase));
 
-	debug('sendAuth', { REQUEST_PATH, body: snakeCaseKeys(payload) });
+	debug('sendAuth', { REQUEST_PATH, body: JSON.parse(body) });
 
 	return fetch(REQUEST_PATH, {
 		method: 'POST',
@@ -67,7 +62,7 @@ export function sendAuth(payload: AuthRequest): Promise<AuthResponse> {
 			error('sendAuth', err);
 			return Promise.reject(err);
 		})
-		.then(json => camelCaseKeys(json));
+		.then(json => convertKeys(json, StringConverters.toCamelCase));
 }
 
 /**
@@ -118,7 +113,7 @@ export function getDummyList(token: jwt): Promise<DummyListResponse> {
 		})
 		.then((payload) => {
 			debug('getDummyList', { json: payload });
-			return camelCaseKeys(payload);
+			return convertKeys(payload, StringConverters.toCamelCase);
 		});
 }
 
