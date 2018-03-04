@@ -1,3 +1,4 @@
+// @flow
 /**
  * ```js
  * import Actions from 'constants/actions'
@@ -22,7 +23,7 @@
  * }
  * ```
  */
-import keyconst from '@bitchcraft/keyconst';
+import keyconst from '@bitchcraft/keyconst/src/keyconst';
 
 const Actions = keyconst([
 	'AUTH_LOADING',

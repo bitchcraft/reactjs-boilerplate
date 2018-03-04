@@ -1,10 +1,5 @@
 // @flow
-import {
-	AUTH_LOADING,
-	AUTH_SUCCESS,
-	AUTH_FAILURE,
-	SET_USER,
-} from 'constants/actions';
+import Actions from 'constants/actions';
 
 import { sendAuth } from 'services/api';
 
@@ -34,24 +29,24 @@ export type AuthActions = AuthActionLoading | AuthActionSuccess | AuthActionFail
  */
 function auth(payload: AuthRequest) {
 	return (dispatch: Dispatch, getState: Store.getState) => {
-		dispatch({ type: AUTH_LOADING });
+		dispatch({ type: Actions.AUTH_LOADING });
 
 		return sendAuth(payload)
 			.then((p) => {
 				dispatch({
-					type: SET_USER,
+					type: Actions.SET_USER,
 					payload: Object.assign({}, payload, p.user),
 				});
 
 				dispatch({
-					type: AUTH_SUCCESS,
+					type: Actions.AUTH_SUCCESS,
 					payload: p.token,
 				});
 
 				return Promise.resolve();
 			})
 			.catch((err) => {
-				dispatch({ type: AUTH_FAILURE, payload: err, error: true });
+				dispatch({ type: Actions.AUTH_FAILURE, payload: err, error: true });
 				return Promise.resolve();
 			});
 	};

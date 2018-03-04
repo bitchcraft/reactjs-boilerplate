@@ -1,9 +1,5 @@
 // @flow
-import {
-	DUMMYLIST_LOADING,
-	DUMMYLIST_SUCCESS,
-	REAUTH_REQUIRED,
-} from 'constants/actions';
+import Actions from 'constants/actions';
 
 import { getDummyList } from 'services/api';
 
@@ -29,7 +25,7 @@ export type DummyListActions = DummyListActionSuccess | DummyListActionLoading;
  */
 function dummyList() {
 	return (dispatch: Dispatch, getState: Store.getState) => {
-		dispatch({ type: DUMMYLIST_LOADING });
+		dispatch({ type: Actions.DUMMYLIST_LOADING });
 
 		const token = getState().app.getIn([ 'auth', 'token' ]);
 
@@ -38,13 +34,13 @@ function dummyList() {
 				if (!payload) return Promise.reject();
 
 				dispatch({
-					type: DUMMYLIST_SUCCESS,
+					type: Actions.DUMMYLIST_SUCCESS,
 					payload,
 				});
 				return Promise.resolve();
 			})
 			.catch((err) => {
-				dispatch({ type: REAUTH_REQUIRED, payload: err, error: true });
+				dispatch({ type: Actions.REAUTH_REQUIRED, payload: err, error: true });
 				return Promise.resolve();
 			});
 	};
