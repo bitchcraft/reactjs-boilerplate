@@ -1,5 +1,10 @@
+// @flow
 import Actions from 'constants/actions';
-import Immutable from 'immutable';
+import { Map, fromJS } from 'immutable';
+
+import type { Map as ImmutableMap } from 'immutable';
+import type { DummyListActions } from 'actions/getDummyList';
+
 
 /**
  * dummyList reducer
@@ -12,16 +17,16 @@ import Immutable from 'immutable';
  *     loading: boolean,
  * }
  * ```
- * @param  {FluxStandardAction} action
+ * @param  {DummyListActions} action
  * @return {ImmutableMap} state
  * @requires constants/actions
  * @requires npm:immutable
  */
 
-const dummyList = (state, action) => {
-	if (!Immutable.Map.isMap(state)) {
-		state = Immutable.fromJS({
-			items: Immutable.fromJS([]),
+const dummyList = (state: ImmutableMap<string, *>, action: DummyListActions) => {
+	if (!Map.isMap(state)) {
+		state = fromJS({
+			items: fromJS([]),
 			loading: false,
 		});
 	}
@@ -31,7 +36,7 @@ const dummyList = (state, action) => {
 	switch (type) {
 		case Actions.DUMMYLIST_SUCCESS:
 			return state
-				.set('items', Immutable.fromJS(payload))
+				.set('items', fromJS(payload))
 				.set('loading', false);
 
 		case Actions.DUMMYLIST_LOADING:

@@ -1,3 +1,4 @@
+// @flow
 import {
 	DUMMYLIST_LOADING,
 	DUMMYLIST_SUCCESS,
@@ -5,6 +6,14 @@ import {
 } from 'constants/actions';
 
 import { getDummyList } from 'services/api';
+
+import type { FluxStandardAction } from 'common/flow/FluxStandardAction';
+import type { DummyListResponse } from 'server/api';
+import type { Dispatch, Store } from 'redux';
+
+export type DummyListActionSuccess = FluxStandardAction<DummyListResponse>;
+export type DummyListActionLoading = FluxStandardAction<>;
+export type DummyListActions = DummyListActionSuccess | DummyListActionLoading;
 
 /**
  * ```js
@@ -19,7 +28,7 @@ import { getDummyList } from 'services/api';
  * @requires constants/actions
  */
 function dummyList() {
-	return (dispatch, getState) => {
+	return (dispatch: Dispatch, getState: Store.getState) => {
 		dispatch({ type: DUMMYLIST_LOADING });
 
 		const token = getState().app.getIn([ 'auth', 'token' ]);
@@ -35,7 +44,7 @@ function dummyList() {
 				return Promise.resolve();
 			})
 			.catch((err) => {
-				dispatch({ type: REAUTH_REQUIRED, err });
+				dispatch({ type: REAUTH_REQUIRED, payload: err, error: true });
 				return Promise.resolve();
 			});
 	};

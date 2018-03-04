@@ -1,5 +1,9 @@
+// @flow
 import Actions from 'constants/actions';
-import Immutable from 'immutable';
+import { Map } from 'immutable';
+
+import type { Map as ImmutableMap } from 'immutable';
+import type { AuthActions } from 'actions/auth';
 
 /**
  * loading app/reducer
@@ -19,14 +23,14 @@ import Immutable from 'immutable';
  *     },
  * }
  * ```
- * @param  {FluxStandardAction} action -
+ * @param  {AuthActions} action -
  * @return {ImmutableMap} state
  * @requires constants/actions
  * @requires npm:immutable
  */
 
-const app = (state, action) => {
-	if (!Immutable.Map.isMap(state)) state = Immutable.Map();
+const app = (state: ImmutableMap<string, *>, action: AuthActions) => {
+	if (!Map.isMap(state)) state = Map();
 
 	const { type, payload } = action;
 

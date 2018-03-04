@@ -1,3 +1,4 @@
+// @flow
 import {
 	AUTH_LOADING,
 	AUTH_SUCCESS,
@@ -7,6 +8,18 @@ import {
 
 import { sendAuth } from 'services/api';
 
+import type { FluxStandardAction } from 'common/flow/FluxStandardAction';
+import type jwt from 'jsonwebtoken';
+import type { AuthRequest, User } from 'server/api';
+import type { Dispatch, Store } from 'redux';
+
+export type AuthActionLoading = FluxStandardAction<>;
+export type AuthActionSuccess = FluxStandardAction<jwt>;
+export type AuthActionFailure = FluxStandardAction<Error>;
+export type AuthActionSetUser = FluxStandardAction<AuthRequest & { user: User, }>;
+export type AuthActionReauthRequired = FluxStandardAction<>;
+export type AuthActions = AuthActionLoading | AuthActionSuccess | AuthActionFailure | AuthActionSetUser;
+
 /**
  * ```js
  * import auth from 'actions/auth';
@@ -15,12 +28,12 @@ import { sendAuth } from 'services/api';
  * auth action call
  *
  * @memberof module:app/actions
- * @param  {Object} payload
+ * @param  {AuthRequest} payload
  * @return {Promise}
  * @requires constants/actions
  */
-function auth(payload) {
-	return (dispatch, getState) => {
+function auth(payload: AuthRequest) {
+	return (dispatch: Dispatch, getState: Store.getState) => {
 		dispatch({ type: AUTH_LOADING });
 
 		return sendAuth(payload)
@@ -38,7 +51,7 @@ function auth(payload) {
 				return Promise.resolve();
 			})
 			.catch((err) => {
-				dispatch({ type: AUTH_FAILURE, err });
+				dispatch({ type: AUTH_FAILURE, payload: err, error: true });
 				return Promise.resolve();
 			});
 	};

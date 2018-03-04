@@ -1,3 +1,4 @@
+// @flow
 import jwt from 'jsonwebtoken';
 import uuid from 'uuid/v4';
 import Logger from '@bitchcraft/unicorn-logger';
@@ -13,6 +14,27 @@ const TOKEN_EXPIRY_IN_SECONDS = 60;
  * @public
  * @module server/api
  */
+// TODO revise this when fixing flow errors in this file
+export type User = {
+	admin: boolean,
+	id: uuid,
+	login: string,
+};
+
+export type AuthRequest = {
+	id?: uuid,
+	login?: string,
+};
+
+export type AuthResponse = {
+	user: User,
+	referrer: string,
+	ip: string,
+	ips: string,
+	token: jwt,
+};
+
+export type DummyListResponse = Array<uuid>;
 
 /**
  *
