@@ -5,9 +5,9 @@
  * @public
  * @const FluxStandardAction
  */
-export type FluxStandardAction<TSuccess = void, TMeta = void> = {|
+export type FluxStandardAction<TPayload = void, TMeta = void> = {|
 	type: string,
-	payload?: TSuccess | Error,
+	payload?: TPayload | Error,
 	error?: boolean,
 	meta?: TMeta,
 |};
