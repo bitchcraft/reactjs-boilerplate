@@ -1,3 +1,4 @@
+// @flow
 /**
  * ```js
  * import ApiService from 'services/api';
@@ -13,12 +14,15 @@ import camelCaseKeys from 'tools/objectKeysToCamelCase';
 import snakeCaseKeys from 'tools/objectKeysToSnakeCase';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 
+import type jwt from 'jsonwebtoken';
+import type { AuthRequest, AuthResponse, DummyListResponse } from 'server/api';
+
 /* eslint-disable no-unused-vars */
 const { debug, error } = new UnicornLogger('ApiService');
 /* eslint-enable no-unused-vars */
 
-const API_ENDPOINT = (() => {
-	if (process.env.NODE_ENV === 'development') return process.env.API_ENDPOINT;
+const API_ENDPOINT = ((): string => {
+	if (process.env.NODE_ENV === 'development') return process.env.API_ENDPOINT || '';
 	return window.API_ENDPOINT || '';
 })();
 
@@ -34,7 +38,7 @@ const API_ENDPOINT = (() => {
  * @param  {Object} payload - description
  * @return {Promise}
  */
-export function sendAuth(payload) {
+export function sendAuth(payload: AuthRequest): Promise<AuthResponse> {
 	const REQUEST_PATH = `${API_ENDPOINT}/auth`;
 	const body = JSON.stringify(snakeCaseKeys(payload));
 
@@ -74,10 +78,10 @@ export function sendAuth(payload) {
  * GET /dummy-list
  *
 * @memberof module:app/services/api
- * @param  {Object} token - JWT token
+ * @param  {jwt} token - JWT token
  * @return {Promise}
  */
-export function getDummyList(token) {
+export function getDummyList(token: jwt): Promise<DummyListResponse> {
 	const REQUEST_PATH = `${API_ENDPOINT}/dummy-list`;
 
 	debug('getDummyList', { REQUEST_PATH });
