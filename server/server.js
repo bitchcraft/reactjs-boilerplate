@@ -1,3 +1,4 @@
+// @flow
 import Express from 'express';
 import exphbs from 'express-handlebars';
 import morgan from 'morgan';
@@ -9,16 +10,7 @@ import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
-
-let webpackDevMiddleware;
-let webpackHotMiddleware;
-
-if (process.env.NODE_ENV === 'development') {
-	webpackDevMiddleware = require('webpack-dev-middleware');
-	webpackHotMiddleware = require('webpack-hot-middleware');
-}
-
-import { handleAuth, handleDummyList } from './api';
+import api from './api';
 
 const { debug, trace, error } = new UnicornLogger('server:');
 /* eslint-disable no-console */
@@ -62,6 +54,8 @@ app.use(cors());
 
 // Use this middleware to set up hot module reloading via webpack.
 if (process.env.NODE_ENV === 'development' && process.env.WEBPACK_HOT === 'true') {
+	const webpackDevMiddleware = require('webpack-dev-middleware');
+	const webpackHotMiddleware = require('webpack-hot-middleware');
 	/* eslint-disable global-require */
 	const webpackConfig = require('../webpack.config');
 	/* eslint-enable global-require */
@@ -101,8 +95,8 @@ app.get('/', (req, res) => {
 
 app.options('*', cors());
 
-app.post('/auth', handleAuth);
-app.get('/dummy-list', handleDummyList);
+app.post('/auth', api.handleAuth);
+app.get('/dummy-list', api.handleDummyList);
 
 app.listen(port, (err) => {
 	if (err) {

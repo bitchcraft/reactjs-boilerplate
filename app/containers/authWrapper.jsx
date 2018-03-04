@@ -10,7 +10,8 @@ import { SK5 } from 'components/spinkit';
 
 import type { Map as ImmutableMap } from 'immutable';
 import type { Element as ReactElement } from 'react';
-
+import type { Dispatch } from 'redux';
+import type { AuthRequest } from 'server/api';
 
 const Loading = (props: { [string]: *, }) => (
 	<span
@@ -32,7 +33,7 @@ const Loading = (props: { [string]: *, }) => (
 );
 
 
-function authorize(dispatch, user) {
+function authorize(dispatch: Dispatch, user: AuthRequest) {
 	dispatch(auth(user));
 }
 
@@ -56,8 +57,8 @@ const AuthWrapper = ({
 }: Props): ReactElement<*> => {
 
 	if (loading) return <Loading />;
-	if (fail) return <SignIn onSubmit={payload => authorize(dispatch, payload)} />;
-	if (reauth) authorize(dispatch, user);
+	if (fail) return <SignIn onSubmit={payload => authorize(dispatch, (payload: AuthRequest))} />;
+	if (reauth) authorize(dispatch, user.toJS());
 
 	return (
 		<span

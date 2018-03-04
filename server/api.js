@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import uuid from 'uuid/v4';
 import Logger from '@bitchcraft/unicorn-logger';
 
+import type { Request, Response } from 'express';
+
 /* eslint-disable no-unused-vars */
 const { debug, error } = new Logger('server:api');
 /* eslint-enable no-unused-vars */
@@ -14,16 +16,17 @@ const TOKEN_EXPIRY_IN_SECONDS = 60;
  * @public
  * @module server/api
  */
-// TODO revise this when fixing flow errors in this file
+
 export type User = {
 	admin: boolean,
 	id: uuid,
-	login: string,
+	login?: string,
 };
 
 export type AuthRequest = {
 	id?: uuid,
 	login?: string,
+	secret: string,
 };
 
 export type AuthResponse = {
@@ -44,9 +47,9 @@ export type DummyListResponse = Array<uuid>;
  * @return {JSONObject} response
  */
 
-const handleAuth = (req, res) => {
+const handleAuth = (req: Request, res: Response) => {
 	const reqBody = req.body || {};
-	const user = {
+	const user: User = {
 		admin: false,
 		id: reqBody.id || uuid(),
 	};
@@ -80,7 +83,7 @@ const handleAuth = (req, res) => {
  * @return {JSONObject} response
  */
 
-const handleDummyList = (req, res) => {
+const handleDummyList = (req: Request, res: Response) => {
 	const token = req.get('X-Token');
 	let valid = false;
 
