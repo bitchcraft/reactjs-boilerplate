@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
 
+const getWebpackVersion = require('./build-tools/getWebpackVersion');
+
 const config = {
 	context: path.resolve(__dirname),
 	entry: {
@@ -108,8 +110,11 @@ const config = {
 	},
 }
 
+if (getWebpackVersion() >= 4) {
+	config.mode = process.env.NODE_ENV;
+}
+
 if (process.env.NODE_ENV === 'development') {
-	config.mode = 'development';
 	config.devtool = 'cheap-module-eval-source-map';//'inline-source-map';
 	config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 	config.entry['app'].unshift('eventsource-polyfill', 'webpack-hot-middleware/client');
@@ -130,7 +135,6 @@ if (process.env.NODE_ENV === 'development') {
 	);
 
 } else if (process.env.NODE_ENV === 'production') {
-	config.mode = 'production';
 	// uglify
 	config.plugins.push(
 		new webpack.optimize.UglifyJsPlugin({ cache: true })
