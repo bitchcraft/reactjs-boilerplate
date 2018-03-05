@@ -23,7 +23,7 @@
  * }
  * ```
  */
-import keyconst from '@bitchcraft/keyconst/src/keyconst';
+import keyconst from '@bitchcraft/keyconst';
 
 const Actions = keyconst([
 	'AUTH_LOADING',
