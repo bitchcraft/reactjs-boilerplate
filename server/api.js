@@ -24,8 +24,7 @@ export type User = {
 };
 
 export type AuthRequest = {
-	id?: uuid,
-	login?: string,
+	login: string,
 	secret: string,
 };
 
