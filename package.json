@@ -60,6 +60,7 @@
 		"sass-loader": "^6.0.7",
 		"thread-loader": "^1.1.5",
 		"url-loader": "^1.0.1",
+		"webpack-cli": "^2.0.10",
 		"webpack-hot-middleware": "^2.21.2"
 	},
 	"jest": {
