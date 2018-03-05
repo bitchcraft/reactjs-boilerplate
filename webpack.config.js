@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
 
 const getWebpackVersion = require('./build-tools/getWebpackVersion');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
 	context: path.resolve(__dirname),
@@ -136,9 +137,9 @@ if (process.env.NODE_ENV === 'development') {
 
 } else if (process.env.NODE_ENV === 'production') {
 	// uglify
-	config.plugins.push(
-		new webpack.optimize.UglifyJsPlugin({ cache: true })
-	);
+	config.optimization = {
+		minimizer: [ new UglifyJsPlugin({ cache: true }) ]
+	};
 }
 
 module.exports = config;
