@@ -54,6 +54,17 @@ const config = {
 			}, {
 				test: /\.scsshbs$/,
 				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					},
 					'cache-loader',
 					'handlebars-loader',
 					'css-prehandlebars-loader',
