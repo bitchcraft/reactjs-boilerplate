@@ -99,12 +99,12 @@
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",
 		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
-		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress",
+		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack --progress",
 		"render-template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "nodemon --config nodemon.json --exec yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {
