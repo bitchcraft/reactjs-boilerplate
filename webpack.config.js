@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
 
-const getWebpackVersion = require('./build-tools/getWebpackVersion');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
@@ -111,9 +110,7 @@ const config = {
 	},
 }
 
-if (getWebpackVersion() >= 4) {
-	config.mode = process.env.NODE_ENV;
-}
+config.mode = process.env.NODE_ENV;
 
 if (process.env.NODE_ENV === 'development') {
 	config.devtool = 'cheap-module-eval-source-map';//'inline-source-map';
