@@ -19,6 +19,6 @@
 	},
 	"dependencies": {
 		"@bitchcraft/ocake": "^1.0.2",
-		"@bitchcraft/unicorn-logger": "^1.0.1"
+		"@bitchcraft/unicorn-logger": "^1.1.1"
 	}
 }

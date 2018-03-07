@@ -3,7 +3,7 @@
 	"version": "0.2.0",
 	"dependencies": {
 		"@bitchcraft/keyconst": "^1.0.1",
-		"@bitchcraft/unicorn-logger": "^1.0.1",
+		"@bitchcraft/unicorn-logger": "^1.1.1",
 		"uuid": "^3.2.1"
 	},
 	"devDependencies": {
