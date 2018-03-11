@@ -96,7 +96,7 @@
 		"flow": "flow",
 		"test": "jest",
 		"lint": "eslint --cache --format=eslint-formatter-pretty .",
-		"dev-server": "webpack-dashboard -- cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=server:* node --max_old_space_size=4096 server/index.js",
+		"dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=server:* node --max_old_space_size=4096 server/index.js",
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",
 		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
@@ -105,7 +105,7 @@
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "nodemon -I --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "webpack-dashboard -- nodemon -I --config nodemon.json --exec yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {
