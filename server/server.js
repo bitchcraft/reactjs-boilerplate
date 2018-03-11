@@ -12,6 +12,8 @@ import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 import api from './api';
 
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
 const { debug, trace, error } = new UnicornLogger('server:');
 /* eslint-disable no-console */
 trace.log = console.trace.bind(console);
@@ -61,6 +63,7 @@ if (process.env.NODE_ENV === 'development' && process.env.WEBPACK_HOT === 'true'
 	/* eslint-enable global-require */
 	debug('Including webpack dev middleware');
 	const compiler = webpack(webpackConfig);
+	compiler.apply(new DashboardPlugin());
 	app.use(webpackDevMiddleware(compiler, {
 		noInfo: true,
 		publicPath: webpackConfig.output.publicPath,
