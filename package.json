@@ -105,7 +105,7 @@
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "webpack-dashboard -- nodemon -I --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "webpack-dashboard -- nodemon --config nodemon.json --exec yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {
