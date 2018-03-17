@@ -1,7 +1,8 @@
 import React from 'react';
-import inject from 'tools/injectStyles';
+import { withInjector } from '@bitchcraft/injector';
 import stylesheet from './5.scsshbs';
 import { compose, onlyUpdateForKeys } from 'recompose';
+
 
 /**
  * SpinKit 5
@@ -15,7 +16,7 @@ const style = () => ({
 
 const enhance = compose(
 	onlyUpdateForKeys([ '' ]),
-	inject(stylesheet, style),
+	withInjector(stylesheet, style, { displayName: 'SpinKit5' }),
 );
 
 export default enhance(SKFive);

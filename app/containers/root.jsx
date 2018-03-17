@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import inject from 'tools/injectStyles';
+import { withInjector } from '@bitchcraft/injector';
 import stylesheet from './root.scsshbs';
 
 import type { Element as ReactElement } from 'react';
@@ -23,10 +23,12 @@ const RootContainer = ({ children }: { children: ReactElement<*>, }) => (
 	</span>
 );
 
+RootContainer.displayName = 'RootContainer';
+
 const styles = t => ({
 	background: {
 		color: '#F0F0F0',
 	},
 });
 
-export default inject(stylesheet, styles, { theme: {} })(RootContainer);
+export default withInjector(stylesheet, styles)(RootContainer);
