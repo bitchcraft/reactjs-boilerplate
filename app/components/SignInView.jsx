@@ -4,7 +4,6 @@ import React, { PureComponent } from 'react';
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import $ from 'jquery';
 
 type Props = {
 	/** on Submit callback `({ login: string, secret: string, }) => void` */
@@ -98,17 +97,15 @@ class SignInView extends PureComponent<Props> {
 	handleLoginFieldRef = (r: ?TextField) => {
 		this.loginField = r;
 		if (!r || !r.input) return;
-		$(r.input)
-			.off('keyup', this.handleKeyUpForLoginField)
-			.on('keyup', this.handleKeyUpForLoginField);
+		r.input.removeEventListener('keyup', this.handleKeyUpForLoginField);
+		r.input.addEventListener('keyup', this.handleKeyUpForLoginField);
 	}
 
 	handlePasswordFieldRef = (r: ?TextField) => {
 		this.passwordField = r;
 		if (!r || !r.input) return;
-		$(r.input)
-			.off('keyup', this.handleKeyUpForPasswordField)
-			.on('keyup', this.handleKeyUpForPasswordField);
+		r.input.removeEventListener('keyup', this.handleKeyUpForPasswordField);
+		r.input.addEventListener('keyup', this.handleKeyUpForPasswordField);
 	}
 }
 
