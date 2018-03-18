@@ -2,6 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
 const { InjectorWebpackConfig } = require('@bitchcraft/injector');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 
 const config = {
 	context: path.resolve(__dirname),
@@ -24,6 +26,11 @@ const config = {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
 				API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
 			}
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				handlebarsLoader: {}
+			},
 		}),
 	],
 	module: {
@@ -89,6 +96,8 @@ const config = {
 	},
 }
 
+config.mode = process.env.NODE_ENV;
+
 if (process.env.NODE_ENV === 'development') {
 	config.devtool = 'cheap-module-eval-source-map';//'inline-source-map';
 	config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
@@ -111,9 +120,9 @@ if (process.env.NODE_ENV === 'development') {
 
 } else if (process.env.NODE_ENV === 'production') {
 	// uglify
-	config.plugins.push(
-		new webpack.optimize.UglifyJsPlugin({ cache: true })
-	);
+	config.optimization = {
+		minimizer: [ new UglifyJsPlugin({ cache: true }) ]
+	};
 }
 
 module.exports = config;
