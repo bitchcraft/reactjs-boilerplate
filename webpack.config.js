@@ -2,8 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
 const { InjectorWebpackConfig } = require('@bitchcraft/injector');
-
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 
 const config = {
 	context: path.resolve(__dirname),
