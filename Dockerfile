@@ -10,8 +10,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy dependencies manifests
-COPY package.json /usr/src/client/
-COPY yarn.lock /usr/src/client/
+COPY package.json /usr/src/app/
+COPY yarn.lock /usr/src/app/
 
 
 # ----- Create App Bundle -----
@@ -36,10 +36,10 @@ from base
 ENV NODE_ENV=production
 
 # Add bundle and server
-COPY .babelrc /usr/src/client/
-COPY --from=bundler /usr/src/client/build/* /usr/src/client/static/
-COPY ./common /usr/src/client/common
-COPY ./server /usr/src/client/server
+COPY .babelrc /usr/src/app/
+COPY --from=bundler /usr/src/app/build/* /usr/src/app/static/
+COPY ./common /usr/src/app/common
+COPY ./server /usr/src/app/server
 
 # Install app dependencies
 RUN yarn install --production
