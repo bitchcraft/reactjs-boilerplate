@@ -18,7 +18,7 @@
                 "containers": "./client/containers",
                 "server": "./server",
                 "services": "./client/services",
-                "typedef": "./client/flow"
+                "typedef": "./client/typedef"
             }
         } ]
     ],

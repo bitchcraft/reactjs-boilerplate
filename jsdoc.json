@@ -4,9 +4,7 @@
     },
     "source": {
         "include": [
-					"./app",
-					"./common/constants",
-					"./common/tools",
+					"./client",
 					"./server"
 				],
         "includePattern": ".+\\.js?$",

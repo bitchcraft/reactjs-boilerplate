@@ -6,10 +6,10 @@ const { rules } = webpackConfig.module;
 
 module.exports = {
 	assetsDir: 'static/',
-	components: 'app/{components,containers}/**/*.{js,jsx}',
+	components: 'client/{components,containers}/**/*.{js,jsx}',
 	getComponentPathLine(componentPath) {
 		const name = path.basename(componentPath, '.jsx');
-		const dir = path.dirname(componentPath).replace('app/', '');
+		const dir = path.dirname(componentPath).replace('client/', '');
 		return `import ${name} from '${dir}/${name}';`;
 	},
 	getExampleFilename(componentPath) {
@@ -18,16 +18,16 @@ module.exports = {
 	sections: [
 		{
 			name: 'UI Components',
-			components: 'app/components/**/*.jsx',
+			components: 'client/components/**/*.jsx',
 		},
 		{
 			name: 'UI Containers',
-			components: 'app/containers/**/*.jsx',
+			components: 'client/containers/**/*.jsx',
 		},
 	],
 	showUsage: true,
 	styleguideComponents: {
-		Wrapper: path.join(__dirname, 'app/styleguidist/StyleguidistMuiWrapper'),
+		Wrapper: path.join(__dirname, 'client/styleguidist/StyleguidistMuiWrapper'),
 	},
 	skipComponentsWithoutExample: true,
 	webpackConfig: {

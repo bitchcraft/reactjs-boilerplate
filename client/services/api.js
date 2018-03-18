@@ -4,7 +4,7 @@
  * import ApiService from 'services/api';
  * ```
  * @public
- * @module app/services/api
+ * @module client/services/api
  * @requires npm:@bitchcraft/ocake
  * @requires npm:@bitchcraft/unicorn-logger
  */
@@ -29,7 +29,7 @@ const API_ENDPOINT = ((): string => {
  *
  * GET /auth
  *
- * @memberof module:app/services/api
+ * @memberof module:client/services/api
  * @param  {Object} payload - description
  * @return {Promise}
  */
@@ -72,7 +72,7 @@ export function sendAuth(payload: AuthRequest): Promise<AuthResponse> {
  *
  * GET /dummy-list
  *
-* @memberof module:app/services/api
+* @memberof module:client/services/api
  * @param  {jwt} token - JWT token
  * @return {Promise}
  */

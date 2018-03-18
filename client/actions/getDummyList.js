@@ -3,7 +3,7 @@ import Actions from 'constants/actions';
 
 import { getDummyList } from 'services/api';
 
-import type { FluxStandardAction } from 'common/flow/FluxStandardAction';
+import type { FluxStandardAction } from 'typedef/FluxStandardAction';
 import type { DummyListResponse } from 'server/api';
 import type { Dispatch, Store } from 'redux';
 
@@ -18,7 +18,7 @@ export type DummyListActions = DummyListActionSuccess | DummyListActionLoading;
  *
  * dummyList action call
  *
- * @memberof module:app/actions
+ * @memberof module:client/actions
  * @param  {Object} payload
  * @return {Promise}
  * @requires constants/actions

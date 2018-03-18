@@ -6,9 +6,9 @@ import type { Map as ImmutableMap } from 'immutable';
 import type { AuthActions } from 'actions/auth';
 
 /**
- * loading app/reducer
+ * loading client/reducer
  * @public
- * @memberof module:app/reducers
+ * @memberof module:client/reducers
  * @param  {ImmutableMap} state -
  * ```js
  * {

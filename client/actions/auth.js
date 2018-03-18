@@ -22,7 +22,7 @@ export type AuthActions = AuthActionLoading | AuthActionSuccess | AuthActionFail
  *
  * auth action call
  *
- * @memberof module:app/actions
+ * @memberof module:client/actions
  * @param  {AuthRequest} payload
  * @return {Promise}
  * @requires constants/actions

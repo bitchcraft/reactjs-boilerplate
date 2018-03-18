@@ -6,7 +6,7 @@ import dummyList from './dummyList';
  * import reducers from '../reducers';
  * ```
  * @public
- * @module app/reducers
+ * @module client/reducers
  */
 const reducers = {
 	app,
