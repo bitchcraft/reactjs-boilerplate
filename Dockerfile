@@ -38,7 +38,6 @@ ENV NODE_ENV=production
 # Add bundle and server
 COPY .babelrc /usr/src/app/
 COPY --from=bundler /usr/src/app/build/* /usr/src/app/static/
-COPY ./common /usr/src/app/common
 COPY ./server /usr/src/app/server
 
 # Install app dependencies
