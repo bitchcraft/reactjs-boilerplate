@@ -18,7 +18,7 @@ COPY yarn.lock /usr/src/app/
 from base as bundler
 
 # Add additional native deps required for build
-RUN apk add python
+RUN apk add python make g++
 
 # Install app dependencies
 RUN yarn install
