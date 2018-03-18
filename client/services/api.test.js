@@ -56,10 +56,6 @@ describe('API using Promises', () => {
 		expect(promiseResponse.id).toBe('123');
 		expect(serverResponse).toBeDefined();
 		expect(serverResponse.body.token).toBeDefined();
-
-		/* eslint-disable no-console */
-		console.log('sendAuth/handleAuth token - ' + serverResponse.body.token);
-		/* eslint-enable no-console */
 	});
 
 	it('getDummyList/handleDummyList', async function() {
@@ -75,10 +71,6 @@ describe('API using Promises', () => {
 		expect(promiseResponse.id).toBe('123');
 		expect(serverResponse).toBeDefined();
 		expect(serverResponse.body).toBeDefined();
-
-		/* eslint-disable no-console */
-		console.log('getDummyList/handleDummyList dummyList - ' + serverResponse.body);
-		/* eslint-enable no-console */
 	});
 });
 

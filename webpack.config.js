@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const JsDocPlugin = require('jsdoc-webpack-plugin');
+const { InjectorWebpackConfig } = require('@bitchcraft/injector');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -8,7 +9,7 @@ const config = {
 	context: path.resolve(__dirname),
 	entry: {
 		app: [
-			'./app/index.js',
+			'./client/index.js',
 		],
 	},
 	output: {
@@ -25,6 +26,11 @@ const config = {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
 				API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
 			}
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				handlebarsLoader: {}
+			},
 		}),
 	],
 	module: {
@@ -51,26 +57,6 @@ const config = {
 						plugins: [],
 					},
 				}],
-			}, {
-				test: /\.scsshbs$/,
-				use: [
-					{
-					loader: 'thread-loader',
-					options: {
-							workers: 4,
-							workerParallelJobs: 50,
-							workerNodeArgs: ['--max-old-space-size=4096'],
-							poolTimeout: 2000,
-							poolParallelJobs: 50,
-							name: "threadloaderpool"
-						}
-					},
-					'cache-loader',
-					'handlebars-loader',
-					'css-prehandlebars-loader',
-					'postcss-loader',
-					'sass-loader',
-				],
 			}, {
 				test: /\.(ttf|eot|svg|woff(2))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				use: [
@@ -100,13 +86,13 @@ const config = {
 						}
 					}, 'cache-loader', 'url-loader?limit=8192']
 			}
-		]
+		].concat(InjectorWebpackConfig.rules),
 	},
 	resolve: {
 		extensions: [ '.js', '.jsx', '.json' ],
 	},
 	resolveLoader: {
-		modules: [ 'node_modules', 'build-tools/webpack-loaders' ],
+		modules: [ 'node_modules', InjectorWebpackConfig.resolveLoader.modules[0] ],
 	},
 }
 

@@ -9,7 +9,7 @@ import type { DummyListActions } from 'actions/getDummyList';
 /**
  * dummyList reducer
  * @public
- * @memberof module:app/reducers
+ * @memberof module:client/reducers
  * @param  {ImmutableMap} state -
  * ```js
  * {

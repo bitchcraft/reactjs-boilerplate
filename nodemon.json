@@ -10,8 +10,7 @@
     "restart": "echo 'nodemon -> App restarted.'"
   },
   "watch": [
-    "./server/",
-    "./common/"
+    "./server/"
   ],
   "ext": "js json"
 }

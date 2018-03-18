@@ -5,8 +5,7 @@
 	"description": "",
 	"license": "BSD-3-Clause",
 	"workspaces": [
-		"app",
-		"common",
+		"client",
 		"server"
 	],
 	"dependencies": {
@@ -43,8 +42,10 @@
 		"eventsource-polyfill": "^0.9.6",
 		"expect": "^22.4.0",
 		"fetch-mock": "^6.0.1",
+		"file-loader": "^1.1.11",
 		"flow-bin": "^0.66.0",
-		"handlebars-loader": "github:zGrav/handlebars-loader",
+		"handlebars": "^4.0.11",
+		"handlebars-loader": "^1.2.0",
 		"hbs-cli": "^1.1.1",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^22.4.2",
@@ -52,16 +53,18 @@
 		"jsdoc": "^3.5.5",
 		"jsdoc-babel": "^0.4.0",
 		"jsdoc-webpack-plugin": "^0.0.2",
+		"less-loader": "^4.1.0",
 		"mkdirp": "^0.5.1",
 		"node-sass": "^4.7.2",
 		"nodemon": "^1.17.1",
-		"postcss-loader": "^2.1.1",
+		"postcss-loader": "^2.1.2",
 		"react-transform-hmr": "^1.0.1",
 		"sass-loader": "^6.0.7",
 		"thread-loader": "^1.1.5",
 		"uglifyjs-webpack-plugin": "^1.2.2",
 		"url-loader": "^1.0.1",
 		"webpack-cli": "^2.0.10",
+		"webpack-dashboard": "^1.1.1",
 		"webpack-hot-middleware": "^2.21.2"
 	},
 	"jest": {
@@ -102,12 +105,12 @@
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",
 		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
-		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress",
+		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack --progress",
 		"render-template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "./node_modules/nodemon/bin/nodemon.js --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "webpack-dashboard -- nodemon --config nodemon.json --exec yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {

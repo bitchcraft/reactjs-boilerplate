@@ -3,7 +3,7 @@ import Actions from 'constants/actions';
 
 import { sendAuth } from 'services/api';
 
-import type { FluxStandardAction } from 'common/flow/FluxStandardAction';
+import type { FluxStandardAction } from 'typedef/FluxStandardAction';
 import type jwt from 'jsonwebtoken';
 import type { AuthRequest, User } from 'server/api';
 import type { Dispatch, Store } from 'redux';
@@ -22,7 +22,7 @@ export type AuthActions = AuthActionLoading | AuthActionSuccess | AuthActionFail
  *
  * auth action call
  *
- * @memberof module:app/actions
+ * @memberof module:client/actions
  * @param  {AuthRequest} payload
  * @return {Promise}
  * @requires constants/actions
