@@ -3,7 +3,7 @@
         "env",
         "stage-0",
         "react",
-        "flow",
+        "flow"
     ],
     "plugins": [
         "add-module-exports",
@@ -11,14 +11,14 @@
         [ "module-resolver", {
             "root": [ "./" ],
             "alias": {
-                "actions": "./app/actions",
-                "app": "./app",
-                "components": "./app/components",
-                "constants": "./common/constants",
-                "containers": "./app/containers",
+                "actions": "./client/actions",
+                "app": "./client",
+                "components": "./client/components",
+                "constants": "./client/constants",
+                "containers": "./client/containers",
                 "server": "./server",
-                "services": "./app/services",
-                "tools": "./common/tools"
+                "services": "./client/services",
+                "typedef": "./client/flow"
             }
         } ]
     ],

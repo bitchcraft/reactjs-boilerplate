@@ -5,8 +5,7 @@
 	"description": "",
 	"license": "BSD-3-Clause",
 	"workspaces": [
-		"app",
-		"common",
+		"client",
 		"server"
 	],
 	"dependencies": {

@@ -1,8 +1,0 @@
-{
-	"name": "common",
-	"version": "0.2.0",
-	"dependencies": {
-		"@bitchcraft/keyconst": "^1.0.1"
-	},
-	"devDependencies": {}
-}

@@ -7,7 +7,7 @@ const config = {
 	context: path.resolve(__dirname),
 	entry: {
 		app: [
-			'./app/index.js',
+			'./client/index.js',
 		],
 	},
 	output: {

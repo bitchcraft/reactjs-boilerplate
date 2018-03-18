@@ -19,6 +19,7 @@
 	},
 	"dependencies": {
 		"@bitchcraft/injector": "^1.0.1",
+		"@bitchcraft/keyconst": "^1.0.1",
 		"@bitchcraft/ocake": "^1.0.2",
 		"@bitchcraft/unicorn-logger": "^1.0.0"
 	}

@@ -3,7 +3,7 @@ import Actions from 'constants/actions';
 
 import { sendAuth } from 'services/api';
 
-import type { FluxStandardAction } from 'common/flow/FluxStandardAction';
+import type { FluxStandardAction } from 'typedef/FluxStandardAction';
 import type jwt from 'jsonwebtoken';
 import type { AuthRequest, User } from 'server/api';
 import type { Dispatch, Store } from 'redux';
