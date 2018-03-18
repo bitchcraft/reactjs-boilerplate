@@ -12,8 +12,6 @@ import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 import api from './api';
 
-const DashboardPlugin = require('webpack-dashboard/plugin');
-
 const { debug, error } = new UnicornLogger('server:');
 
 const app = new Express();
@@ -54,6 +52,7 @@ app.use(cors());
 if (process.env.NODE_ENV === 'development' && process.env.WEBPACK_HOT === 'true') {
 	const webpackDevMiddleware = require('webpack-dev-middleware');
 	const webpackHotMiddleware = require('webpack-hot-middleware');
+	const DashboardPlugin = require('webpack-dashboard/plugin');
 	const webpackConfig = require('../webpack.config');
 	debug('Including webpack dev middleware');
 	const compiler = webpack(webpackConfig);
