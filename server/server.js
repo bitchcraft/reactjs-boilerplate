@@ -10,27 +10,28 @@ import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
+
+import { notFoundHandler } from 'server/handlers';
 import api from './api';
 
-const { debug, error } = new UnicornLogger('server:');
-
-const app = new Express();
-const port = 3000;
-
-// needed to determine real client IP
-app.enable('trust proxy');
-
-// use gzip
-app.use(compress());
-
-// logging middleware
-const format = ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] - :response-time ms ":referrer" ":user-agent"';
-
-const logger = morgan(format, {
-	skip: function(req, res) { return res.statusCode < 400; },
+// create console loggers
+const logger = new UnicornLogger('server:');
+const webpackLogger = new UnicornLogger('webpack:dev:');
+const webpackHotLogger = new UnicornLogger('webpack:hot:', {
+	cleaner: args => (args && args.length === 1 && Array.isArray(args[0]) ? args[0] : args),
 });
 
-app.use(logger);
+// create Express app
+const app = new Express();
+const port = process.env.BUNDLE_SERVER_PORT || 3000;
+app.enable('trust proxy'); // needed to determine real client IP
+app.use(compress()); // use gzip
+
+// http request logging middleware
+const format = process.env.NODE_ENV === 'production'
+	? 'combined' // Standard Apache combined log output.
+	: 'dev'; // Concise output colored by response status for development use.
+app.use(morgan(format));
 
 // enable security middlewares
 app.use(helmet.xssFilter());
@@ -52,22 +53,24 @@ app.use(cors());
 if (process.env.NODE_ENV === 'development' && process.env.WEBPACK_HOT === 'true') {
 	const webpackDevMiddleware = require('webpack-dev-middleware');
 	const webpackHotMiddleware = require('webpack-hot-middleware');
-	const DashboardPlugin = require('webpack-dashboard/plugin');
 	const webpackConfig = require('../webpack.config');
-	debug('Including webpack dev middleware');
+	logger.debug('Including webpack dev middleware');
 	const compiler = webpack(webpackConfig);
-	compiler.apply(new DashboardPlugin());
 	app.use(webpackDevMiddleware(compiler, {
+		logger: webpackLogger,
+		logLevel: 'info',
 		noInfo: true,
 		publicPath: webpackConfig.output.publicPath,
+		stats: {
+			colors: true,
+		},
 	}));
-	app.use(webpackHotMiddleware(compiler));
+	app.use(webpackHotMiddleware(compiler, {
+		log: webpackHotLogger,
+	}));
 }
 
-const notFoundHandler = (req, res) => {
-	res.status(404).send('404 - File not found');
-};
-
+app.use('/docs', Express.static('docs'), notFoundHandler);
 app.use('/static', cache(60 * 60 * 24 * 7), Express.static('static'), notFoundHandler);
 app.use('/node_modules', cache(60 * 60 * 24 * 7), Express.static('node_modules'), notFoundHandler);
 app.use('/.well-known', cache(60 * 60 * 24 * 7), Express.static('assetlinks'), notFoundHandler);
@@ -95,10 +98,9 @@ app.get('/dummy-list', api.handleDummyList);
 // start listening for requests
 app.listen(port, (err) => {
 	if (err) {
-		error(err);
+		logger.error(err);
 	} else {
-		/* eslint-disable no-console */
-		console.info(`==> 🌎  Listening on port ${port}. Open up http://localhost:${port}/ in your browser.`);
-		/* eslint-enable no-console */
+		logger.info(`🌎  Listening on port ${port}. Open up http://localhost:${port}/ in your browser.`);
+		logger.info(`ℹ️  Docs and README: http://localhost:${port}/docs`);
 	}
 });

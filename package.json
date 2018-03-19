@@ -65,7 +65,6 @@
 		"uglifyjs-webpack-plugin": "^1.2.2",
 		"url-loader": "^1.0.1",
 		"webpack-cli": "^2.0.10",
-		"webpack-dashboard": "^1.1.1",
 		"webpack-hot-middleware": "^2.21.2"
 	},
 	"jest": {
@@ -96,13 +95,14 @@
 	},
 	"config": {
 		"hostname": "localhost",
+		"logpath": "server:*,webpack:*,-webpack:dev:*",
 		"port": 3000
 	},
 	"scripts": {
 		"flow": "flow",
 		"test": "jest",
 		"lint": "eslint --cache --format=eslint-formatter-pretty .",
-		"dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=server:* node --max_old_space_size=4096 server/index.js",
+		"dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=$npm_package_config_logpath node --max_old_space_size=4096 server/index.js",
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",
 		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
@@ -111,7 +111,7 @@
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "webpack-dashboard -- nodemon --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "nodemon --config nodemon.json --exec yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {
