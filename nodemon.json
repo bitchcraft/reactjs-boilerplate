@@ -5,7 +5,7 @@
     "node_modules/**/node_modules",
     "package.json"
   ],
-  "verbose": true,
+  "verbose": false,
   "events": {
     "restart": "echo 'nodemon -> App restarted.'"
   },
