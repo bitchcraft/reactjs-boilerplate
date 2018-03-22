@@ -4,12 +4,9 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import compress from 'compression';
-import cache from 'express-cache-headers';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
-
-import { notFoundHandler } from 'api-server/handlers';
 
 import api from './api';
 
@@ -42,11 +39,6 @@ app.use(bodyParser.json());
 
 // cors
 app.use(cors());
-
-app.use('/docs', Express.static('docs'), notFoundHandler);
-app.use('/static', cache(60 * 60 * 24 * 7), Express.static('static'), notFoundHandler);
-app.use('/node_modules', cache(60 * 60 * 24 * 7), Express.static('node_modules'), notFoundHandler);
-app.use('/.well-known', cache(60 * 60 * 24 * 7), Express.static('assetlinks'), notFoundHandler);
 
 // do not cache views for development builds
 app.set('view cache', process.env.NODE_ENV !== 'development');
