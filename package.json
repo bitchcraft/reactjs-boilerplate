@@ -100,6 +100,7 @@
 		"port": 3001
 	},
 	"scripts": {
+		"api-server": "cross-env NODE_ENV=development DEBUG=$npm_package_config_logpath node --max_old_space_size=4096 api-server/index.js",
 		"flow": "flow",
 		"test": "jest",
 		"lint": "eslint --cache --format=eslint-formatter-pretty .",
@@ -112,7 +113,7 @@
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "nodemon --config nodemon.json --exec yarn run dev-server",
+		"nodemon": "nodemon --config nodemon.json --exec yarn run api-server & yarn run dev-server",
 		"jsdoc": "jsdoc -c jsdoc.json"
 	},
 	"author": {
