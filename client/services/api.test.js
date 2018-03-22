@@ -4,7 +4,7 @@ require('isomorphic-fetch');
 const assert = require('assert');
 
 const serviceApi = require('services/api');
-const serverApi = require('server/api');
+const serverApi = require('api-server/api');
 
 const serverResponse = new Response(new Blob(), { });
 

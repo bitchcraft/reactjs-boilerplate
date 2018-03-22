@@ -5,6 +5,7 @@
 	"description": "",
 	"license": "BSD-3-Clause",
 	"workspaces": [
+		"api-server",
 		"client",
 		"server"
 	],
@@ -95,8 +96,8 @@
 	},
 	"config": {
 		"hostname": "localhost",
-		"logpath": "server:*,webpack:*,-webpack:dev:*",
-		"port": 3000
+		"logpath": "api-server:*,server:*,webpack:*,-webpack:dev:*",
+		"port": 3001
 	},
 	"scripts": {
 		"flow": "flow",

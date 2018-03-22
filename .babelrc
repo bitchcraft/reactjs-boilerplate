@@ -11,6 +11,7 @@
         [ "module-resolver", {
             "root": [ "./" ],
             "alias": {
+                "api-server": "./api-server",
                 "actions": "./client/actions",
                 "app": "./client",
                 "components": "./client/components",
