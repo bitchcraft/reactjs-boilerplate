@@ -8,4 +8,5 @@
 [options]
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=client
+module.system.node.resolve_dirname=client/typedef
 module.name_mapper.extension='scsshbs' -> '<PROJECT_ROOT>/client/typedef/SCSSModuleStub.js'
