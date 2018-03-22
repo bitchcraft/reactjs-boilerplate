@@ -23,6 +23,13 @@ module.exports = {
         "mocha": true,
         "es6": true
     },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["client"]
+        }
+      }
+    },
     "rules": {
         "arrow-body-style": 0,
         "array-bracket-spacing": [0, "always"],
