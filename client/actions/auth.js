@@ -3,6 +3,8 @@ import Actions from 'constants/actions';
 
 import { sendAuth } from 'services/api';
 
+import { Map as immutableMap } from 'immutable';
+
 import type { FluxStandardAction } from 'typedef/FluxStandardAction';
 import type jwt from 'jsonwebtoken';
 import type { AuthRequest, User } from 'api-server/api';
@@ -35,7 +37,7 @@ function auth(payload: AuthRequest) {
 			.then((p) => {
 				dispatch({
 					type: Actions.SET_USER,
-					payload: Object.assign({}, payload, p.user),
+					payload: immutableMap(Object.assign({}, payload, p.user)),
 				});
 
 				dispatch({
