@@ -91,8 +91,6 @@ app.get('/', (req, res) => {
 
 app.options('*', cors());
 
-require('api-server');
-
 // start listening for requests
 app.listen(port, (err) => {
 	if (err) {
