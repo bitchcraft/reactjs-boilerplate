@@ -11,7 +11,7 @@ import { SK5 } from 'components/spinkit';
 import type { Map as ImmutableMap } from 'immutable';
 import type { Element as ReactElement } from 'react';
 import type { Dispatch } from 'redux';
-import type { AuthRequest } from 'server/api';
+import type { AuthRequest } from 'api-server/api';
 
 const Loading = (props: { [string]: *, }) => (
 	<span

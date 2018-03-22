@@ -5,7 +5,7 @@ import { sendAuth } from 'services/api';
 
 import type { FluxStandardAction } from 'typedef/FluxStandardAction';
 import type jwt from 'jsonwebtoken';
-import type { AuthRequest, User } from 'server/api';
+import type { AuthRequest, User } from 'api-server/api';
 import type { Dispatch, Store } from 'redux';
 
 export type AuthActionLoading = FluxStandardAction<>;
