@@ -9,7 +9,7 @@
 		"react-dom": "^16.2.0",
 		"react-redux": "^5.0.7",
 		"react-router-dom": "^4.2.2",
-		"react-styleguidist": "^6.2.7",
+		"react-styleguidist": "^6.5.2",
 		"react-tap-event-plugin": "^3.0.2",
 		"react-transition-group": "^2.2.1",
 		"recompose": "^0.26.0",
