@@ -3,11 +3,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import getDummyList from 'actions/getDummyList';
-import { List, ListItem } from 'material-ui/List';
+import List, { ListItemAvatar, ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Avatar from 'material-ui/Avatar';
-import * as Icons from 'material-ui/svg-icons';
-import * as Colors from 'material-ui/styles/colors';
+import * as Icons from 'material-ui-icons';
+import * as Colors from 'material-ui/colors';
 import { SK5 } from 'components/spinkit';
 
 import type { List as ImmutableList } from 'immutable';
@@ -50,23 +50,32 @@ class DummyListView extends PureComponent<Props> {
 					style={{
 						width: '100%',
 					}}>
-					{items.toJS().map(v => (
-						<span
-							key={v}>
-							<ListItem
-								leftAvatar={
-									<Avatar
-										backgroundColor={ColorsAsArray[Math.floor(ColorsAsArray.length * Math.random())]}>
-										{React.createElement(
-											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
-											{ color: '#fff' }
-										)}
-									</Avatar>
-								}
-								primaryText={v} />
-							<Divider />
-						</span>
-					))}
+					{items.toJS().map((v) => {
+						const pickColor = ColorsAsArray[Math.floor(ColorsAsArray.length * Math.random())];
+						const getColor = pickColor[Object.keys(pickColor)[Math.floor(Math.random() * Object.keys(pickColor).length)]];
+
+						const avatarStyle = {
+							background: getColor,
+						};
+
+						return (
+							<span
+								key={v}>
+								<ListItem>
+									<ListItemAvatar>
+										<Avatar style={avatarStyle}>
+											{React.createElement(
+												IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
+												{ nativeColor: '#fff' }
+											)}
+										</Avatar>
+									</ListItemAvatar>
+									<ListItemText primary={v} />
+								</ListItem>
+								<Divider />
+							</span>
+						);
+					})}
 				</List>
 			</div>
 		);

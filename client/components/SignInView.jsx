@@ -1,15 +1,15 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 
 type Props = {
 	/** on Submit callback `({ login: string, secret: string, }) => void` */
 	onSubmit: ({ login: string, secret: string, }) => void,
 };
-
 
 /**
  * Example of an unmanaged form and third party dom manipulation lib integration
@@ -30,27 +30,29 @@ class SignInView extends PureComponent<Props> {
 					justifyContent: 'center',
 					width: '100%',
 				}}>
-				<Card
-					zDepth={1}>
-					<CardHeader
-						subtitle='Please enter your credentials'
-						title='Authentification' />
-					<CardText>
+				<Card elevation={1}>
+					<CardContent>
+						<Typography component='h1' gutterBottom variant='headline'>
+							Authentification
+						</Typography>
+						<Typography gutterBottom variant='subheading'>
+							Please enter your credentials
+						</Typography>
 						<TextField
-							ref={this.handleLoginFieldRef}
-							hintText='Login name' />
+							inputRef={this.handleLoginFieldRef}
+							placeholder='Login name' />
 						<br />
 						<TextField
-							ref={this.handlePasswordFieldRef}
-							hintText='Password'
+							inputRef={this.handlePasswordFieldRef}
+							placeholder='Password'
 							type='password' />
-					</CardText>
+					</CardContent>
 					<CardActions
 						style={{
 							textAlign: 'right',
 						}}>
-						<FlatButton label='Cancel' />
-						<FlatButton label='Submit' onTouchTap={this.onSubmit} primary />
+						<Button>Cancel</Button>
+						<Button color='primary' onTouchTap={this.onSubmit}>Submit</Button>
 					</CardActions>
 				</Card>
 			</span>
@@ -69,12 +71,12 @@ class SignInView extends PureComponent<Props> {
 		if (!this.loginField || !this.passwordField) return;
 
 		const payload = {
-			login: this.loginField.input.value,
-			secret: this.passwordField.input.value,
+			login: this.loginField.value,
+			secret: this.passwordField.value,
 		};
 
-		this.loginField.input.value = '';
-		this.passwordField.input.value = '';
+		this.loginField.value = '';
+		this.passwordField.value = '';
 
 		this.loginField.focus();
 
@@ -96,16 +98,16 @@ class SignInView extends PureComponent<Props> {
 
 	handleLoginFieldRef = (r: ?TextField) => {
 		this.loginField = r;
-		if (!r || !r.input) return;
-		r.input.removeEventListener('keyup', this.handleKeyUpForLoginField);
-		r.input.addEventListener('keyup', this.handleKeyUpForLoginField);
+		if (!r) return;
+		r.removeEventListener('keyup', this.handleKeyUpForLoginField);
+		r.addEventListener('keyup', this.handleKeyUpForLoginField);
 	}
 
 	handlePasswordFieldRef = (r: ?TextField) => {
 		this.passwordField = r;
-		if (!r || !r.input) return;
-		r.input.removeEventListener('keyup', this.handleKeyUpForPasswordField);
-		r.input.addEventListener('keyup', this.handleKeyUpForPasswordField);
+		if (!r) return;
+		r.removeEventListener('keyup', this.handleKeyUpForPasswordField);
+		r.addEventListener('keyup', this.handleKeyUpForPasswordField);
 	}
 }
 
