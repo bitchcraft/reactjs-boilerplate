@@ -55,7 +55,7 @@ class DummyListView extends PureComponent<Props> {
 						const getColor = pickColor[Object.keys(pickColor)[Math.floor(Math.random() * Object.keys(pickColor).length)]];
 
 						const avatarStyle = {
-							background: getColor,
+							backgroundColor: getColor,
 						};
 
 						return (
