@@ -106,7 +106,7 @@
 		"prestart": "yarn install && yarn run test",
 		"start": "yarn run nodemon",
 		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
-		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack --progress",
+		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack",
 		"render-template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
 		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
