@@ -23,7 +23,10 @@ app.use(compress()); // use gzip
 const format = process.env.NODE_ENV === 'production'
 	? 'combined' // Standard Apache combined log output.
 	: 'dev'; // Concise output colored by response status for development use.
-app.use(morgan(format));
+
+const winstonLogger = require('./winstonLogger');
+
+app.use(morgan(format, { stream: winstonLogger.stream }));
 
 // enable security middlewares
 app.use(helmet.xssFilter());
