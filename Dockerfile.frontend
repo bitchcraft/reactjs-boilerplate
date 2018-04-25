@@ -27,7 +27,7 @@ RUN yarn install
 COPY . /usr/src/app
 
 # Bundle app
-RUN yarn run bundle-js
+RUN yarn run bundle:js
 
 
 # ----- Create Release -----
