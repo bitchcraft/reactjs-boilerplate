@@ -86,7 +86,10 @@ app.set('view cache', process.env.NODE_ENV !== 'development');
 
 // routes
 app.get('/', (req, res) => {
-	res.render('index', { bundle: '/static/bundle.js' });
+	res.render('index', {
+		bundle: '/static/bundle.js',
+		environment: 'window.API_ENDPOINT="//localhost:3001"',
+	});
 });
 
 app.options('*', cors());
