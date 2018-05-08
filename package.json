@@ -58,7 +58,7 @@
 		"less-loader": "^4.1.0",
 		"mkdirp": "^0.5.1",
 		"node-sass": "^4.7.2",
-		"nodemon": "^1.17.1",
+		"nodemon": "^1.17.4",
 		"npm-run-all": "^4.1.2",
 		"postcss-loader": "^2.1.2",
 		"react-transform-hmr": "^1.0.1",
