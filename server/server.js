@@ -12,7 +12,6 @@ import cors from 'cors';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 import { notFoundHandler } from 'server/handlers';
-import api from './api';
 
 // create console loggers
 const logger = new UnicornLogger('server:');
@@ -87,13 +86,13 @@ app.set('view cache', process.env.NODE_ENV !== 'development');
 
 // routes
 app.get('/', (req, res) => {
-	res.render('index', { bundle: '/static/bundle.js' });
+	res.render('index', {
+		bundle: '/static/bundle.js',
+		environment: 'window.API_ENDPOINT="//localhost:3001"',
+	});
 });
 
 app.options('*', cors());
-
-app.post('/auth', api.handleAuth);
-app.get('/dummy-list', api.handleDummyList);
 
 // start listening for requests
 app.listen(port, (err) => {

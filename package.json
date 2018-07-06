@@ -5,6 +5,7 @@
 	"description": "",
 	"license": "BSD-3-Clause",
 	"workspaces": [
+		"api-server",
 		"client",
 		"server"
 	],
@@ -15,9 +16,9 @@
 		"babel-plugin-transform-runtime": "^6.15.0",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-flow": "^6.23.0",
+		"babel-preset-minify": "^0.3.0",
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-0": "^6.16.0",
-		"babel-preset-minify": "^0.3.0",
 		"cross-env": "^5.1.4",
 		"webpack": "^4.5.0"
 	},
@@ -57,7 +58,8 @@
 		"less-loader": "^4.1.0",
 		"mkdirp": "^0.5.1",
 		"node-sass": "^4.8.3",
-		"nodemon": "^1.17.3",
+		"nodemon": "^1.17.4",
+		"npm-run-all": "^4.1.2",
 		"postcss-loader": "^2.1.3",
 		"react-transform-hmr": "^1.0.1",
 		"sass-loader": "^6.0.7",
@@ -95,24 +97,30 @@
 	},
 	"config": {
 		"hostname": "localhost",
-		"logpath": "server:*,webpack:*,-webpack:dev:*",
-		"port": 3000
+		"logpath": "api-server:*,server:*,webpack:*,-webpack:dev:*",
+		"port": 3001
 	},
 	"scripts": {
+		"build:docker": "run-s build:docker:*",
+		"build:docker:backend": "cross-env-shell docker build -f Dockerfile.backend --no-cache -t ${npm_package_name}_backend:$npm_package_version .",
+		"build:docker:frontend": "cross-env-shell docker build -f Dockerfile.frontend --no-cache -t ${npm_package_name}_frontend:$npm_package_version .",
+		"bundle": "run-s prestart bundle:js render:template",
+		"bundle:js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack --progress",
+		"docs": "jsdoc -c jsdoc.json",
 		"flow": "flow",
-		"test": "jest",
 		"lint": "eslint --cache --format=eslint-formatter-pretty .",
-		"dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=$npm_package_config_logpath node --max_old_space_size=4096 server/index.js",
+		"nodemon": "nodemon --config nodemon.json --exec yarn run run-p run:local:*",
 		"prestart": "yarn install && yarn run test",
+		"render:template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
+		"run:docker": "run-p run:docker:*",
+		"run:docker:backend": "cross-env-shell docker run -i --rm -p 3001:3001 ${npm_package_name}_backend:$npm_package_version",
+		"run:docker:frontend": "cross-env-shell docker run -i --rm -p 3000:3000 ${npm_package_name}_frontend:$npm_package_version",
+		"run:local:api-server": "cross-env NODE_ENV=development DEBUG=$npm_package_config_logpath node --max_old_space_size=4096 api-server/index.js",
+		"run:local:dev-server": "cross-env NODE_ENV=development WEBPACK_HOT=true API_ENDPOINT=//$npm_package_config_hostname:$npm_package_config_port DEBUG=$npm_package_config_logpath node --max_old_space_size=4096 server/index.js",
 		"start": "yarn run nodemon",
-		"bundle": "yarn run prestart && yarn run bundle-js && yarn run render-template",
-		"bundle-js": "cross-env yarn install && cross-env BABEL_ENV=production NODE_ENV=production webpack",
-		"render-template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
-		"docker": "cross-env-shell docker build --no-cache -t $npm_package_name:$npm_package_version .",
 		"styleguide": "styleguidist server",
 		"styleguide:build": "styleguidist build",
-		"nodemon": "nodemon --config nodemon.json --exec yarn run dev-server",
-		"jsdoc": "jsdoc -c jsdoc.json"
+		"test": "jest"
 	},
 	"author": {
 		"name": "Josh Li",

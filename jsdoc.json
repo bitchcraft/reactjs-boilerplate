@@ -4,6 +4,7 @@
     },
     "source": {
         "include": [
+          "./api-server",
 					"./client",
 					"./server"
 				],

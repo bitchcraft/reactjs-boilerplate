@@ -14,7 +14,7 @@ const TOKEN_EXPIRY_IN_SECONDS = 60;
 
 /**
  * @public
- * @module server/api
+ * @module api-server/api
  */
 
 export type User = {

@@ -171,6 +171,7 @@ module.exports = {
                 "services.*",
                 "tools.*",
                 "client.*",
+                "typedef.*",
             ],
         }],
         "import/extensions": 0,

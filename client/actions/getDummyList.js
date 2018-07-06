@@ -4,7 +4,7 @@ import Actions from 'constants/actions';
 import { getDummyList } from 'services/api';
 
 import type { FluxStandardAction } from 'typedef/FluxStandardAction';
-import type { DummyListResponse } from 'server/api';
+import type { DummyListResponse } from 'api-server/api';
 import type { Dispatch, Store } from 'redux';
 
 export type DummyListActionSuccess = FluxStandardAction<DummyListResponse>;

@@ -12,7 +12,7 @@ import { convertKeys, StringConverters } from '@bitchcraft/ocake';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
 
 import type jwt from 'jsonwebtoken';
-import type { AuthRequest, AuthResponse, DummyListResponse } from 'server/api';
+import type { AuthRequest, AuthResponse, DummyListResponse } from 'api-server/api';
 
 const { debug, error } = new UnicornLogger('ApiService');
 
