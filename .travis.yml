@@ -14,9 +14,6 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
 
-before_script:
-  - yarn install --ignore-engines
-  
 script:
   - yarn run test
 
