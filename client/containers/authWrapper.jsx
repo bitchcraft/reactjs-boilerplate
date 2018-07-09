@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import auth from 'actions/auth';
 import Actions from 'constants/actions';
 import SignIn from 'components/SignInView';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
+import Card, { CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 import { SK5 } from 'components/spinkit';
 
 import type { Map as ImmutableMap } from 'immutable';
@@ -21,13 +22,16 @@ const Loading = (props: { [string]: *, }) => (
 			justifyContent: 'center',
 			width: '100%',
 		}}>
-		<Card zDepth={1}>
-			<CardHeader
-				subtitle='Checking your credentials'
-				title='Loading' />
-			<CardText>
+		<Card elevation={1}>
+			<CardContent>
+				<Typography component='h2' gutterBottom variant='headline'>
+					Loading
+				</Typography>
+				<Typography gutterBottom variant='subheading'>
+					Checking your credentials
+				</Typography>
 				<SK5 />
-			</CardText>
+			</CardContent>
 		</Card>
 	</span>
 );

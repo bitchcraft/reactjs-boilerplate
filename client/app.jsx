@@ -1,22 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { blue300, grey600 } from 'material-ui/styles/colors';
+import createMuiTheme from 'material-ui/styles/createMuiTheme';
+import createPalette from 'material-ui/styles/createPalette';
+
+import { blue, grey } from 'material-ui/colors';
 
 import Store from 'containers/store';
 
-const options = {
-	muiTheme: getMuiTheme({
-		palette: {
-			primary1Color: blue300,
-			textColor: grey600,
+
+const muiTheme = createMuiTheme({
+	palette: createPalette({
+		primary: {
+			main: blue[300],
+			text: grey[600],
 		},
 	}),
-};
+});
 
 const App = () => (
-	<MuiThemeProvider {...options}>
+	<MuiThemeProvider theme={muiTheme}>
 		<Store />
 	</MuiThemeProvider>
 );
