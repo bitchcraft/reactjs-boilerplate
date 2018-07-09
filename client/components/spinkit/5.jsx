@@ -1,8 +1,8 @@
 import React from 'react';
 import { withInjector } from '@bitchcraft/injector';
-import stylesheet from './5.scsshbs';
 import { compose, onlyUpdateForKeys } from 'recompose';
 
+import stylesheet from './5.scsshbs';
 
 /**
  * SpinKit 5
