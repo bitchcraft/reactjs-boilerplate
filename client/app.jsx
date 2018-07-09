@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import createMuiTheme from 'material-ui/styles/createMuiTheme';
-import createPalette from 'material-ui/styles/createPalette';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import createPalette from '@material-ui/core/styles/createPalette';
 
-import { blue, grey } from 'material-ui/colors';
+import { blue, grey } from '@material-ui/core/colors';
 
 import Store from 'containers/store';
 

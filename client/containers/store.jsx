@@ -3,10 +3,11 @@ import { Provider } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import Router from 'containers/router';
-import reducers from '../reducers';
 import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
+
+import reducers from '../reducers';
 
 const logger = new UnicornLogger('Store', {
 	// work around bug in redux-logger, where styles for styled strings are missing

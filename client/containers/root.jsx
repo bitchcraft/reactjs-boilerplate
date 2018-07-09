@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { withInjector } from '@bitchcraft/injector';
-import stylesheet from './root.scsshbs';
 
 import type { Element as ReactElement } from 'react';
 
+import stylesheet from './root.scsshbs';
 
 const RootContainer = ({ children }: { children: ReactElement<*>, }) => (
 	<span

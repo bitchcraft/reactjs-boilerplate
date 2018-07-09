@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import auth from 'actions/auth';
 import Actions from 'constants/actions';
 import SignIn from 'components/SignInView';
-import Card, { CardContent } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import { SK5 } from 'components/spinkit';
 
 import type { Map as ImmutableMap } from 'immutable';

@@ -3,11 +3,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import getDummyList from 'actions/getDummyList';
-import List, { ListItemAvatar, ListItem, ListItemText } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Avatar from 'material-ui/Avatar';
-import * as Icons from 'material-ui-icons';
-import * as Colors from 'material-ui/colors';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import * as Icons from '@material-ui/icons';
+import * as Colors from '@material-ui/core/colors';
 import { SK5 } from 'components/spinkit';
 
 import type { List as ImmutableList } from 'immutable';
@@ -62,14 +64,12 @@ class DummyListView extends PureComponent<Props> {
 							<span
 								key={v}>
 								<ListItem>
-									<ListItemAvatar>
-										<Avatar style={avatarStyle}>
-											{React.createElement(
-												IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
-												{ nativeColor: '#fff' }
-											)}
-										</Avatar>
-									</ListItemAvatar>
+									<Avatar style={avatarStyle}>
+										{React.createElement(
+											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
+											{ nativeColor: '#fff' }
+										)}
+									</Avatar>
 									<ListItemText primary={v} />
 								</ListItem>
 								<Divider />
