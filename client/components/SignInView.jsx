@@ -54,7 +54,7 @@ class SignInView extends PureComponent<Props> {
 							textAlign: 'right',
 						}}>
 						<Button>Cancel</Button>
-						<Button color='primary' onTouchTap={this.onSubmit}>Submit</Button>
+						<Button color='primary' onPointerUp={this.onSubmit}>Submit</Button>
 					</CardActions>
 				</Card>
 			</span>
