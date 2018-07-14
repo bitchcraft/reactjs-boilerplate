@@ -7,7 +7,8 @@
 	"workspaces": [
 		"api-server",
 		"client",
-		"server"
+		"server",
+		"tools"
 	],
 	"dependencies": {
 		"babel-plugin-add-module-exports": "^0.2.1",
@@ -122,6 +123,7 @@
 		"styleguide:build": "styleguidist build",
 		"test": "jest"
 	},
+	"bin": "tools/jumpstartProject.js",
 	"author": {
 		"name": "Josh Li",
 		"url": "https://github.com/maddrag0n"
