@@ -1,38 +1,15 @@
-/* eslint-disable */
+const path = require('path');
+const webpack = require('webpack');
+const JsDocPlugin = require('jsdoc-webpack-plugin');
+const { InjectorWebpackConfig } = require('@bitchcraft/injector');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-var path = require('path');
-var fs = require('fs');
 
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-var ManifestPlugin = require('webpack-manifest-plugin');
-var ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-
-var autoprefixer = require('autoprefixer');
-
-var exec = require('child_process').execSync
-
-var dependencies = require('./package.json').dependencies;
-
-function makeFolder(path) {
-	try {
-		// Query the entry
-		var stats = fs.statSync(path);
-
-		// Is it a directory?
-		if (!stats.isDirectory()) {
-			throw new Error('output folder is not a directory');
-		}
-	} catch (e) {
-		fs.mkdirSync(path);
-	}
-}
-
-var config = {
+const config = {
+	context: path.resolve(__dirname),
 	entry: {
 		app: [
-			'./app/index.js',
+			'./client/index.js',
 		],
 	},
 	output: {
@@ -42,110 +19,110 @@ var config = {
 		publicPath: '/static/'
 	},
 	plugins: [
-		new webpack.NoErrorsPlugin(),
-		new webpack.IgnorePlugin(/jsdom$/)
+		new webpack.NoEmitOnErrorsPlugin(),
+		new webpack.IgnorePlugin(/jsdom$/),
+		new webpack.DefinePlugin({
+			"process.env": {
+				NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+				API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
+			}
+		}),
+		new webpack.LoaderOptionsPlugin({
+			options: {
+				handlebarsLoader: {}
+			},
+		}),
 	],
 	module: {
-		loaders: [{
-			test: /\.(js|jsx)?$/,
-			exclude: /node_modules/,
-			loader: 'babel',
-			query: {
-				cacheDirectory: true,
-				presets: ['react', 'es2015', 'stage-0', 'flow'],
-				plugins: ['add-module-exports', 'transform-runtime']
+		rules: [
+			{
+				test: /\.(js|jsx)?$/,
+				exclude: /node_modules/,
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, {
+					loader: 'babel-loader',
+					query: {
+						cacheDirectory: true,
+						babelrc: true,
+						plugins: [],
+					},
+				}],
+			}, {
+				test: /\.(ttf|eot|svg|woff(2))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, 'cache-loader', 'url-loader?limit=50000']
+			}, {
+				test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+				use: [
+					{
+					loader: 'thread-loader',
+					options: {
+							workers: 4,
+							workerParallelJobs: 50,
+							workerNodeArgs: ['--max-old-space-size=4096'],
+							poolTimeout: 2000,
+							poolParallelJobs: 50,
+							name: "threadloaderpool"
+						}
+					}, 'cache-loader', 'url-loader?limit=8192']
 			}
-		}, {
-			test: /\.scsshbs$/,
-			loader: 'handlebars-loader!sass-prehandlebars!postcss!sass'
-		}, {
-			test: /\.scss$/,
-			loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss!s3asset!sass?sourceMap')
-		}, {
-			test: /\.(ttf|eot|svg|woff(2))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-			loader: 'url-loader?limit=50000'
-		}, {
-			test: /\.(otf|eot|png|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-			loader: 'url?limit=8192'
-		}, {
-			test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.eot$/,
-			loader: 'file'
-		}, {
-			test: /\.json$/,
-			loader: 'json'
-		}]
-	},
-	postcss: function () {
-		return [autoprefixer];
+		].concat(InjectorWebpackConfig.rules),
 	},
 	resolve: {
-		alias: {
-			ByteBuffer: 'bytebuffer',
-			Long: 'long',
-			actions: path.resolve(__dirname, 'app', 'actions'),
-			containers: path.resolve(__dirname, 'app', 'containers'),
-			components: path.resolve(__dirname, 'app', 'components'),
-			tools: path.resolve(__dirname, 'common', 'tools'),
-			constants: path.resolve(__dirname, 'common', 'constants'),
-			services: path.resolve(__dirname, 'app', 'services'),
-		},
-		extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json'],
-		modulesDirectories: ['web_modules', 'node_modules', 'build-tools']
+		extensions: [ '.js', '.jsx', '.json' ],
 	},
 	resolveLoader: {
-		modulesDirectories: ['web_loaders', 'web_modules', 'node_loaders', 'node_modules', 'build-tools'],
-	}
+		modules: [ 'node_modules', InjectorWebpackConfig.resolveLoader.modules[0] ],
+	},
 }
 
-var defines;
+config.mode = process.env.NODE_ENV;
 
 if (process.env.NODE_ENV === 'development') {
 	config.devtool = 'cheap-module-eval-source-map';//'inline-source-map';
 	config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 	config.entry['app'].unshift('eventsource-polyfill', 'webpack-hot-middleware/client');
 
-	config.module.loaders[0].query.plugins.push(['react-transform', {
-		transforms: [{
-			transform: 'react-transform-hmr',
-			imports: ['react'],
-			locals: ['module']
-		}, {
-			transform: 'react-transform-catch-errors',
-			imports: ['react', 'redbox-react']
-		}]
-	}]);
+	config.module.rules[0].use[1].query.plugins.push([
+		'react-transform', {
+			transforms: [{
+				transform: 'react-transform-hmr',
+				imports: ['react'],
+				locals: ['module']
+			}],
+		},
+	]);
 
-	defines = {
-		"process.env": {
-			NODE_ENV: JSON.stringify('development'),
-			API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
-		}
-	}
+	// on-the-fly jsdoc builds
+	config.plugins.push(
+		new JsDocPlugin({ conf: path.join(__dirname, 'jsdoc.json') })
+	);
+
+} else if (process.env.NODE_ENV === 'production') {
+	// uglify
+	config.optimization = {
+		minimizer: [ new UglifyJsPlugin({ cache: true }) ]
+	};
 }
-
-
-if (process.env.NODE_ENV === 'production') {
-	config.output.filename = 'bundle.js';
-
-	config.module.loaders[0].query.plugins.push(['react-transform', {
-		transforms: [{
-			transform: 'react-transform-catch-errors',
-			imports: ['react', 'redbox-react']
-		}]
-	}]);
-
-	config.plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
-	config.plugins.push(new webpack.optimize.UglifyJsPlugin());
-
-	defines = {
-		"process.env": {
-			NODE_ENV: JSON.stringify('production'),
-			API_ENDPOINT: JSON.stringify(process.env.API_ENDPOINT),
-		}
-	}
-}
-
-
-config.plugins.push(new webpack.DefinePlugin(defines));
 
 module.exports = config;

@@ -1,0 +1,17 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "package.json"
+  ],
+  "verbose": false,
+  "events": {
+    "restart": "echo 'nodemon -> App restarted.'"
+  },
+  "watch": [
+    "./api-server/",
+    "./server/"
+  ],
+  "ext": "js json"
+}

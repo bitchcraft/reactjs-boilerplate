@@ -11,10 +11,20 @@ node_modules
 .eslintignore
 .sass-lint.yml
 
+#Misc Tooling
+.flowconfig
+jsdoc.json
+nodemon.json
+styleguide.config.js
+.cache-loader
+docs
+
 #Misc
 README.md
 static
 .editorconfig
+.node-version
+.travis.yml
 
 #OSX
 .DS_Store

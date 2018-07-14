@@ -1,3 +1,10 @@
 # ignore build scripts
 gulp/**/*.*
 webpack.config.js
+
+#ignore deps
+node_modules
+
+#ignore generated
+build
+docs
