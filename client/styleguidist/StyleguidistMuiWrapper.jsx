@@ -5,7 +5,7 @@ import React from 'react';
 import type { Element as ReactElement } from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
-import RsgWrapper from 'react-styleguidist/lib/rsg-components/Wrapper';
+import RsgWrapper from 'react-styleguidist/lib/rsg-components/Wrapper/Wrapper';
 
 const muiTheme = createMuiTheme({});
 
