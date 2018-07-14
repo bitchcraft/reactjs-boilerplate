@@ -41,6 +41,7 @@ bower_components
 *.swp
 *.vi
 .sass-cache
+.eslintcache
 
 # OS or Editor folders
 .DS_Store
@@ -76,7 +77,7 @@ dwsync.xml
 .idea
 cache
 release
-src/app/proto
+src/client/proto
 
 *.json.gzip
 
@@ -86,8 +87,5 @@ static/version
 
 common/locales/found.json
 
-app/__tests__/__snapshots__
-app/__tests__/__snapshots__/
-/app/__tests__/__snapshots__
-/app/__tests__/__snapshots__/
-/app/__tests__/__snapshots__/app.test.jsx.snap
+/.cache-loader
+/docs
