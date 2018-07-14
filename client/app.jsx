@@ -24,4 +24,4 @@ const App = () => (
 	</MuiThemeProvider>
 );
 
-render(<App />, document.getElementById('app-container'));
+export default () => render(<App />, document.getElementById('app-container'));

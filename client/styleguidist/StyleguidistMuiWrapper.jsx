@@ -1,13 +1,11 @@
 // @flow
 
+import 'pepjs-improved';
 import React from 'react';
 import type { Element as ReactElement } from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import RsgWrapper from 'react-styleguidist/lib/rsg-components/Wrapper';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-injectTapEventPlugin();
 
 const muiTheme = createMuiTheme({});
 
