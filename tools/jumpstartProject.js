@@ -33,11 +33,6 @@ function checkRequiredArguments() {
 		argumentsPresent = false;
 	}
 
-
-	if (!argumentsPresent) {
-		shell.echo(errorMessages.arguments);
-		shell.echo(errorMessages.usage);
-	}
 	return argumentsPresent;
 }
 
@@ -78,12 +73,21 @@ function initializeGitRepo(target) {
 }
 
 (function cmd() {
+	const target = argv[0];
+
 	/** check if required arguments are present and valid */
-	if (!checkRequiredArguments()) bail();
+	if (!checkRequiredArguments()) {
+		shell.echo(errorMessages.arguments);
+		shell.echo(errorMessages.usage);
+		bail();
+	}
 	/** check if necessary binaries are present */
 	if (!checkRequiredBinaries()) bail();
 	/** create new project folder */
-	createProjectDirectory(argv[0]);
+	createProjectDirectory(target);
 	/** init git repository in project folder */
-	if (initializeGitRepo(argv[0]) !== 0) bail();
+	if (initializeGitRepo(target) !== 0) {
+		shell.echo(errorMessages.gitInit);
+		bail();
+	}
 }());
