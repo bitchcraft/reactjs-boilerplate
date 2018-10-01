@@ -102,6 +102,7 @@ function copyBoilerplate(target) {
 }
 
 (function cmd() {
+	shell.config.silent = true;
 	const target = makeAbsolutePath(argv[0]);
 
 	/* check if required arguments are present and valid */
