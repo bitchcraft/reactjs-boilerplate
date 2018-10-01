@@ -3,7 +3,7 @@
 	"version": "0.2.0",
 	"dependencies": {},
 	"devDependencies": {
-		"mkdirp": "^0.5.1",
+		"globby": "^8.0.1",
 		"shelljs": "^0.8.2"
 	}
 }

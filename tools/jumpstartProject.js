@@ -8,8 +8,8 @@
  */
 
 const path = require('path');
-const mkdirp = require('mkdirp');
 const shell = require('shelljs');
+const globby = require('globby');
 
 const argv = process.argv.slice(2);
 const cwd = process.cwd();
@@ -57,11 +57,11 @@ function checkRequiredBinaries() {
 	return true;
 }
 
-function createProjectDirectory(targetPath) {
+function makeAbsolutePath(targetPath) {
 	if (!path.isAbsolute(targetPath)) {
 		targetPath = path.join(cwd, targetPath);
 	}
-	mkdirp.sync(targetPath);
+	return targetPath;
 }
 
 function initializeGitRepo(target) {
@@ -72,20 +72,49 @@ function initializeGitRepo(target) {
 	return result.code;
 }
 
-(function cmd() {
-	const target = argv[0];
+function copyBoilerplate(target) {
+	const sourcePath = path.dirname(__dirname);
 
-	/** check if required arguments are present and valid */
+	const files = globby.sync(
+		[ `${sourcePath}${path.sep}**`, '!**.git' ],
+		{
+			expandDirectories: true,
+			gitignore: true,
+			dot: true,
+		}
+	);
+
+	shell.mkdir('-p', target);
+
+	let code = 0;
+	files.forEach((file) => {
+		file = file.replace(sourcePath, '');
+		if (!file.startsWith(`${path.sep}.git${path.sep}`)) { // workaround for https://github.com/sindresorhus/globby/issues/62
+			const targetFile = `${target}${file}`;
+			const dir = path.dirname(targetFile);
+			if (!shell.test('-e', dir)) shell.mkdir('-p', dir);
+			const result = shell.cp(`${sourcePath}${file}`, targetFile);
+			code += result.code;
+		}
+	});
+
+	return code;
+}
+
+(function cmd() {
+	const target = makeAbsolutePath(argv[0]);
+
+	/* check if required arguments are present and valid */
 	if (!checkRequiredArguments()) {
 		shell.echo(errorMessages.arguments);
 		shell.echo(errorMessages.usage);
 		bail();
 	}
-	/** check if necessary binaries are present */
+	/* check if necessary binaries are present */
 	if (!checkRequiredBinaries()) bail();
-	/** create new project folder */
-	createProjectDirectory(target);
-	/** init git repository in project folder */
+	/* copy boilerplate creating the target folder in the process */
+	if (copyBoilerplate(target) !== 0) bail();
+	/* init git repository in project folder */
 	if (initializeGitRepo(target) !== 0) {
 		shell.echo(errorMessages.gitInit);
 		bail();
