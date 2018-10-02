@@ -10,6 +10,9 @@
 const path = require('path');
 const shell = require('shelljs');
 const globby = require('globby');
+const readline = require('readline');
+const cloneDeep = require('lodash.clonedeep');
+const fs = require('fs');
 
 const packageInfo = require('../package.json');
 
@@ -23,7 +26,12 @@ const messages = {
 	errGitInit: 'ERROR: Failed to initialize git repository',
 	errUsage: 'USAGE: reactjs-boilerplate target',
 	errGitCommit: 'Failed to commit files',
+	errConfig: 'Failed to create package.json',
 	gitCommit: `chore(Project): Init project from ${packageInfo.homepage}`,
+	wizardWelcome: `This utility will help you to jumpstart your project.
+A boilerplate is copied to the target location and you will be guided through the basic project configuration`,
+	wizardCopy: 'Copying files...',
+	wizardConfig: 'Performing configuration',
 };
 
 function bail() {
@@ -106,6 +114,53 @@ function copyBoilerplate(target) {
 	return code;
 }
 
+async function createProjectConfig(target) {
+	return new Promise((resolve, reject) => {
+		const input = readline.createInterface(process.stdin, process.stdout);
+		const cfg = cloneDeep(packageInfo);
+
+		delete cfg.contributors;
+		delete cfg.repository;
+		delete cfg.homepage;
+
+		const prompts = [
+			{ key: 'name', prompt: 'package name', value: '' },
+			{ key: 'version', prompt: 'version', value: '1.0.0' },
+			{ key: 'description', prompt: 'description', value: '' },
+			{ key: 'keywords', prompt: 'keywords', value: '' },
+			{ key: 'license', prompt: 'license', value: 'ISC' },
+			{ key: 'author', prompt: 'author', value: '' },
+		];
+
+		const writeConfig = () => {
+			input.close();
+			try {
+				fs.writeFileSync(`${target}${path.sep}package.json`, JSON.stringify(cfg, null, '\t'));
+				resolve(0);
+			} catch (err) {
+				resolve(1);
+			}
+		};
+
+		const showPrompt = (index) => {
+			if (index >= prompts.length) {
+				writeConfig();
+				return;
+			}
+			const prompt = prompts[index];
+			input.setPrompt(`${prompt.prompt}: `);
+			input.once('line', (line) => {
+				cfg[prompt.key] = line || prompt.value;
+				// input.close();
+				showPrompt(index + 1);
+			});
+			input.prompt();
+		};
+		showPrompt(0);
+
+	});
+}
+
 function runInitialCommit(target) {
 	shell.pushd(target);
 	let result = shell.exec('git add -A', { silent: true }).code;
@@ -115,9 +170,11 @@ function runInitialCommit(target) {
 	return result;
 }
 
-(function cmd() {
+(async() => {
 	shell.config.silent = true;
 	const target = makeAbsolutePath(argv[0]);
+
+	shell.echo(messages.wizardWelcome);
 
 	/* check if required arguments are present and valid */
 	if (!checkRequiredArguments()) {
@@ -125,16 +182,28 @@ function runInitialCommit(target) {
 		shell.echo(messages.errUsage);
 		bail();
 	}
+
 	/* check if necessary binaries are present */
 	if (!checkRequiredBinaries()) bail();
+
 	/* copy boilerplate creating the target folder in the process */
+	shell.echo(messages.wizardCopy);
 	if (copyBoilerplate(target) !== 0) {
 		shell.echo(messages.errCopy);
 		bail();
 	}
+
 	/* init git repository in project folder */
 	if (initializeGitRepo(target) !== 0) {
 		shell.echo(messages.errGitInit);
+		bail();
+	}
+
+	/* project config */
+	shell.echo(messages.wizardConfig);
+	const res = await createProjectConfig(target);
+	if (res !== 0) {
+		shell.echo(messages.errConfig);
 		bail();
 	}
 
@@ -143,4 +212,4 @@ function runInitialCommit(target) {
 		shell.echo(messages.errGitCommit);
 		bail();
 	}
-}());
+})();

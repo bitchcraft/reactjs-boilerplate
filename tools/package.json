@@ -4,6 +4,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"globby": "^8.0.1",
+		"lodash.clonedeep": "^4.5.0",
 		"shelljs": "^0.8.2"
 	}
 }
