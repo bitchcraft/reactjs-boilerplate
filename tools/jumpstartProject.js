@@ -22,11 +22,11 @@ const requiredBinaries = [ 'git' ];
 const messages = {
 	errArguments: 'ERROR: Missing arguments',
 	errExit: 'Fatal error, exiting...',
-	errCopy: 'Failed to copy files',
+	errCopy: 'ERROR: Failed to copy files',
 	errGitInit: 'ERROR: Failed to initialize git repository',
 	errUsage: 'USAGE: reactjs-boilerplate target',
-	errGitCommit: 'Failed to commit files',
-	errConfig: 'Failed to create package.json',
+	errGitCommit: 'ERROR: Failed to commit files',
+	errConfig: 'ERROR: Failed to create package.json',
 	gitCommit: `chore(Project): Init project from ${packageInfo.homepage}`,
 	wizardWelcome: `This utility will help you to jumpstart your project.
 A boilerplate is copied to the target location and you will be guided through the basic project configuration`,
