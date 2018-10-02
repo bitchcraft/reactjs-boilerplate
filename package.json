@@ -4,6 +4,8 @@
 	"private": true,
 	"description": "",
 	"license": "BSD-3-Clause",
+	"repository": "github:bitchcraft/reactjs-boilerplate",
+	"homepage": "https://github.com/bitchcraft/reactjs-boilerplate",
 	"workspaces": [
 		"api-server",
 		"client",

@@ -11,18 +11,23 @@ const path = require('path');
 const shell = require('shelljs');
 const globby = require('globby');
 
+const packageInfo = require('../package.json');
+
 const argv = process.argv.slice(2);
 const cwd = process.cwd();
 const requiredBinaries = [ 'git' ];
-const errorMessages = {
-	arguments: 'ERROR: Missing arguments',
-	exit: 'Fatal error, exiting...',
-	gitInit: 'ERROR: Failed to initialize git repository',
-	usage: 'USAGE: reactjs-boilerplate target',
+const messages = {
+	errArguments: 'ERROR: Missing arguments',
+	errExit: 'Fatal error, exiting...',
+	errCopy: 'Failed to copy files',
+	errGitInit: 'ERROR: Failed to initialize git repository',
+	errUsage: 'USAGE: reactjs-boilerplate target',
+	errGitCommit: 'Failed to commit files',
+	gitCommit: `chore(Project): Init project from ${packageInfo.homepage}`,
 };
 
 function bail() {
-	shell.echo(errorMessages.exit);
+	shell.echo(messages.errExit);
 	process.exit(1);
 }
 
@@ -101,23 +106,41 @@ function copyBoilerplate(target) {
 	return code;
 }
 
+function runInitialCommit(target) {
+	shell.pushd(target);
+	let result = shell.exec('git add -A', { silent: true }).code;
+	result += shell.exec(`git commit -m '${messages.gitCommit}'`, { silent: true }).code;
+	shell.popd();
+
+	return result;
+}
+
 (function cmd() {
 	shell.config.silent = true;
 	const target = makeAbsolutePath(argv[0]);
 
 	/* check if required arguments are present and valid */
 	if (!checkRequiredArguments()) {
-		shell.echo(errorMessages.arguments);
-		shell.echo(errorMessages.usage);
+		shell.echo(messages.errArguments);
+		shell.echo(messages.errUsage);
 		bail();
 	}
 	/* check if necessary binaries are present */
 	if (!checkRequiredBinaries()) bail();
 	/* copy boilerplate creating the target folder in the process */
-	if (copyBoilerplate(target) !== 0) bail();
+	if (copyBoilerplate(target) !== 0) {
+		shell.echo(messages.errCopy);
+		bail();
+	}
 	/* init git repository in project folder */
 	if (initializeGitRepo(target) !== 0) {
-		shell.echo(errorMessages.gitInit);
+		shell.echo(messages.errGitInit);
+		bail();
+	}
+
+	/* perform initial git commmit */
+	if (runInitialCommit(target) !== 0) {
+		shell.echo(messages.errGitCommit);
 		bail();
 	}
 }());
