@@ -20,6 +20,7 @@ ENV NODE_ENV=production
 
 # Add bundle and server
 COPY babel.config.js /usr/src/app/
+COPY jsdoc.json /usr/src/app/
 COPY ./api-server /usr/src/app/server
 
 # Install app dependencies
