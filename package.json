@@ -117,7 +117,7 @@
 		"flow": "flow",
 		"lint": "eslint --cache --format=eslint-formatter-pretty .",
 		"nodemon": "nodemon --config nodemon.json --exec yarn run run-p run:local:*",
-		"prestart": "yarn install && yarn jest",
+		"prestart": "yarn install && yarn run test",
 		"render:template": "mkdirp ./build && hbs --data '{ \"bundle\": \"bundle.js\" }' ./server/views/index.handlebars -o ./build",
 		"run:docker": "run-p run:docker:*",
 		"run:docker:backend": "cross-env-shell docker run -i --rm -p 3001:3001 ${npm_package_name}_backend:$npm_package_version",
