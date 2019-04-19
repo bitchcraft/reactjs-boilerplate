@@ -20,7 +20,7 @@
 		"babel-preset-react": "^6.24.1",
 		"babel-preset-stage-0": "^6.16.0",
 		"cross-env": "^5.1.4",
-		"webpack": "^4.5.0"
+		"webpack": "^4.30.0"
 	},
 	"devDependencies": {
 		"@bitchcraft/injector": "^1.0.3",
@@ -66,8 +66,8 @@
 		"thread-loader": "^2.1.2",
 		"uglifyjs-webpack-plugin": "^2.1.2",
 		"url-loader": "^1.1.2",
-		"webpack-cli": "^3.0.8",
-		"webpack-hot-middleware": "^2.21.2"
+		"webpack-cli": "^3.3.0",
+		"webpack-hot-middleware": "^2.24.3"
 	},
 	"jest": {
 		"moduleFileExtensions": [
