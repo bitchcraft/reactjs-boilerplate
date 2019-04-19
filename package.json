@@ -53,7 +53,7 @@
 		"jest": "^23.3.0",
 		"jest-matchers": "^20.0.3",
 		"jsdoc": "^3.5.5",
-		"jsdoc-babel": "^0.4.0",
+		"jsdoc-babel": "^0.5.0",
 		"jsdoc-webpack-plugin": "^0.0.2",
 		"less-loader": "^4.1.0",
 		"mkdirp": "^0.5.1",
