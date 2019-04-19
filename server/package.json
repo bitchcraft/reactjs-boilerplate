@@ -2,9 +2,9 @@
 	"name": "server",
 	"version": "0.2.0",
 	"dependencies": {
+		"@babel/polyfill": "^7.0.0",
+		"@babel/register": "^7.0.0",
 		"@bitchcraft/unicorn-logger": "^1.1.1",
-		"babel-polyfill": "^6.20.0",
-		"babel-register": "^6.24.1",
 		"body-parser": "^1.18.2",
 		"common": "latest",
 		"compression": "^1.7.4",
