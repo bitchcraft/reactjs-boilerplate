@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'pepjs-improved';
 import React from 'react';
