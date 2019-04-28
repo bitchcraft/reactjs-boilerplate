@@ -39,8 +39,6 @@
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.4",
-		"@babel/core": "^7.4.4",
-		"@babel/preset-flow": "^7.0.0",
 		"@bitchcraft/injector": "^1.0.3",
 		"@hot-loader/react-dom": "^16.8.6",
 		"@toanzzz/jsdoc-webpack-plugin": "^0.2.0",
