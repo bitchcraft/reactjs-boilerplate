@@ -1,5 +1,5 @@
 # ----- Base image -----
-from node:carbon-alpine as base
+from node:dubnium-alpine as base
 
 # Add common deps and handle SIGTERMs
 RUN apk add --update git tini
