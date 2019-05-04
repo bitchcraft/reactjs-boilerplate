@@ -71,7 +71,7 @@
 		"jest-matchers": "^20.0.3",
 		"jsdoc": "^3.5.5",
 		"jsdoc-babel": "^0.5.0",
-		"less-loader": "^4.1.0",
+		"less-loader": "^5.0.0",
 		"mkdirp": "^0.5.1",
 		"node-sass": "^4.12.0",
 		"nodemon": "^1.18.11",
