@@ -1,7 +1,7 @@
 // required for generators, etc.
-require('babel-polyfill');
+require('@babel/polyfill');
 
 // hooks to require
-require('babel-register');
+require('@babel/register');
 
 require('./server');

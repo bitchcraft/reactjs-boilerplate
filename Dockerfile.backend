@@ -1,5 +1,5 @@
 # ----- Base image -----
-from node:carbon-alpine as base
+from node:dubnium-alpine as base
 
 # Add common deps and handle SIGTERMs
 RUN apk add --update git tini
@@ -10,8 +10,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy dependencies manifests
-COPY package.json /usr/src/app/
-COPY yarn.lock /usr/src/app/
+COPY package.json yarn.lock /usr/src/app/
+
 
 # ----- Create Release -----
 from base
@@ -19,7 +19,7 @@ from base
 ENV NODE_ENV=production
 
 # Add bundle and server
-COPY .babelrc /usr/src/app/
+COPY babel.config.js jsdoc.json /usr/src/app/
 COPY ./api-server /usr/src/app/server
 
 # Install app dependencies

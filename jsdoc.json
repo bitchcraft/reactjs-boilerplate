@@ -9,7 +9,7 @@
 					"./server"
 				],
         "includePattern": ".+\\.js?$",
-        "excludePattern": "(node_modules/|docs|__tests__|\\.test\\.js)"
+        "excludePattern": "(node_modules|docs|build|.git|__tests__|\\.test\\.js)"
     },
     "plugins": [
         "plugins/markdown",

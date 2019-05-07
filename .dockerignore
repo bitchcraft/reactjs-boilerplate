@@ -13,7 +13,6 @@ node_modules
 
 #Misc Tooling
 .flowconfig
-jsdoc.json
 nodemon.json
 styleguide.config.js
 .cache-loader

@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const JsDocPlugin = require('jsdoc-webpack-plugin');
+const JSDocWebpackPlugin = require('@toanzzz/jsdoc-webpack-plugin');
 const { InjectorWebpackConfig } = require('@bitchcraft/injector');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
+const jsdocConfig = require('./jsdoc.json');
 
 const config = {
 	context: path.resolve(__dirname),
@@ -56,7 +57,7 @@ const config = {
 						babelrc: true,
 						plugins: [],
 					},
-				}],
+				}, 'react-hot-loader/webpack'],
 			}, {
 				test: /\.(ttf|eot|svg|woff(2))(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				use: [
@@ -89,6 +90,7 @@ const config = {
 		].concat(InjectorWebpackConfig.rules),
 	},
 	resolve: {
+		alias: { 'react-dom': '@hot-loader/react-dom' },
 		extensions: [ '.js', '.jsx', '.json' ],
 	},
 	resolveLoader: {
@@ -103,25 +105,15 @@ if (process.env.NODE_ENV === 'development') {
 	config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
 	config.entry['app'].unshift('eventsource-polyfill', 'webpack-hot-middleware/client');
 
-	config.module.rules[0].use[1].query.plugins.push([
-		'react-transform', {
-			transforms: [{
-				transform: 'react-transform-hmr',
-				imports: ['react'],
-				locals: ['module']
-			}],
-		},
-	]);
-
 	// on-the-fly jsdoc builds
 	config.plugins.push(
-		new JsDocPlugin({ conf: path.join(__dirname, 'jsdoc.json') })
+		new JSDocWebpackPlugin(jsdocConfig)
 	);
 
 } else if (process.env.NODE_ENV === 'production') {
 	// uglify
 	config.optimization = {
-		minimizer: [ new UglifyJsPlugin({ cache: true }) ]
+		minimizer: [ new TerserPlugin({ cache: true }) ]
 	};
 }
 
