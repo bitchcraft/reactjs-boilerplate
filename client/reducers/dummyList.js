@@ -25,7 +25,7 @@ import type { DummyListActions } from 'actions/getDummyList';
 
 const dummyList = (state: ImmutableMap<string, *>, action: DummyListActions) => {
 	if (!Map.isMap(state)) {
-		state = fromJS({
+		state = Map({
 			items: fromJS([]),
 			loading: false,
 		});
