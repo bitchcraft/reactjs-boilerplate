@@ -14,10 +14,11 @@ before_install:
   - sudo apt-get update
   - sudo apt-get -y install docker-ce
 
-script:
-  - yarn run test
-
 jobs:
   include:
+  - stage: test
+    script: yarn run test
+  - stage: lint
+    script: yarn run lint
   - stage: docker_build
     script: yarn run build:docker
