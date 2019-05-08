@@ -57,8 +57,8 @@ const app = (state: ImmutableMap<string, *>, action: AuthActions) => {
 				.deleteIn([ 'auth', 'token' ]);
 
 		case Actions.SET_USER:
-			return state
-				.set('user', payload);
+			return (state
+				.set('user', payload): ImmutableMap<string, *>);
 
 		default:
 	}
