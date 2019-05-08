@@ -72,7 +72,7 @@ $ yarn run jsdoc
 ### Compile a docker image
 
 ```bash
-$ yarn run docker
+$ yarn run build:docker
 ```
 
 ### Offline code linting
