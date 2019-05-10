@@ -1,6 +1,6 @@
 # reactjs-boilerplate
 
-[![Build Status](https://travis-ci.org/bitchcraft/reactjs-boilerplate.svg?branch=develop)](https://travis-ci.org/bitchcraft/reactjs-boilerplate)
+[![Build Status](https://travis-ci.org/bitchcraft/reactjs-boilerplate.svg?branch=master)](https://travis-ci.org/bitchcraft/reactjs-boilerplate)
 
 ## What’s in the Box?
 
