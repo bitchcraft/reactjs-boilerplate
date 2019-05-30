@@ -25,10 +25,10 @@ const Loading = (props: { [string]: *, }) => (
 		}}>
 		<Card elevation={1}>
 			<CardContent>
-				<Typography component='h2' gutterBottom variant='headline'>
+				<Typography component='h2' gutterBottom variant='h5'>
 					Loading
 				</Typography>
-				<Typography gutterBottom variant='subheading'>
+				<Typography gutterBottom variant='subtitle1'>
 					Checking your credentials
 				</Typography>
 				<SK5 />
