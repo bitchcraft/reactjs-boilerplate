@@ -67,7 +67,7 @@ class DummyListView extends PureComponent<Props> {
 									<Avatar style={avatarStyle}>
 										{React.createElement(
 											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
-											{ nativeColor: '#fff' }
+											{ htmlColor: '#fff' }
 										)}
 									</Avatar>
 									<ListItemText primary={v} />
