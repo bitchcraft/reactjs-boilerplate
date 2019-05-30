@@ -14,7 +14,7 @@ import { SK5 } from 'components/spinkit';
 
 import type { List as ImmutableList } from 'immutable';
 
-const REFRESH_INTERVAL = 15000;
+const REFRESH_INTERVAL = 1500000000000000000000000;
 
 const IconsAsArray = Object.keys(Icons).map(v => Icons[v]);
 const ColorsAsArray = Object.keys(Colors).map(v => Colors[v]);
@@ -63,16 +63,15 @@ class DummyListView extends PureComponent<Props> {
 						return (
 							<span
 								key={v}>
-								<ListItem>
+								<ListItem divider >
 									<Avatar style={avatarStyle}>
 										{React.createElement(
 											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
 											{ htmlColor: '#fff' }
 										)}
 									</Avatar>
-									<ListItemText primary={v} />
+									<ListItemText inset primary={v} />
 								</ListItem>
-								<Divider />
 							</span>
 						);
 					})}
