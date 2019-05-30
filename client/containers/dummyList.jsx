@@ -63,7 +63,7 @@ class DummyListView extends PureComponent<Props> {
 						return (
 							<span
 								key={v}>
-								<ListItem divider >
+								<ListItem divider>
 									<Avatar style={avatarStyle}>
 										{React.createElement(
 											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
