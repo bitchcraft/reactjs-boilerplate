@@ -10,7 +10,7 @@
 		"react-dom": "^16.4.1",
 		"react-redux": "^7.0.2",
 		"react-router-dom": "^5.0.0",
-		"react-styleguidist": "^9.0.9",
+		"react-styleguidist": "^9.1.2",
 		"react-transition-group": "^4.0.1",
 		"recompose": "^0.30.0",
 		"redux": "^4.0.0",
