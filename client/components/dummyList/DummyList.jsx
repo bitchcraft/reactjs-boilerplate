@@ -38,7 +38,11 @@ const renderDummyListItem = (v: string) => {
 };
 
 
-const DummyList = ({ items }: { items: ImmutableList<*>, }) => (
+const DummyList = ({ items }: {
+	/** Immutable List of string values */
+	items: ImmutableList<string>,
+}) => (
+
 	<List
 		style={{
 			width: '100%',
