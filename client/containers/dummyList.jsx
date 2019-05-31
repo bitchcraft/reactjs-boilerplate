@@ -14,7 +14,7 @@ import { SK5 } from 'components/spinkit';
 
 import type { List as ImmutableList } from 'immutable';
 
-const REFRESH_INTERVAL = 1500000000000000000000000;
+const REFRESH_INTERVAL = 15000;
 
 const IconsAsArray = Object.keys(Icons).map(v => Icons[v]);
 const ColorsAsArray = Object.keys(Colors).map(v => Colors[v]);
