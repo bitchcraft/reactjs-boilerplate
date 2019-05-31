@@ -12,8 +12,11 @@ const DummyListItem = ({
 	children,
 	icon,
 }: {
+	/** styles for mui <Avatar /> */
 	avatarStyle: { backgroundColor: string, },
+	/** text label or Element */
 	children: Element<*> | string,
+	/** icon for list item */
 	icon: Element<*>,
 }) => (
 
