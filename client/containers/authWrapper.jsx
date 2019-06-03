@@ -63,7 +63,14 @@ const AuthWrapper = ({
 
 	if (loading) return <Loading />;
 	if (fail) return <SignIn onSubmit={payload => authorize(dispatch, (payload: AuthRequest))} />;
-	if (reauth) authorize(dispatch, user.toJS());
+
+	if (reauth) {
+		const payload: AuthRequest = {
+			login: user.get('login', ''),
+			secret: user.get('secret', ''),
+		};
+		authorize(dispatch, payload);
+	}
 
 	return (
 		<span
