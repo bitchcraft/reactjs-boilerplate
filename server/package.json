@@ -22,6 +22,6 @@
 	"devDependencies": {
 		"supports-color": "^6.1.0",
 		"webpack-dev-middleware": "^3.7.0",
-		"webpack-hot-middleware": "^2.24.4"
+		"webpack-hot-middleware": "^2.25.0"
 	}
 }

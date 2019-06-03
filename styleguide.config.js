@@ -25,11 +25,11 @@ module.exports = {
 			components: 'client/containers/**/*.jsx',
 		},
 	],
-	showUsage: true,
 	styleguideComponents: {
 		Wrapper: path.join(__dirname, 'client/styleguidist/StyleguidistMuiWrapper'),
 	},
 	skipComponentsWithoutExample: true,
+	usageMode: 'expand',
 	webpackConfig: {
 		module: {
 			rules,
