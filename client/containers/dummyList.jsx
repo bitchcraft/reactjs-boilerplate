@@ -3,21 +3,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import getDummyList from 'actions/getDummyList';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import Avatar from '@material-ui/core/Avatar';
-import * as Icons from '@material-ui/icons';
-import * as Colors from '@material-ui/core/colors';
+import { DummyList } from 'components/dummyList';
 import { SK5 } from 'components/spinkit';
 
 import type { List as ImmutableList } from 'immutable';
 
-const REFRESH_INTERVAL = 15000;
-
-const IconsAsArray = Object.keys(Icons).map(v => Icons[v]);
-const ColorsAsArray = Object.keys(Colors).map(v => Colors[v]);
+const REFRESH_INTERVAL = 5000;
 
 type Props = {
 	dispatch: * => void,
@@ -48,35 +39,9 @@ class DummyListView extends PureComponent<Props> {
 					flexGrow: 1,
 					overflow: 'auto',
 				}}>
-				<List
-					style={{
-						width: '100%',
-					}}>
-					{items.toJS().map((v) => {
-						const pickColor = ColorsAsArray[Math.floor(ColorsAsArray.length * Math.random())];
-						const getColor = pickColor[Object.keys(pickColor)[Math.floor(Math.random() * Object.keys(pickColor).length)]];
 
-						const avatarStyle = {
-							backgroundColor: getColor,
-						};
+				<DummyList items={items} />
 
-						return (
-							<span
-								key={v}>
-								<ListItem>
-									<Avatar style={avatarStyle}>
-										{React.createElement(
-											IconsAsArray[Math.floor(IconsAsArray.length * Math.random())],
-											{ nativeColor: '#fff' }
-										)}
-									</Avatar>
-									<ListItemText primary={v} />
-								</ListItem>
-								<Divider />
-							</span>
-						);
-					})}
-				</List>
 			</div>
 		);
 	}
