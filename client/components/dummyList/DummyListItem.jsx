@@ -12,7 +12,7 @@ const DummyListItem = ({
 	children,
 	icon,
 }: {
-	/** styles for mui &lt;Avatar /&gt; */
+	/** styles for mui `<Avatar />` */
 	avatarStyle: { backgroundColor: string, },
 	/** text label or Element */
 	children: Element<*> | string,
