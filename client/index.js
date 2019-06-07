@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import 'isomorphic-fetch';
 import 'pepjs-improved';
+import 'react-hot-loader';
 import React from 'react';
 import app from './app';
 

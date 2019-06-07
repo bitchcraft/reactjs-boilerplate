@@ -1,6 +1,6 @@
 import React from 'react';
-import { hot } from 'react-hot-loader/root';
 import { render } from 'react-dom';
+import { hot } from 'react-hot-loader/root';
 import MuiTheme from 'containers/MuiTheme';
 
 import Store from 'containers/store';
