@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 
 type Props = {
 	/** on Submit callback `({ login: string, secret: string, }) => void` */
-	onSubmit: ({ login: string, secret: string, }) => void,
+	onSubmit?: ({ login: string, secret: string, }) => void,
 };
 
 /**
