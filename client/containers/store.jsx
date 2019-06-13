@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import Router from 'containers/router';
 import { createLogger } from 'redux-logger';
 import Immutable from 'immutable';
 import UnicornLogger from '@bitchcraft/unicorn-logger';
@@ -45,11 +45,15 @@ const store = createStore(
 );
 
 
-const Store = () => (
+const Store = ({ children }) => (
 	<Provider store={store}>
-		<Router />
+		{children}
 	</Provider>
 );
+
+Store.propTypes = {
+	children: PropTypes.node,
+};
 
 
 export default Store;
