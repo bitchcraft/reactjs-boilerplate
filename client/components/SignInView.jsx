@@ -83,7 +83,7 @@ class SignInView extends PureComponent<Props> {
 
 		this.loginField.focus();
 
-		const { onSubmit } = this.props;
+		const { onSubmit = (p) => {} } = this.props;
 		onSubmit(payload);
 	}
 
