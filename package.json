@@ -48,7 +48,7 @@
 		"babel-loader": "^8.0.6",
 		"babel-plugin-add-module-exports": "^1.0.2",
 		"cache-loader": "^4.0.0",
-		"css-loader": "^2.1.1",
+		"css-loader": "^3.0.0",
 		"docdash": "git+https://github.com/zGrav/docdash.git#unrequizzled-patch-1",
 		"eslint": "^5.16.0",
 		"eslint-config-airbnb": "^17.1.0",
