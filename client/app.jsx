@@ -6,12 +6,6 @@ import MuiTheme from 'containers/MuiTheme';
 import Store from 'containers/store';
 import Router from 'containers/router';
 
-import { setConfig } from 'react-hot-loader';
-
-setConfig({
-	reloadHooks: false,
-});
-
 const App = hot(() => (
 	<MuiTheme>
 		<Store>
