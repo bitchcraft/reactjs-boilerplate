@@ -1,9 +1,8 @@
 {
 	"name": "api-server",
-	"version": "0.3.0",
+	"version": "0.3.1",
 	"dependencies": {
 		"@bitchcraft/unicorn-logger": "^1.1.1",
-		"babel-polyfill": "^6.20.0",
 		"babel-register": "^6.24.1",
 		"body-parser": "^1.19.0",
 		"common": "latest",
