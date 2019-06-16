@@ -20,7 +20,7 @@
 		"uuid": "^3.2.1"
 	},
 	"devDependencies": {
-		"supports-color": "^6.1.0",
+		"supports-color": "^7.0.0",
 		"webpack-dev-middleware": "^3.7.0",
 		"webpack-hot-middleware": "^2.25.0"
 	}

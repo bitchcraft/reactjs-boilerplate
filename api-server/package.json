@@ -19,6 +19,6 @@
 		"winston": "^3.0.0"
 	},
 	"devDependencies": {
-		"supports-color": "^6.1.0"
+		"supports-color": "^7.0.0"
 	}
 }
