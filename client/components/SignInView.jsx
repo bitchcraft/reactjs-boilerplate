@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 
 type Props = {
 	/** on Submit callback `({ login: string, secret: string, }) => void` */
-	onSubmit: ({ login: string, secret: string, }) => void,
+	onSubmit?: ({ login: string, secret: string, }) => void,
 };
 
 /**
@@ -35,7 +35,7 @@ class SignInView extends PureComponent<Props> {
 				<Card elevation={1}>
 					<CardContent>
 						<Typography component='h1' gutterBottom variant='h5'>
-							Authentification
+							Authentication
 						</Typography>
 						<Typography gutterBottom variant='subtitle1'>
 							Please enter your credentials
@@ -83,7 +83,7 @@ class SignInView extends PureComponent<Props> {
 
 		this.loginField.focus();
 
-		const { onSubmit } = this.props;
+		const { onSubmit = (p) => {} } = this.props;
 		onSubmit(payload);
 	}
 

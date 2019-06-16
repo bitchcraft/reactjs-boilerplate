@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import createPalette from '@material-ui/core/styles/createPalette';
 
@@ -24,9 +24,9 @@ type Props = {
 };
 
 const MuiTheme = ({ children }: Props) => (
-	<MuiThemeProvider theme={muiTheme}>
+	<ThemeProvider theme={muiTheme}>
 		{children}
-	</MuiThemeProvider>
+	</ThemeProvider>
 );
 
 export default MuiTheme;
