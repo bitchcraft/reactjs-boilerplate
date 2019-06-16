@@ -35,7 +35,7 @@ class SignInView extends PureComponent<Props> {
 				<Card elevation={1}>
 					<CardContent>
 						<Typography component='h1' gutterBottom variant='h5'>
-							Authentification
+							Authentication
 						</Typography>
 						<Typography gutterBottom variant='subtitle1'>
 							Please enter your credentials
