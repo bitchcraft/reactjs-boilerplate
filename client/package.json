@@ -3,7 +3,7 @@
 	"version": "0.3.0",
 	"devDependencies": {
 		"@material-ui/core": "^4.0.2",
-		"@material-ui/icons": "^4.0.1",
+		"@material-ui/icons": "^4.2.0",
 		"babel-polyfill": "^6.20.0",
 		"immutable": "^4.0.0-rc.12",
 		"react": "^16.4.1",
