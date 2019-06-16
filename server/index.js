@@ -1,5 +1,7 @@
 // required for generators, etc.
-require('@babel/polyfill');
+require('core-js/stable');
+
+require('regenerator-runtime/runtime');
 
 // hooks to require
 require('@babel/register');
