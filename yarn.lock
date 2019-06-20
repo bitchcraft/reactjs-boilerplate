@@ -3732,6 +3732,11 @@ estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1, estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
 
+estree-walker@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
+  integrity sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
+
 esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
@@ -8184,10 +8189,10 @@ react-simple-code-editor@^0.9.7:
   version "0.9.10"
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.9.10.tgz#1ab5ea7215687ed918c6d0dae90736cf01890905"
 
-react-styleguidist@^9.1.7:
-  version "9.1.7"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-9.1.7.tgz#48c45691b4b6a4340aee29e3061a57bfaf22be80"
-  integrity sha512-M1tAg20G1C2M1Vzm9gcJBcaTao7iQgdRE4ihMrnCRrJZJOioUejp6fALqIt+GTbLNDC7ds6UZb0ZJhf9dXyQWw==
+react-styleguidist@^9.1.8:
+  version "9.1.8"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-9.1.8.tgz#bb161d3280d2f2cd641910ead8090c7f3fb76463"
+  integrity sha512-eF3v27cRNw26Jxwehh4iFofu2LJqam8b9wLoQQQ0eJ0qz6Ld4CH5nHO3YgWl3ULADHGI2RGwDQujhhAWBWn7tQ==
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^6.1.1"
@@ -8204,6 +8209,7 @@ react-styleguidist@^9.1.7:
     es6-object-assign "~1.1.0"
     es6-promise "^4.2.6"
     escodegen "^1.11.1"
+    estree-walker "^0.6.0"
     findup "^0.1.5"
     function.name-polyfill "^1.0.6"
     github-slugger "^1.2.1"
@@ -8248,7 +8254,6 @@ react-styleguidist@^9.1.7:
     to-ast "^1.0.0"
     type-detect "^4.0.8"
     unist-util-visit "^1.4.0"
-    walkes "^0.2.1"
     webpack-dev-server "^3.2.1"
     webpack-merge "^4.2.1"
 
@@ -10012,10 +10017,6 @@ walker@^1.0.7, walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
-
-walkes@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/walkes/-/walkes-0.2.1.tgz#7eca144fe67ed32782fffe6e8e95fb4481864796"
 
 warning@^3.0.0:
   version "3.0.0"
