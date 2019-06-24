@@ -2,8 +2,8 @@
 	"name": "react-app",
 	"version": "0.3.1",
 	"devDependencies": {
+		"@material-ui/core": "^4.1.2",
 		"@material-ui/icons": "^4.2.1",
-		"@material-ui/core": "^4.1.1",
 		"immutable": "^4.0.0-rc.12",
 		"react": "^16.4.1",
 		"react-dom": "^16.4.1",
