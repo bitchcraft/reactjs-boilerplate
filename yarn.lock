@@ -277,16 +277,18 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
 
-"@babel/plugin-proposal-export-default-from@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-export-default-from/-/plugin-proposal-export-default-from-7.2.0.tgz#737b0da44b9254b6152fe29bb99c64e5691f6f68"
+"@babel/plugin-proposal-export-default-from@^7.5.2":
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-export-default-from/-/plugin-proposal-export-default-from-7.5.2.tgz#2c0ac2dcc36e3b2443fead2c3c5fc796fb1b5145"
+  integrity sha512-wr9Itk05L1/wyyZKVEmXWCdcsp/e185WUNl6AfYZeEKYaUPPvHXRDqO5K1VH7/UamYqGJowFRuCv30aDYZawsg==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-export-default-from" "^7.2.0"
 
-"@babel/plugin-proposal-export-namespace-from@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-export-namespace-from/-/plugin-proposal-export-namespace-from-7.2.0.tgz#308fd4d04ff257fc3e4be090550840eeabad5dd9"
+"@babel/plugin-proposal-export-namespace-from@^7.5.2":
+  version "7.5.2"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-export-namespace-from/-/plugin-proposal-export-namespace-from-7.5.2.tgz#ccd5ed05b06d700688ff1db01a9dd27155e0d2a0"
+  integrity sha512-TKUdOL07anjZEbR1iSxb5WFh810KyObdd29XLFLGo1IDsSuGrjH3ouWSbAxHNmrVKzr9X71UYl2dQ7oGGcRp0g==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-export-namespace-from" "^7.2.0"
@@ -1472,9 +1474,14 @@ acorn@^5.0.0, acorn@^5.5.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
 
-acorn@^6.0.1, acorn@^6.0.5, acorn@^6.0.7, acorn@^6.1.1:
+acorn@^6.0.1, acorn@^6.0.7, acorn@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
+
+acorn@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.2.0.tgz#67f0da2fc339d6cfb5d6fb244fd449f33cd8bbe3"
+  integrity sha512-8oe72N3WPMjA+2zVG71Ia0nXZ8DpQH+QyyHO+p06jT8eg8FGG3FbcUIi8KziHlAfheJQZeoqbvq1mQSQHXKYLw==
 
 address@1.0.3:
   version "1.0.3"
@@ -2862,6 +2869,11 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   version "2.6.5"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
 
+core-js@^2.6.9:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
+  integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
+
 core-js@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.0.1.tgz#1343182634298f7f38622f95e73f54e48ddf4738"
@@ -4064,11 +4076,13 @@ fecha@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
 
-fetch-mock@^7.3.3:
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-7.3.3.tgz#d1abdf309cdef8adb4b0fc0596d3f97fcfbd4528"
+fetch-mock@^7.3.6:
+  version "7.3.6"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-7.3.6.tgz#81c002bfbf11db185e14d20221541bf90560269e"
+  integrity sha512-o/TgQDn9IVdZlpZcQCg/JytEh+fliDQGiF9HSVDj161OJ3dnrLvHomD4F3gDcqXuDePlRYQ2iz0gtEQ/oG3Wfg==
   dependencies:
     babel-polyfill "^6.26.0"
+    core-js "^2.6.9"
     glob-to-regexp "^0.4.0"
     path-to-regexp "^2.2.1"
     whatwg-url "^6.5.0"
@@ -8454,9 +8468,10 @@ redux-thunk@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
 
-redux@^4.0.0:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
+redux@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.3.tgz#0ca18be085e6cf6ed50e445a125f85e8b26b266b"
+  integrity sha512-v/Iaw67Pe+na+cZvcKvPxAKT1ww5kM+M09fmaCndCQC4Lo434AYb5975HJgJlp0D7dJxfYaLxMD4VwfpLOZ1Rw==
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
@@ -10210,17 +10225,16 @@ webpack@^3.11.0:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@^4.35.2:
-  version "4.35.2"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.35.2.tgz#5c8b8a66602cbbd6ec65c6e6747914a61c1449b1"
-  integrity sha512-TZAmorNymV4q66gAM/h90cEjG+N3627Q2MnkSgKlX/z3DlNVKUtqy57lz1WmZU2+FUZwzM+qm7cGaO95PyrX5A==
+webpack@^4.35.3:
+  version "4.35.3"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.35.3.tgz#66bc35ef215a7b75e8790f84d560013ffecf0ca3"
+  integrity sha512-xggQPwr9ILlXzz61lHzjvgoqGU08v5+Wnut19Uv3GaTtzN4xBTcwnobodrXE142EL1tOiS5WVEButooGzcQzTA==
   dependencies:
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/helper-module-context" "1.8.5"
     "@webassemblyjs/wasm-edit" "1.8.5"
     "@webassemblyjs/wasm-parser" "1.8.5"
-    acorn "^6.0.5"
-    acorn-dynamic-import "^4.0.0"
+    acorn "^6.2.0"
     ajv "^6.1.0"
     ajv-keywords "^3.1.0"
     chrome-trace-event "^1.0.0"
