@@ -1474,11 +1474,7 @@ acorn@^5.0.0, acorn@^5.5.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
 
-acorn@^6.0.1, acorn@^6.0.7, acorn@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
-
-acorn@^6.2.0:
+acorn@^6.0.1, acorn@^6.0.7, acorn@^6.1.1, acorn@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.2.0.tgz#67f0da2fc339d6cfb5d6fb244fd449f33cd8bbe3"
   integrity sha512-8oe72N3WPMjA+2zVG71Ia0nXZ8DpQH+QyyHO+p06jT8eg8FGG3FbcUIi8KziHlAfheJQZeoqbvq1mQSQHXKYLw==
@@ -2865,11 +2861,7 @@ core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
 
-core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.5.tgz#44bc8d249e7fb2ff5d00e0341a7ffb94fbf67895"
-
-core-js@^2.6.9:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5, core-js@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
   integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
@@ -8190,15 +8182,12 @@ react-hot-loader@^4.12.6:
     shallowequal "^1.0.2"
     source-map "^0.7.3"
 
-react-icon-base@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.1.0.tgz#a196e33fdf1e7aaa1fda3aefbb68bdad9e82a79d"
-
-react-icons@^2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-2.2.7.tgz#d7860826b258557510dac10680abea5ca23cf650"
+react-icons@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.7.0.tgz#64fe46231fabfeea27895edeae6c3b78114b8c8f"
+  integrity sha512-7MyPwjIhuyW0D2N3s4DEd0hGPGFf0sK+IIRKhc1FvSpZNVmnUoGvHbmAwzGJU+3my+fvihVWgwU5SDtlAri56Q==
   dependencies:
-    react-icon-base "2.1.0"
+    camelcase "^5.0.0"
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
@@ -8251,10 +8240,10 @@ react-simple-code-editor@^0.9.7:
   version "0.9.10"
   resolved "https://registry.yarnpkg.com/react-simple-code-editor/-/react-simple-code-editor-0.9.10.tgz#1ab5ea7215687ed918c6d0dae90736cf01890905"
 
-react-styleguidist@^9.1.11:
-  version "9.1.11"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-9.1.11.tgz#8cf34a001aa4afabdcc2689d60be4f8b966488d6"
-  integrity sha512-RGc79cTku2KvtHyNBe+T5zQ+jl0zP759YmmqfVY+e0kZXYa7s+x2p3MpqAoJpIaCTcbWHyLexcTzhUaG6+oalQ==
+react-styleguidist@^9.1.13:
+  version "9.1.13"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-9.1.13.tgz#a3aaaa04eac0bc0f4b15a421d1356f5a46cac877"
+  integrity sha512-HD5hpwmVrA9LcQHGBiRpbR6Mh6b4aUvaKe+k51wTIhmX7j6bcQzWQU//qoTnC5IFzXHr00r3rB5y/7qENw3xrQ==
   dependencies:
     "@vxna/mini-html-webpack-template" "^0.1.7"
     acorn "^6.1.1"
@@ -8305,7 +8294,7 @@ react-styleguidist@^9.1.11:
     react-docgen-annotation-resolver "^1.0.0"
     react-docgen-displayname-handler "^2.1.1"
     react-group "^3.0.0"
-    react-icons "^2.2.7"
+    react-icons "^3.7.0"
     react-lifecycles-compat "^3.0.4"
     react-simple-code-editor "^0.9.7"
     recast "^0.17.4"
