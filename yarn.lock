@@ -884,9 +884,10 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5":
-  version "7.4.5"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
+  version "7.5.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
+  integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -959,14 +960,15 @@
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.1.tgz#9833722341379fb7d67f06a4b00ab3c37913da53"
 
-"@hot-loader/react-dom@^16.8.6":
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.8.6.tgz#7923ba27db1563a7cc48d4e0b2879a140df461ea"
+"@hot-loader/react-dom@^16.9.0":
+  version "16.9.0"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-16.9.0.tgz#7782cec9d78172f3e4c86a317ba7a73bd0271acd"
+  integrity sha512-MsOdCBB7c5YNyB4iDDct+tS7AihvYyfwZVV+z/QnbTjPgxH98kqIDXO92nU7tLXp0OtYFErHZfcWjtszP/572w==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.6"
+    scheduler "^0.15.0"
 
 "@jest/console@^24.7.1":
   version "24.7.1"
@@ -2149,6 +2151,11 @@ bonjour@^3.5.0:
     multicast-dns "^6.0.1"
     multicast-dns-service-types "^1.1.0"
 
+bowser@2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-2.5.3.tgz#811b0a24219c566c9a6ab3402bc8a13f35a18a96"
+  integrity sha512-aWCA+CKfKNL/WGzNgjmK+Whp57JMzboZMwJ5gy2jDj2bEIjbMCb3ImGX+V++5wsJftyFiDIbOjRXl60ycniVqg==
+
 boxen@^1.2.1:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-1.3.0.tgz#55c6c39a8ba58d9c61ad22cd877532deb665a20b"
@@ -2852,9 +2859,10 @@ content-disposition@0.5.3:
   dependencies:
     safe-buffer "5.1.2"
 
-content-security-policy-builder@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/content-security-policy-builder/-/content-security-policy-builder-2.0.0.tgz#8749a1d542fcbe82237281ea9f716ce68b394dd2"
+content-security-policy-builder@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/content-security-policy-builder/-/content-security-policy-builder-2.1.0.tgz#0a2364d769a3d7014eec79ff7699804deb8cfcbb"
+  integrity sha512-/MtLWhJVvJNkA9dVLAp6fg9LxD2gfI6R2Fi1hPmfjYXSahJJzcfvoeDOxSyp4NvxMuwWv3WMssE9o31DoULHrQ==
 
 content-type@~1.0.4:
   version "1.0.4"
@@ -3055,10 +3063,10 @@ css-initials@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/css-initials/-/css-initials-0.2.0.tgz#14c225bd8656255a6baee07231ef82fa55aacaa3"
 
-css-loader@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.0.0.tgz#bdd48a4921eefedf1f0a55266585944d4e5efc63"
-  integrity sha512-WR6KZuCkFbnMhRrGPlkwAA7SSCtwqPwpyXJAPhotYkYsc0mKU9n/fu5wufy4jl2WhBw9Ia8gUQMIp/1w98DuPw==
+css-loader@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-3.2.0.tgz#bb570d89c194f763627fcf1f80059c6832d009b2"
+  integrity sha512-QTF3Ud5H7DaZotgdcJjGMvyDj5F3Pn1j/sC6VBEOVp94cbwqyIBdcs/quzj4MC1BKQSrTpQznegH/5giYbhnCQ==
   dependencies:
     camelcase "^5.3.1"
     cssesc "^3.0.0"
@@ -3071,7 +3079,7 @@ css-loader@^3.0.0:
     postcss-modules-scope "^2.1.0"
     postcss-modules-values "^3.0.0"
     postcss-value-parser "^4.0.0"
-    schema-utils "^1.0.0"
+    schema-utils "^2.0.0"
 
 css-vendor@^2.0.1:
   version "2.0.2"
@@ -3342,9 +3350,10 @@ dns-packet@^1.3.1:
     ip "^1.1.0"
     safe-buffer "^5.0.1"
 
-dns-prefetch-control@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/dns-prefetch-control/-/dns-prefetch-control-0.1.0.tgz#60ddb457774e178f1f9415f0cabb0e85b0b300b2"
+dns-prefetch-control@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/dns-prefetch-control/-/dns-prefetch-control-0.2.0.tgz#73988161841f3dcc81f47686d539a2c702c88624"
+  integrity sha512-hvSnros73+qyZXhHFjx2CMLwoj3Fe7eR9EJsFsqmcI1bB2OBWL/+0YzaEaKssCHnj/6crawNnUyw74Gm2EKe+Q==
 
 dns-txt@^2.0.2:
   version "2.0.2"
@@ -3395,9 +3404,10 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
-dont-sniff-mimetype@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/dont-sniff-mimetype/-/dont-sniff-mimetype-1.0.0.tgz#5932890dc9f4e2f19e5eb02a20026e5e5efc8f58"
+dont-sniff-mimetype@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dont-sniff-mimetype/-/dont-sniff-mimetype-1.1.0.tgz#c7d0427f8bcb095762751252af59d148b0a623b2"
+  integrity sha512-ZjI4zqTaxveH2/tTlzS1wFp+7ncxNZaIEWYg3lzZRHkKf5zPT/MnEG6WL0BhHMJUabkh8GeU5NL5j+rEUCb7Ug==
 
 dot-prop@^4.1.0:
   version "4.2.0"
@@ -4173,13 +4183,13 @@ file-entry-cache@^5.0.1:
   dependencies:
     flat-cache "^2.0.1"
 
-file-loader@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-4.0.0.tgz#c3570783fefb6e1bc0978a856f4bf5825b966c2a"
-  integrity sha512-roAbL6IdSGczwfXxhMi6Zq+jD4IfUpL0jWHD7fvmjdOVb7xBfdRUHe4LpBgO23VtVK5AW1OlWZo0p34Jvx3iWg==
+file-loader@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-4.2.0.tgz#5fb124d2369d7075d70a9a5abecd12e60a95215e"
+  integrity sha512-+xZnaK5R8kBJrHK0/6HRlrKNamvVS5rjyuju+rnyxRGuwUJwpAMsVzUl5dz6rK8brkzjV6JpcFNjp6NqV0g1OQ==
   dependencies:
-    loader-utils "^1.2.2"
-    schema-utils "^1.0.0"
+    loader-utils "^1.2.3"
+    schema-utils "^2.0.0"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -4817,42 +4827,46 @@ hbs-cli@^1.3.0:
     mkdirp-then "^1.2.0"
     resolve "^1.1.6"
 
-helmet-crossdomain@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/helmet-crossdomain/-/helmet-crossdomain-0.3.0.tgz#707e2df930f13ad61f76ed08e1bb51ab2b2e85fa"
+helmet-crossdomain@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/helmet-crossdomain/-/helmet-crossdomain-0.4.0.tgz#5f1fe5a836d0325f1da0a78eaa5fd8429078894e"
+  integrity sha512-AB4DTykRw3HCOxovD1nPR16hllrVImeFp5VBV9/twj66lJ2nU75DP8FPL0/Jp4jj79JhTfG+pFI2MD02kWJ+fA==
 
-helmet-csp@2.7.1:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/helmet-csp/-/helmet-csp-2.7.1.tgz#e8e0b5186ffd4db625cfcce523758adbfadb9dca"
+helmet-csp@2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/helmet-csp/-/helmet-csp-2.9.0.tgz#8524886b08c7f7d611cb5f36eae453dd604efd4c"
+  integrity sha512-DGGOQtOLM7ZQpjbf/uvUonq1yG/rFgsBuK10ZJt2AtxUJxqfkPvfmP9aLUmgH9IactiRiYoiFY72YYSPl1TLTQ==
   dependencies:
+    bowser "2.5.3"
     camelize "1.0.0"
-    content-security-policy-builder "2.0.0"
+    content-security-policy-builder "2.1.0"
     dasherize "2.0.0"
-    platform "1.3.5"
 
-helmet@^3.18.0:
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/helmet/-/helmet-3.18.0.tgz#37666f7c861bd1ff3015e0cdb903a43501e3da3e"
+helmet@^3.20.1:
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-3.20.1.tgz#802fcb39ac6865208cbc6879d3502e582c6f777e"
+  integrity sha512-em+X5Wz/f0yqoRsBnpnVy3wJHSiIeskX3FQn30szBh1tILaOeSRRLkShuUVFlk/o4qTYjWxdHg4FrRe45iBWHg==
   dependencies:
     depd "2.0.0"
-    dns-prefetch-control "0.1.0"
-    dont-sniff-mimetype "1.0.0"
+    dns-prefetch-control "0.2.0"
+    dont-sniff-mimetype "1.1.0"
     expect-ct "0.2.0"
     feature-policy "0.3.0"
     frameguard "3.1.0"
-    helmet-crossdomain "0.3.0"
-    helmet-csp "2.7.1"
-    hide-powered-by "1.0.0"
+    helmet-crossdomain "0.4.0"
+    helmet-csp "2.9.0"
+    hide-powered-by "1.1.0"
     hpkp "2.0.0"
     hsts "2.2.0"
     ienoopen "1.1.0"
     nocache "2.1.0"
     referrer-policy "1.2.0"
-    x-xss-protection "1.1.0"
+    x-xss-protection "1.2.0"
 
-hide-powered-by@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/hide-powered-by/-/hide-powered-by-1.0.0.tgz#4a85ad65881f62857fc70af7174a1184dccce32b"
+hide-powered-by@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/hide-powered-by/-/hide-powered-by-1.1.0.tgz#be3ea9cab4bdb16f8744be873755ca663383fa7a"
+  integrity sha512-Io1zA2yOA1YJslkr+AJlWSf2yWFkKjvkcL9Ni1XSUqnGLr/qRQe2UI3Cn/J9MsJht7yEVCe0SscY1HgVMujbgg==
 
 history@^4.9.0:
   version "4.9.0"
@@ -6423,7 +6437,7 @@ loader-utils@1.1.0:
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-loader-utils@1.2.3, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.2, loader-utils@^1.2.3:
+loader-utils@1.2.3, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
   dependencies:
@@ -7871,10 +7885,6 @@ pkg-up@2.0.0, pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-platform@1.3.5:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/platform/-/platform-1.3.5.tgz#fb6958c696e07e2918d2eeda0f0bc9448d733444"
-
 plur@^3.0.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/plur/-/plur-3.1.1.tgz#60267967866a8d811504fe58f2faaba237546a5b"
@@ -8299,25 +8309,26 @@ react-icons@^2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
-react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
-  version "16.8.6"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
+react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
+  version "16.9.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
+  integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
 
-react-redux@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"
-  integrity sha512-hyu/PoFK3vZgdLTg9ozbt7WF3GgX5+Yn3pZm5/96/o4UueXA+zj08aiSC9Mfj2WtD1bvpIb3C5yvskzZySzzaw==
+react-redux@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.1.tgz#ce6eee1b734a7a76e0788b3309bf78ff6b34fa0a"
+  integrity sha512-QsW0vcmVVdNQzEkrgzh2W3Ksvr8cqpAv5FhEk7tNEft+5pp7rXxAudTz3VOPawRkLIepItpkEIyLcN/VVXzjTg==
   dependencies:
-    "@babel/runtime" "^7.4.5"
+    "@babel/runtime" "^7.5.5"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
-    react-is "^16.8.6"
+    react-is "^16.9.0"
 
 react-router-dom@^5.0.1:
   version "5.0.1"
@@ -8418,10 +8429,10 @@ react-styleguidist@^9.1.11:
     webpack-dev-server "^3.2.1"
     webpack-merge "^4.2.1"
 
-react-transition-group@^4.0.0, react-transition-group@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.2.1.tgz#61fc9e36568bff9a1fe4e60fae323c8a6dbc0680"
-  integrity sha512-IXrPr93VzCPupwm2O6n6C2kJIofJ/Rp5Ltihhm9UfE8lkuVX2ng/SUUl/oWjblybK9Fq2Io7LGa6maVqPB762Q==
+react-transition-group@^4.0.0, react-transition-group@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.2.2.tgz#8b5252410180c27fd7eebf50b185256b41799b16"
+  integrity sha512-uP0tjqewtvjb7kGZFpZYPoD/NlVZmIgts9eTt1w35pAaEApPxQGv94lD3VkqyXf2aMqrSGwhs6EV/DLaoKbLSw==
   dependencies:
     "@babel/runtime" "^7.4.5"
     dom-helpers "^3.4.0"
@@ -8947,6 +8958,14 @@ sax@^1.2.4:
 scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.15.0.tgz#6bfcf80ff850b280fed4aeecc6513bc0b4f17f8e"
+  integrity sha512-xAefmSfN6jqAa7Kuq7LIJY0bwAPG3xlCj0HMEBQk1lxYiDKZscY2xJ5U/61ZTrYbmNQbXa+gc7czPkVo11tnCg==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -10537,9 +10556,10 @@ x-is-string@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/x-is-string/-/x-is-string-0.1.0.tgz#474b50865af3a49a9c4657f05acd145458f77d82"
 
-x-xss-protection@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/x-xss-protection/-/x-xss-protection-1.1.0.tgz#4f1898c332deb1e7f2be1280efb3e2c53d69c1a7"
+x-xss-protection@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/x-xss-protection/-/x-xss-protection-1.2.0.tgz#3170498ff8e7e8159f4896b27fa4d4810c2ff486"
+  integrity sha512-xN0kV+8XfOQM2OPPBdEbGtbvJNNP1pvZR7sE6d44cjJFQG4OiGDdienPg5iOUGswBTiGbBvtYDURd30BMJwwqg==
 
 xdg-basedir@^3.0.0:
   version "3.0.0"
