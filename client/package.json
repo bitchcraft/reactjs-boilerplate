@@ -7,7 +7,7 @@
 		"immutable": "^4.0.0-rc.12",
 		"react": "^16.4.1",
 		"react-dom": "^16.4.1",
-		"react-redux": "^7.1.0",
+		"react-redux": "^7.1.1",
 		"react-router-dom": "^5.0.1",
 		"react-styleguidist": "^9.1.11",
 		"react-transition-group": "^4.2.1",
