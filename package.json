@@ -50,7 +50,7 @@
 		"cache-loader": "^4.1.0",
 		"css-loader": "^3.0.0",
 		"docdash": "git+https://github.com/zGrav/docdash.git#unrequizzled-patch-1",
-		"eslint": "^6.0.1",
+		"eslint": "^6.3.0",
 		"eslint-config-airbnb": "^17.1.1",
 		"eslint-formatter-pretty": "^2.1.1",
 		"eslint-plugin-flowtype": "^3.11.1",
