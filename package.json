@@ -39,7 +39,7 @@
 		"webpack": "^4.39.3"
 	},
 	"devDependencies": {
-		"@babel/cli": "^7.5.5",
+		"@babel/cli": "^7.6.2",
 		"@bitchcraft/injector": "^1.0.3",
 		"@hot-loader/react-dom": "^16.9.0",
 		"@toanzzz/jsdoc-webpack-plugin": "^0.2.0",
