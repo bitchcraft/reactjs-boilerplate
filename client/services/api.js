@@ -62,7 +62,7 @@ export function sendAuth(payload: AuthRequest): Promise<AuthResponse> {
 			error('sendAuth', err);
 			return Promise.reject(err);
 		})
-		.then(json => convertKeys(json, StringConverters.toCamelCase));
+		.then((json) => convertKeys(json, StringConverters.toCamelCase));
 }
 
 /**

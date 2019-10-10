@@ -101,7 +101,7 @@ const handleDummyList = (req: Request, res: Response) => {
 	}
 
 	/* eslint-disable prefer-spread */
-	const responseBody = Array.apply(null, Array(Math.round(Math.random() * 100))).map(v => uuid());
+	const responseBody = Array.apply(null, Array(Math.round(Math.random() * 100))).map((v) => uuid());
 	/* eslint-enable prefer-spread */
 
 	return res.status(200).jsonp(responseBody);
