@@ -17,7 +17,7 @@ import { notFoundHandler } from 'server/handlers';
 const logger = new UnicornLogger('server:');
 const webpackLogger = new UnicornLogger('webpack:dev:');
 const webpackHotLogger = new UnicornLogger('webpack:hot:', {
-	cleaner: args => (args && args.length === 1 && Array.isArray(args[0]) ? args[0] : args),
+	cleaner: (args) => (args && args.length === 1 && Array.isArray(args[0]) ? args[0] : args),
 });
 
 // create Express app

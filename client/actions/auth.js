@@ -37,7 +37,7 @@ function auth(payload: AuthRequest) {
 			.then((p) => {
 				dispatch({
 					type: Actions.SET_USER,
-					payload: immutableMap(Object.assign({}, payload, p.user)),
+					payload: immutableMap({ ...payload, ...p.user }),
 				});
 
 				dispatch({
