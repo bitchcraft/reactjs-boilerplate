@@ -25,7 +25,7 @@ const RootContainer = ({ children }: { children: ReactElement<*>, }) => (
 
 RootContainer.displayName = 'RootContainer';
 
-const styles = t => ({
+const styles = (t) => ({
 	background: {
 		color: '#F0F0F0',
 	},
