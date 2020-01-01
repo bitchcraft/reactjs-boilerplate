@@ -61,7 +61,7 @@
 		"eslint-plugin-react": "^7.16.0",
 		"eventsource-polyfill": "^0.9.6",
 		"expect": "^24.9.0",
-		"fetch-mock": "^7.5.1",
+		"fetch-mock": "^8.3.0",
 		"file-loader": "^4.2.0",
 		"flow-bin": "^0.109.0",
 		"handlebars": "^4.4.3",
