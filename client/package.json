@@ -6,7 +6,7 @@
 		"@material-ui/icons": "^4.4.3",
 		"immutable": "^4.0.0-rc.12",
 		"react": "^16.10.2",
-		"react-dom": "^16.10.2",
+		"react-dom": "^16.12.0",
 		"react-redux": "^7.1.1",
 		"react-router-dom": "^5.1.2",
 		"react-styleguidist": "^9.1.16",
