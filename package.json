@@ -60,7 +60,7 @@
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-react": "^7.18.0",
 		"eventsource-polyfill": "^0.9.6",
-		"expect": "^24.9.0",
+		"expect": "^25.5.0",
 		"fetch-mock": "^8.3.1",
 		"file-loader": "^5.0.2",
 		"flow-bin": "^0.116.1",
