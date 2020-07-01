@@ -3357,11 +3357,7 @@ core-js@^2.4.0, core-js@^2.5.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
   integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
 
-core-js@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.0.1.tgz#1343182634298f7f38622f95e73f54e48ddf4738"
-
-core-js@^3.3.5:
+core-js@^3.0.0, core-js@^3.3.5:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
   integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
@@ -4552,14 +4548,16 @@ fecha@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/fecha/-/fecha-2.3.3.tgz#948e74157df1a32fd1b12c3a3c3cdcb6ec9d96cd"
 
-fetch-mock@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-8.3.1.tgz#9c79aab22fa1752fe00b487e2b271ecfc1138461"
-  integrity sha512-7IEIUvkHO6zOHbDSzkMAvkb2mx3N5xy9BS4RjFnIe8kCUDOomoNKBDKGwhTj5E0uuieo8rg55c6cUKorJuk4rg==
+fetch-mock@^9.10.3:
+  version "9.10.3"
+  resolved "https://registry.yarnpkg.com/fetch-mock/-/fetch-mock-9.10.3.tgz#33d85cf9f1e463822a8f5e2c28f9a8a8c7256abd"
+  integrity sha512-vvTW3vu+6sgDuOpInd8VtaaYlt56Un/zrEvBmT8JppDXj2ZY3PQgIAoxqdSAFR5o/10jJ1yFBhXLQ/Dce/p+jg==
   dependencies:
     babel-runtime "^6.26.0"
     core-js "^3.0.0"
+    debug "^4.1.1"
     glob-to-regexp "^0.4.0"
+    is-subset "^0.1.1"
     lodash.isequal "^4.5.0"
     path-to-regexp "^2.2.1"
     querystring "^0.2.0"
@@ -6043,6 +6041,11 @@ is-string@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/is-string/-/is-string-1.0.5.tgz#40493ed198ef3ff477b8c7f92f644ec82a5cd3a6"
   integrity sha512-buY6VNRjhQMiF1qWDouloZlQbRhDPCebwxSjxMjxgemYT46YMd2NR0/H+fBhEfWX4A/w9TBJ+ol+okqJKFE6vQ==
+
+is-subset@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/is-subset/-/is-subset-0.1.1.tgz#8a59117d932de1de00f245fcdd39ce43f1e939a6"
+  integrity sha1-ilkRfZMt4d4A8kX83TnOQ/HpOaY=
 
 is-symbol@^1.0.2:
   version "1.0.2"
